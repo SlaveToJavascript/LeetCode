@@ -9,12 +9,12 @@
         Following N lines consists of N space separated integers denoting the matrix M.
 """
 
-# TASK
+# TASK:
     # Iterate through each element in the matrix M
     # For each element, form a square from that element in the matrix where that element is the topmost, leftmost element in the square
     # Return the sum of the number of integers smaller than each iterated element in the matrix
 
-# OUTPUT
+# RETURN:
     # Print the required sum for each test case
 
 # SAMPLE INPUT
@@ -34,6 +34,11 @@
 
     # In first test case there is no pair of cells (x1, y1), (x2, y2), x1 <= x2 and y1 <= y2 having M[x1][y1] > M[x2][y2], so the answer is 0.
     # In second test case M[1][1] > M[1][2] and M [1][1] > M[2][1], so the answer is 2.
+
+###########################################################################################################
+
+# Time complexity = O(N^4)
+# Space complexity = O(N^2)
 
 T = int(input())
 
@@ -60,6 +65,3 @@ for _ in range(T):
             sub_matrix = [elem[j:] for elem in arr[i:]] # For each element in matrix, form a new sub-matrix where that element is the topmost, leftmost element in the sub-matrix
             count += count_less_than(sub_matrix)
     print(count)
-
-# Time complexity = O(N^4)
-# Space complexity = O(N^2)

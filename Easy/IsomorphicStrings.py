@@ -1,10 +1,17 @@
 # https://leetcode.com/problems/isomorphic-strings
 
-# GIVEN: 2 strings, s and t, determine if they are isomorphic
+# GIVEN: 
+    # 2 strings, s and t
+
+# TASK:
+    # determine if they are isomorphic
     # Isomorphic = if the characters in s can be replaced to get t
     # All occurrences of a character must be replaced with another character while preserving the order of characters
     # No two characters may map to the same character, but a character may map to itself
     # NOTE: len(s) == len(t)
+
+# RETURN:
+    # Boolean (True if isomorphic, False otherwise)
 
 # EXAMPLES:
     # Input: s = "egg", t = "add"
@@ -15,6 +22,8 @@
 
     # Input: s = "paper", t = "title"
     # Output: true
+
+###########################################################################################################
 
 def isIsomorphic(s, t):
     hm = {}

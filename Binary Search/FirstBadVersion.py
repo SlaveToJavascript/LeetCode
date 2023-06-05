@@ -9,16 +9,17 @@
     # return the integer no. of the first bad element (i.e. the first True returned from isBadVersion())
     # Reduce the number of calls to the isBadVersion(version) function
 
-# Input: n = 5, bad = 4
-# Output: 4
-# Explanation:
-# call isBadVersion(3) -> false
-# call isBadVersion(5) -> true
-# call isBadVersion(4) -> true
-# Then 4 is the first bad version.
+# EXAMPLES:
+    # Input: n = 5, bad = 4
+    # Output: 4
+    # Explanation:
+    # call isBadVersion(3) -> false
+    # call isBadVersion(5) -> true
+    # call isBadVersion(4) -> true
+    # Then 4 is the first bad version.
 
-# Input: n = 1, bad = 1
-# Output: 1
+    # Input: n = 1, bad = 1
+    # Output: 1
 
 ###########################################################################################################
 

@@ -1,17 +1,25 @@
 # https://leetcode.com/problems/palindrome-number/
 
-# ALGORITHM 1: CONVERT NUMBER TO STRING
-    # Time complexity: O(1)
-    # Space complexity: O(n) since additional space required for the string of x
+###########################################################################################################
+
+# ✅ ALGORITHM 1: CONVERT NUMBER TO STRING
+
+# Time complexity: O(1)
+# Space complexity: O(n) since additional space required for the string of x
+
 def isPalindrome(x):
     return str(x) == str(x)[::-1]
 
-# ALGORITHM 2: DO NOT CONVERT NUMBER TO STRING
-    # Algorithm:
-        # Reverse last half of the number and compare it with the first half
-        # If they are equal, then True; else, False
-    # Time complexity: O(log(n)) since we are dividing x by 10 for every iteration
-    # Space complexity: O(1), no additional space required
+#============================================================================================================
+
+# ✅ ALGORITHM 2: DO NOT CONVERT NUMBER TO STRING
+# Algorithm:
+    # Reverse last half of the number and compare it with the first half
+    # If they are equal, then True; else, False
+
+# Time complexity: O(log(n)) since we are dividing x by 10 for every iteration
+# Space complexity: O(1), no additional space required
+
 def isPalindrome(x):
     # EDGE CASES:
         # Negative numbers will always be False

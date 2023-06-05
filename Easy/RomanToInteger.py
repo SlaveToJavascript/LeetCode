@@ -3,6 +3,9 @@
 # For every pair of consecutive letters, if the 1st letter is smaller than the next, the 1st letter is -ve
 # Else, both letters are +ve
 
+# Time complexity: O(n)
+# Space complexity: O(1) + dictionary
+
 def romanToInt(s): # 1 <= s <= 3999
     dic = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
     res = 0
@@ -12,6 +15,3 @@ def romanToInt(s): # 1 <= s <= 3999
         else:
             res += dic[s[i]]
     return res
-
-# Time complexity: O(n)
-# Space complexity: O(1) + dictionary

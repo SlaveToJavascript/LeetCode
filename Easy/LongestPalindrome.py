@@ -1,14 +1,19 @@
 # https://leetcode.com/problems/longest-palindrome/
 
-# Given: string s, return length of the longest palindrome that can be built with its letters (case sensitive)
+# GIVEN:
+    # string s
 
-# Input: s = "abccccdd"
-# Output: 7
-# Explanation: longest palindrome that can be built is "dccaccd", whose length is 7
+# TASK:
+    # return length of the longest palindrome that can be built with its letters (case sensitive)
 
-# Input: s = "a"
-# Output: 1
-# Explanation: The longest palindrome that can be built is "a", whose length is 1
+# EXAMPLES:
+    # Input: s = "abccccdd"
+    # Output: 7
+    # Explanation: longest palindrome that can be built is "dccaccd", whose length is 7
+
+    # Input: s = "a"
+    # Output: 1
+    # Explanation: The longest palindrome that can be built is "a", whose length is 1
 
 ###########################################################################################################
 

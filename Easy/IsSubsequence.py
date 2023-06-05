@@ -1,5 +1,10 @@
+# https://leetcode.com/problems/is-subsequence/
+
 # GIVEN:
-    # 2 strings s and t, return true if s is a subsequence of t, or false otherwise
+    # 2 strings s and t
+
+# TASK:
+    # return True if s is a subsequence of T, or false otherwise
 
 # EXAMPLES:
     # Input: s = "abc", t = "ahbgdc"
@@ -8,11 +13,13 @@
     # Input: s = "axc", t = "ahbgdc"
     # Output: false
 
-# ALGORITHM:
-    # Use 2 index pointers, 1 for s, 1 for t
-    # while-loop through s and t
-        # increase s and t pointers when s[i] == t[i], increase only t pointer otherwise
-    # if s pointer can loop through s completely, s is a subsequence of t (return True)
+###########################################################################################################
+
+# ✅ ALGORITHM 1: TWO POINTERS
+# Use 2 index pointers, 1 for s, 1 for t
+# while-loop through s and t
+    # increase s and t pointers when s[i] == t[i], increase only t pointer otherwise
+# if s pointer can loop through s completely, s is a subsequence of t (return True)
 
 def isSubsequence(s, t):
     s_p, t_p = 0, 0 # setting s and t index pointers

@@ -11,6 +11,15 @@
 # RETURN:
     # True if n new flowers can be planted in flowerbed, False otherwise
 
+# EXAMPLES:
+    # Input: flowerbed = [1,0,0,0,1], n = 1
+    # Output: true
+
+    # Input: flowerbed = [1,0,0,0,1], n = 2
+    # Output: false
+
+###########################################################################################################
+
 def canPlaceFlowers(flowerbed, n):
     for i in range(len(flowerbed)):
         if flowerbed[i] == 0:

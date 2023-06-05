@@ -14,9 +14,6 @@
     # Rotate the array in the right direction by K steps
     # Print the resultant array
 
-# OUTPUT:
-    # Print the required array
-
 # SAMPLE INPUT:
     # 1
     # 5 2
