@@ -23,7 +23,7 @@ def removeDuplicates(nums):
         # shallow copy constructs a new list and inserts references into it to the objects found in the original
 # WRONG: nums doesn't replace elements in the original list (creates a new list object)
 
-#============================================================================================================
+#==========================================================================================================
 
 # ALGORITHM 2: TWO POINTERS
 def removeDuplicates(nums):

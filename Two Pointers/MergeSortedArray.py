@@ -31,7 +31,7 @@
 # Put nums2 elements into nums1, then sort nums1 with Python sort() function
 
 # TIME COMPLEXITY: O((n+m)log(n+m))
-    # Python sort() function has O(n logn) runtime
+    # Python sort() function has O(n log n) runtime
 # SPACE COMPLEXITY: O(1)
 
 def merge(nums1, m, nums2, n):
@@ -42,3 +42,31 @@ def merge(nums1, m, nums2, n):
 #============================================================================================================
 
 # ✅ ALGORITHM 2: TWO POINTERS
+# Since the 0's in nums1 are at the end, it's easier to fill in the values from the end of nums1
+    # i.e. from right to left
+# 2 pointers: 1 pointing to the last digit of nums1, 1 at the last digit of nums2
+# 1 pointer keeps track of end of nums1 (endpointer)
+# if pointer1 val is greater than pointer2 val:
+    # move pointer1 val to endpointer of nums1; pointer1 moves left, endpointer moves left
+# else (if pointer2 val > pointer1 val):
+    # move pointer2 val to endpointer of nums1; pointer2 moves left, endpointer moves left
+# *** LAST STEP: fill nums1 with leftover nums2 elements (if any)
+
+def merge(nums1, m, nums2, n):
+    p1, p2 = m-1, n-1
+    end_p = len(nums1)-1
+
+    while p2 >= 0 and p1 >= 0:
+        if nums1[p1] > nums2[p2]:
+            nums1[end_p] = nums1[p1]
+            p1 -= 1
+        else:
+            nums1[end_p] = nums2[p2]
+            p2 -= 1
+        end_p -= 1
+    
+    # fill nums1 with leftover nums2 elements (if any)
+    while p2 >= 0:
+        nums1[end_p] = nums2[p2]
+        end_p -= 1
+        p2 -= 1
