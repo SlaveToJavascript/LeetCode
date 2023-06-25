@@ -34,7 +34,7 @@ def maxArea(height):
             max_area = max(max_area, (right-left)*min(height[left], height[right]))
     return max_area
 
-#============================================================================================================
+#==========================================================================================================
 
 # ✅ ALGORITHM 2: TWO POINTERS
 # Set left pointer as 1st element in heights, set right pointer as last element in heights

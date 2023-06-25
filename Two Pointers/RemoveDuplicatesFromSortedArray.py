@@ -14,7 +14,7 @@
 
 ###########################################################################################################
 
-# ALGORITHM 1: SORT IN-PLACE USING [:]
+# ✅ ALGORITHM 1: SORT IN-PLACE USING [:]
 def removeDuplicates(nums):
     nums[:] = sorted(set(nums)) # WRONG: nums = sorted(set(nums))
     return len(nums)
@@ -25,15 +25,15 @@ def removeDuplicates(nums):
 
 #==========================================================================================================
 
-# ALGORITHM 2: TWO POINTERS
+# ✅ ALGORITHM 2: TWO POINTERS
 def removeDuplicates(nums):
-    first = 0
-    second = 1
-    while second < len(nums):
-        if nums[first] == nums[second]:
-            second += 1
+    left = 0
+    right = 1
+    while right < len(nums):
+        if nums[left] == nums[right]:
+            right += 1
         else: 
-            nums[first+1] = nums[second]
-            first += 1
-            second += 1
-    return second+1
+            nums[left+1] = nums[right]
+            left += 1
+            right += 1
+    return right+1 # since right is the INDEX of the right pointer, k (no. of non-duplicate elements) should be right+1

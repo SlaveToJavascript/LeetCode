@@ -1,4 +1,12 @@
 # https://leetcode.com/problems/palindrome-number/
+# EASY
+
+# GIVEN:
+    # integer x
+
+# TASK:
+    # check if x is a palindrome
+    # return True if x is a palindrome, False otherwise
 
 ###########################################################################################################
 
@@ -10,7 +18,7 @@
 def isPalindrome(x):
     return str(x) == str(x)[::-1]
 
-#============================================================================================================
+#==========================================================================================================
 
 # ✅ ALGORITHM 2: DO NOT CONVERT NUMBER TO STRING
 # Algorithm:

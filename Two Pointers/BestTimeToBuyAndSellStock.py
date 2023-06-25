@@ -33,7 +33,7 @@ def maxProfit(prices):
                 max_profit = prices[j] - prices[i]
     return max_profit
 
-#============================================================================================================
+#==========================================================================================================
 
 # ❌ ALGORITHM 2: Single for-loop, get max of all elements behind 
 # Iterate each element before last element, while getting max of all elements behind that (pointer) element
@@ -50,7 +50,7 @@ def maxProfit(prices):
             max_profit = price - min
     return max_profit
 
-#============================================================================================================
+#==========================================================================================================
 
 # ✅ ALGORITHM 3: TWO-POINTER, SINGLE FOR-LOOP
 # 2 pointers, left (aiming for min buy price) and right (aiming for max sell price)

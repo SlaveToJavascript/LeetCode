@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/longest-palindrome/
+# EASY
 
 # GIVEN:
     # string s
@@ -47,7 +48,7 @@ def longestPalindrome(s):
     
     return length
 
-#============================================================================================================
+#==========================================================================================================
 
 # ALTERNATIVE SOLUTION:
 import collections

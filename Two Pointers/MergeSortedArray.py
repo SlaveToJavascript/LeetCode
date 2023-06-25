@@ -39,7 +39,7 @@ def merge(nums1, m, nums2, n):
         nums1[m+i] = nums2[i] # replace trailing 0's in num1 with num2 elements
     nums1.sort() # O(n logn)
 
-#============================================================================================================
+#==========================================================================================================
 
 # ✅ ALGORITHM 2: TWO POINTERS
 # Since the 0's in nums1 are at the end, it's easier to fill in the values from the end of nums1

@@ -33,7 +33,7 @@ def twoSum(nums, target):
                 if num + nums[j] == target:
                     return [i, j]
 
-#============================================================================================================
+#==========================================================================================================
 
 # ✅ ALGORITHM 2: DICTIONARY SEARCH
 # Iterate nums to create hashmap of (target-nums) results (i.e. 2nd number in the required pair) as key, 

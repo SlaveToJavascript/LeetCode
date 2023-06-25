@@ -34,7 +34,7 @@ def firstBadVersion(n):
         if isBadVersion(version):
             return version
 
-#============================================================================================================
+#==========================================================================================================
 
 # ✅ ALGORITHM 2: BINARY SEARCH
 # If mid is a good version (i.e. isBadVersion() = False), the bad version lies in 2nd half AFTER mid

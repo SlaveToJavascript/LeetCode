@@ -50,7 +50,7 @@ def equalPairs(grid):
                 
     return count
 
-#============================================================================================================
+#==========================================================================================================
 
 # ✅ ALGORITHM 2: HASHMAP
 # Store each row of grid as a hashable object (tuple) in a dictionary; value is frequency of row in grid

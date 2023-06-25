@@ -34,7 +34,7 @@ def moveZeros(nums):
             nums[left], nums[right] = nums[right], nums[left] # elements at left and right swap places
             left += 1
 
-#============================================================================================================
+#==========================================================================================================
 
 # ✅ ALGORITHM 2: STORE ZEROS IN SEPARATE ARRAY
 # iterate through nums, deleting 0's and appending them to another array
