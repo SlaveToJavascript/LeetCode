@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/pairs-of-songs-with-total-durations-divisible-by-60/description/
+# MEDIUM
 
 # GIVEN:
     # integer array time, where time[i] represents the duration of the ith song

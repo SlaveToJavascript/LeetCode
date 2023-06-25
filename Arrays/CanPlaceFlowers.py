@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/can-place-flowers/description/
+# EASY
 
 # GIVEN:
     # an integer array flowerbed containing 0's and 1's, where 0 means empty and 1 means not empty, 

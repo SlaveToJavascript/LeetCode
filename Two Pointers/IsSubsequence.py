@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/is-subsequence/
+# EASY
 
 # GIVEN:
     # 2 strings s and t

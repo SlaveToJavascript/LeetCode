@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/find-pivot-index/
+# EASY
 
 # GIVEN:
     # integer array nums

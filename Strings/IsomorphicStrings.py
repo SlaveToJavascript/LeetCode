@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/isomorphic-strings
+# EASY
 
 # GIVEN: 
     # 2 strings, s and t

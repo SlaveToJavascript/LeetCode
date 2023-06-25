@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/roman-to-integer/
+# EASY
 
 # For every pair of consecutive letters, if the 1st letter is smaller than the next, the 1st letter is -ve
 # Else, both letters are +ve
