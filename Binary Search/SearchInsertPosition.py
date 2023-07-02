@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/search-insert-position/description/
+# EASY
 
 # GIVEN:
     # Sorted array, nums, of distinct integers

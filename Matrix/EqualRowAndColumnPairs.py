@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/equal-row-and-column-pairs/description/
+# MEDIUM
 
 # GIVEN:
     # n x n integer matrix grid

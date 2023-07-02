@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/product-of-array-except-self/description/
+# MEDIUM
 
 # GIVEN:
     # integer array, nums

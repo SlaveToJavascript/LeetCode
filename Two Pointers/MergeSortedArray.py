@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/merge-sorted-array/
+# EASY
 
 # GIVEN:
     # two sorted integer arrays, nums1 and nums2

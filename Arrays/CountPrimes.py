@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/count-primes/description/
+# MEDIUM
 
 # GIVEN:
     # an integer n, return the number of prime numbers that are less than n

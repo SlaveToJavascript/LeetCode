@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/reverse-linked-list/description/
+# EASY
 
 # GIVEN:
     # head of a linked list, 

@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/container-with-most-water/description/
+# MEDIUM
 
 # GIVEN:
     # integer array height of length n containing the heights of n walls

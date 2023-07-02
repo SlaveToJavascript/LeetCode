@@ -48,7 +48,7 @@ def hasPathSum(root, targetSum):
     stack = [(root, targetSum)]
     while stack:
         curr_node, curr_sum = stack.pop()
-        
+        if not curr_node: return False
         if not curr_node.left and not curr_node.right and curr_sum == curr_node.val:
             return True
         

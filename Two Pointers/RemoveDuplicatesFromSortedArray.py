@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/remove-duplicates-from-sorted-array/
+# EASY
 
 # GIVEN:
     # sorted integer array, nums

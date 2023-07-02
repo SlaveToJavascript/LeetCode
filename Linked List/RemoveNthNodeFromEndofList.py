@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
+# MEDIUM
 
 # GIVEN:
     # head of a linked list

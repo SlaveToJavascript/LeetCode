@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/same-tree/description/
+# EASY
 
 # GIVEN:
     # the roots of 2 binary trees, p and q, return True if they are the same tree

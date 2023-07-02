@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/add-two-numbers/description/
+# MEDIUM
 
 # GIVEN:
     # 2 linked lists, l1 and l2, representing 2 integers

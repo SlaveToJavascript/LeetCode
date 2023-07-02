@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/move-zeroes/description/
+# EASY
 
 # GIVEN:
     # integer array nums

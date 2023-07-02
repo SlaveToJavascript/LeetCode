@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/odd-even-linked-list/description/
+# MEDIUM
 
 # GIVEN:
     # head of linked list, 

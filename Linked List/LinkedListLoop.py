@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/linked-list-cycle/description/
+# EASY
 
 # Given the head of a linked list, determine if the linked list has a loop in it
 # Return True if loop exists, False otherwise

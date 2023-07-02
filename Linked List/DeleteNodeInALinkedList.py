@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/delete-node-in-a-linked-list/description/
+# MEDIUM
 
 # GIVEN:
     # node, a node to be deleted from the linked list

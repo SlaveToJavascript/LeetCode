@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/symmetric-tree/description/
+# EASY
 
 # GIVEN:
     # Given the root of a binary tree
