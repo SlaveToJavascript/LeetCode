@@ -13,10 +13,8 @@ def search(nums, target):
             return mid
         elif nums[mid] < target:
             lower = mid
-            print(nums[lower])
         else:
             upper = mid
-            print(nums[upper])
     return -1
 
 # Time complexity = O(log n)

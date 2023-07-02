@@ -81,3 +81,45 @@ sorted_hashmap = sorted(hashmap.items(), key=lambda x:x[1], reverse=True) # desc
 # Sort hashmap by INTEGER value
 hashmap = {'a': 120, 'b': 104, 'f': 150, 'c': 132, 't': 125}
 sorted_hashmap = sorted(hashmap.items(), key=lambda x:int(x[1]))
+
+
+
+
+
+# GRAPHS ==================================================================================================
+
+# convert array of edges into graph adjacency list (hashmap)
+edges = [[1,2], [2,3], [3,4], [4,5], [5,6], [6,1]]
+
+graph = {c:[] for c in range(n)} # n is the number of nodes in graph -> nodes are numbered 0 to n-1
+
+for s, e in edges:
+    graph[s].append(e)
+    graph[e].append(s)
+
+# OR
+
+graph = {}
+  
+for a, b in edges:
+    if a not in graph:
+        graph[a] = []
+    if b not in graph:
+        graph[b] = []
+        
+    graph[a].append(b)
+    graph[b].append(a)
+
+# BINARY TREES ============================================================================================
+
+# Preorder traversal (parent → left → right)
+def preorder(root):
+  return [root.val] + preorder(root.left) + preorder(root.right) if root else []
+
+# Inorder traversal (left → parent → right)
+def inorder(root):
+  return inorder(root.left) + [root.val] + inorder(root.right) if root else []
+
+# Postorder traversal (left → right → parent)
+def postorder(root):
+  return postorder(root.left) + postorder(root.right) + [root.val] if root else []

@@ -29,7 +29,7 @@ def isSubsequence(s, t):
         if s[s_p] == t[t_p]: # if the characters match, move both pointers forward
             s_p += 1
             t_p += 1
-        else:
+        else: # if characters don't match, move only t pointer forward
             t_p += 1
     
     return s_p == len(s) # if s is subsequence of t, the pointer would reach the end of s after looping

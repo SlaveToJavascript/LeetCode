@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/maximum-product-subarray/description/
+# MEDIUM
 
 # GIVEN:
     # Given an integer array nums, find the subarray with the largest product, and return this product

@@ -1,4 +1,5 @@
 # https://leetcode.com/problems/3sum/description/
+# MEDIUM
 
 # GIVEN:
     # integer array, nums
@@ -10,7 +11,7 @@
 
 ###########################################################################################################
 
-# ALGORITHM: Two Pointer
+# ALGORITHM: TWO POINTER
 # Repetition of Two Sum Set II except with 1 pointer iterating whole array, 
 # and Two Pointers iterating rest of array
 
