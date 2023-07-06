@@ -20,18 +20,18 @@
 
 def connected_components_count(graph):
   
-  def explore(graph, current, visited):
+  def dfs(graph, current, visited):
     if current in visited: return False
     visited.add(current)
     
     for neighbor in graph[current]:
-      explore(graph, neighbor, visited)
+      dfs(graph, neighbor, visited)
     return True
   
   visited = set()
   count = 0
   for node in graph:
-    if explore(graph, node, visited):
+    if dfs(graph, node, visited):
       count += 1
   
   return count

@@ -48,7 +48,7 @@ def deleteAndEarn(nums):
     if len(nums) == 1: return nums[0]
     nums.sort()
     d = Counter(nums) # dictionary of each unique no. in nums (as key) and their corresponding frequencies (as values)
-    if len(d) == 1:
+    if len(d) == 1: # edge case
         return list(d)[0] * list(d.values())[0]
     dp = []
     for key in d:
