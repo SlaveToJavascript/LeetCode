@@ -23,12 +23,14 @@
 # SPACE COMPLEXITY = O(v1 + v2)
 
 def leafSimilar(root1, root2):
-    # dfs(root) returns the leaf values of the tree
-    def dfs(root):
-        if not root.left and not root.right: # i.e. left and right are both null -> root is leaf node
-            return [root.val]
-        if root.left and root.right: # i.e. root has both left and right children
-            return dfs(root.left) + dfs(root.right)
-        return dfs(root.left) if root.left else dfs(root.right) # at this point, either root.left is null or root.right is null, but not both
+    # dfs(root) returns an array of leaf values of the tree
+    def dfs(node, leafs):
+        if not node: 
+            return []
+        if not node.left and not node.right: # root is a leaf node
+            leafs.append(node.val)
+        if node.left: dfs(node.left, leafs)
+        if node.right: dfs(node.right, leafs)
+        return leafs
     
-    return dfs(root1) == dfs(root2)
+    return dfs(root1, []) == dfs(root2, [])
