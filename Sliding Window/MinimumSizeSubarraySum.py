@@ -22,11 +22,20 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: SLIDING WINDOW
+# ❌ ALGORITHM 1: BRUTE FORCE
+# For each element in nums, get every subarray with that element and check if sum of subarray = target
+# There are n elements; each element can form ~n different subarrays with the other elements
+
+# TIME COMPLEXITY: O(n^2) ❌
+
+#==========================================================================================================
+
+# ✅ ALGORITHM 2: SLIDING WINDOW
 # keep a window starting at index l and ending at index r. Both l and r start from 0
 # keep a total sum counter that tracks the sum of the window
 # if sum becomes >= target, shift l pointer forward until sum < target and subtract the removed element from total sum of the window
     # at the same time, keep track of and update minimum length of window
+    # since sum >= target now, we can continue shifting our window to find if there is any smaller windows whose sum also >= target
 # return minimum length of window or 0
 
 # TIME COMPLEXITY: O(n)

@@ -2,7 +2,23 @@
 # MEDIUM
 
 # GIVEN:
-    # Given an integer array nums, find the subarray with the largest sum, and return its sum
+    # Given an integer array nums
+
+# TASK:
+    # find the subarray with the largest sum, and return its sum
+
+# EXAMPLES:
+    # Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+    # Output: 6
+    # Explanation: The subarray [4,-1,2,1] has the largest sum 6.
+
+    # Input: nums = [1]
+    # Output: 1
+    # Explanation: The subarray [1] has the largest sum 1.
+
+    # Input: nums = [5,4,-1,7,8]
+    # Output: 23
+    # Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 
 ###########################################################################################################
 
@@ -23,7 +39,7 @@
 
 # ❌ ALGORITHM 2: SAVE THE SUMS OF PREVIOUS SUBARRAYS
 # save the sum of each subarray
-# then when shifting the end forward, simplay add the next number to the sum of previous subarray
+# then when shifting the end forward, simply add the next number to the sum of previous subarray
 
 # TIME COMPLEXITY: O(n^2)
 

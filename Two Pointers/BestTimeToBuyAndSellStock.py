@@ -52,13 +52,15 @@ def maxProfit(prices):
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 3: TWO-POINTER, SINGLE FOR-LOOP
+# ✅ ALGORITHM 3: TWO POINTERS, SINGLE FOR-LOOP
 # 2 pointers, left (aiming for min buy price) and right (aiming for max sell price)
 # Iterate once through
     # if left < right (✅), find profit and check if profit is maximum
         # if profit is maximum, update max_profit and right pointer +1 to find even higher sell price (i.e. even higher profit)
         # if profit is not maximum, right pointer +1 to find higher sell price
     # if left > right (❌), make left pointer = right pointer so left becomes the smaller value. right pointer +1 to be 1 after left pointer
+        # since right is smaller than left, it means we can buy the stock at an even lower price (right), so we move the left pointer to right
+        # because why would we hold on to left pointer (which is greater than right) when we can wait one day and get a lower buying price, which would therefore lead to a higher profit in the future?
 # Return max_profit
 
 # TIME COMPLEXITY = O(n) ✅
