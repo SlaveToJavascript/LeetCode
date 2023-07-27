@@ -1,18 +1,65 @@
 # https://leetcode.com/problems/roman-to-integer/
 # EASY
+# Tags: hashmaplc
 
-# For every pair of consecutive letters, if the 1st letter is smaller than the next, the 1st letter is -ve
-# Else, both letters are +ve
+# GIVEN:
+    # a Roman numeral string, s
 
-# Time complexity: O(n)
-# Space complexity: O(1) + dictionary
+# TASK:
+    # Convert it to an integer and return it
+    # Roman numerals are usually written largest to smallest from left to right
+    # However, the numeral for four is not IIII. Instead, the number four is written as IV.
+        # Because the one is before the five we subtract it making four
+    # The same principle applies to the number nine, which is written as IX. 
+
+    # There are six instances where subtraction is used:
+        # I can be placed before V (5) and X (10) to make 4 and 9. 
+        # X can be placed before L (50) and C (100) to make 40 and 90. 
+        # C can be placed before D (500) and M (1000) to make 400 and 900.
+
+# EXAMPLES:
+    # Input: s = "III"
+    # Output: 3
+    # Explanation: III = 3.
+
+    # Input: s = "LVIII"
+    # Output: 58
+    # Explanation: L = 50, V= 5, III = 3.
+
+    # Input: s = "MCMXCIV"
+    # Output: 1994
+    # Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+
+###########################################################################################################
+
+# ✅ ALGORITHM 1: HASHMAP
+# For every pair of consecutive letters, if the 1st letter is smaller than the next, it represents subtraction (i.e. subtract the 1st letter and add 2nd letter)
+# Else, both letters are added
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1) + dictionary
 
 def romanToInt(s): # 1 <= s <= 3999
-    dic = {"I": 1, "V": 5, "X": 10, "L": 50, "C": 100, "D": 500, "M": 1000}
-    res = 0
-    for i in range(len(s)-1):
-        if dic[s[i]] < dic[s[i+1]]:
-            res += -dic[s[i]]
+    hm = {
+        'I': 1,
+        'V': 5,
+        'X': 10,
+        'L': 50,
+        'C': 100,
+        'D': 500,
+        'M': 1000
+    }
+
+    result = 0
+
+    i = 0
+    while i < len(s)-1: # i iterates from 1st to 2nd last element
+        if hm[s[i]] < hm[s[i+1]]:
+            result -= hm[s[i]]
         else:
-            res += dic[s[i]]
-    return res
+            result += hm[s[i]]
+        i += 1
+    
+    # after while loop finishes, remember to add the last digit
+    result += hm[s[-1]]
+    return result

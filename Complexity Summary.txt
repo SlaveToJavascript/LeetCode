@@ -1,0 +1,27 @@
+********** GRAPHS **********
+
+V = no. of vertices (nodes)
+E = no. of edges
+
+Time Complexity:
+    Recursive DFS: O(V + E)
+    Iterative DFS (stack): O(V)
+    BFS (queue): O(V)
+        need to traverse all nodes
+
+Space Complexity:
+    Recursive DFS: O(b * h)
+        b = branching factor of each node, i.e. how many children each node has
+        h = max height of graph/tree
+    Iterative DFS (stack): O(V)
+        at worst case you need to hold all vertices in the stack
+    BFS (queue): O(V)
+        at worst case you need to hold all vertices in the queue
+
+
+
+********** TREES **********
+
+V = no. of vertices (nodes)
+E = no. of edges
+
