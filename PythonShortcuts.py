@@ -1,19 +1,19 @@
 # ARRAYS =================================================================================================
 
 # GET SUB-MATRIX FROM MATRIX
-# Get subset of array with element at index (i, j) being topmost, leftmost element of new array
-# https://www.delftstack.com/howto/python/python-subarray/
+# Get subset of array with element at index (i,j) being topleft and (x,y) being bottom-right element of new array
 
 array = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8]
+    [0,  1,  2,  3],
+    [4,  5,  6,  7],
+    [8,  9,  10, 11],
+    [12, 13, 14, 15]
 ]
 
-i = 1
-j = 2
+i, j = 0, 0
+x, y = 2, 2
 
-print([elem[j:] for elem in array[i:]])
+print([elem[j : y+1] for elem in array[i : x+1]])
 
 #########################################################################################################
 
