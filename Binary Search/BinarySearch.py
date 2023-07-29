@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/binary-search/
+# EASY
+# Tags: binarysearchlc, #704
 
 # Given integer array nums sorted in ascending order, and integer target,
 # search for target in nums array.

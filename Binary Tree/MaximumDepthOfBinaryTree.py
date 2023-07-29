@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
 # EASY
+# Tags: dfslc, bfslc, #104
 
 # GIVEN:
     # root of a binary tree, return its maximum depth 
@@ -7,7 +8,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: RECURSION
+# ✅ ALGORITHM 1: RECURSIVE DFS
 # Depth of a binary tree = 1 + max(depth of left subtree + depth of right subtree)
     # 1 is for the root itself. The root itself takes 1 level
 # if node is null, depth is 0 (there would be no depth)

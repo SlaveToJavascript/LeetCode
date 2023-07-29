@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/same-tree/description/
 # EASY
+# Tags: dfslc, bfslc, #100
 
 # GIVEN:
     # the roots of 2 binary trees, p and q, return True if they are the same tree
@@ -7,7 +8,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: RECURSION
+# ✅ ALGORITHM 1: RECURSIVE DFS
 # Criteria for same binary trees:
     # 1) p's root val = q's root val
     # 2) p's left subtree = q's left subtree

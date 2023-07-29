@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/invert-binary-tree/description/
 # EASY
+# Tags: dfslc, bfslc, #226
 
 # GIVEN:
     # the root of a binary tree, invert the tree, and return its root

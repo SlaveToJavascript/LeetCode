@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/search-insert-position/description/
 # EASY
+# binarysearchlc, #35
 
 # GIVEN:
     # Sorted array, nums, of distinct integers

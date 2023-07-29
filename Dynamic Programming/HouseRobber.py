@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/house-robber/
 # MEDIUM
+# Tags: dplc, #198
 
 # GIVEN:
     # an integer array, nums, representing the amount of money that can be robbed from each house

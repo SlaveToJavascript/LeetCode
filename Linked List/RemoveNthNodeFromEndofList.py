@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
 # MEDIUM
+# Tags: twopointerslc, #19
 
 # GIVEN:
     # head of a linked list
@@ -19,7 +20,7 @@
 
 ###########################################################################################################
 
-# Algorithm: Two-pointer
+# ✅ ALGORITHM 1: TWO POINTERS
 # 1st, create a dummy node in front of head
     # so that if length of LL = 1, i.e. head = [1], we can still iterate from dummy -> 1
 # create Right pointer starting from dummy
@@ -29,6 +30,11 @@
     # Stop at R = last node
     # When R @ last node, L would be pointing to the node before node to be deleted
 # L.next = L.next.next
+
+# TIME COMPLEXITY: O(n)
+    # O(n) for iterating LL with n nodes
+# SPACE COMPLEXITY: O(1)
+    # we use constant space to store two pointers
 
 def removeNthFromEnd(head, n):
     dummy = ListNode(-1)

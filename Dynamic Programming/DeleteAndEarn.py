@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/delete-and-earn/description/
 # MEDIUM
+# Tags: dplc, #740
 
 # GIVEN:
     # an integer array, nums, of points that can be earned

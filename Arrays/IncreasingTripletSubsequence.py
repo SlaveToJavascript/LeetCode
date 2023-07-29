@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/increasing-triplet-subsequence/description/
 # MEDIUM
+# Tags: #334
 
 # GIVEN:
     # integer array, nums

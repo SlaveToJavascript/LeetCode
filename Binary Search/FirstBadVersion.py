@@ -1,4 +1,6 @@
-# https://leetcode.com/problems/first-bad-version/description/?envType=study-plan&id=algorithm-i
+# https://leetcode.com/problems/first-bad-version/description/
+# EASY
+# Tags: binarysearchlc, #278
 
 # GIVEN:
     # n, an integer no. of versions

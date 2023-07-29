@@ -1,12 +1,13 @@
 # https://leetcode.com/problems/count-primes/description/
 # MEDIUM
+# Tags: mathlc, #204
 
 # GIVEN:
     # an integer n, return the number of prime numbers that are less than n
 
 ###########################################################################################################
 
-# ALGORITHM: SIEVE OF ERATOSTHENES
+# ✅ ALGORITHM: SIEVE OF ERATOSTHENES
 # create a boolean array (seen) of size n to represent each of the numbers less than n
 # start at 2 and for each no., mark each multiple of num as False (i.e. non-prime), starting at num^2
     # start at num^2 bc every multiple up to the num'th multiple will have been guaranteed to have been seen before, since they're also a multiple of a smaller no.

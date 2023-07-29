@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/lru-cache/
 # MEDIUM
-# Tags: hashmaplc, linkedlistlc, doublylinkedlistlc
+# Tags: hashmaplc, linkedlistlc, doublylinkedlistlc, #146
 
 # Design a data structure that follows the constraints of a LRU cache
 # Implement the LRUCache class:
@@ -113,3 +113,10 @@ class LRUCache:
         node.next = next
         next.prev = node
         node.prev = prev
+
+
+
+# Your LRUCache object will be instantiated and called as such:
+# obj = LRUCache(capacity)
+# param_1 = obj.get(key)
+# obj.put(key,value)

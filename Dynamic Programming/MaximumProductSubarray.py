@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/maximum-product-subarray/description/
 # MEDIUM
+# Tags: dplc, #152
 
 # GIVEN:
     # Given an integer array nums

@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/minimum-speed-to-arrive-on-time/description/
 # MEDIUM
+# binarysearchlc, #1870
 
 # GIVEN:
     # a decimal number, hour, representing the amount of time you have to reach the office

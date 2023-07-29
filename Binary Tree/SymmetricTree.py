@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/symmetric-tree/description/
 # EASY
+# Tags: dfslc, #101
 
 # GIVEN:
     # Given the root of a binary tree
@@ -9,7 +10,7 @@
 
 ###########################################################################################################
 
-# ALGORITHM: RECURSION
+# ALGORITHM: RECURSIVE DFS
 # To check if a binary tree is symmetric, compare its left subtree and right subtree
     # To do this, traverse tree recursively and compare left and right subtrees at each level
     # If they are symmetric, we continue the traversal

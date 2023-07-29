@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
 # EASY
+# Tags: dfslc, #111
 
 # GIVEN:
     # a binary tree
@@ -18,7 +19,8 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: DFS RECURSION
+# ✅ ALGORITHM 1: RECURSIVE DFS
+
 def minDepth(root):
     if not root: return 0
     path_depths = []

@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/new-21-game/description/
 # MEDIUM
+# Tags: hashmaplc, #837
 
 # Alice starts with 0 points and draws numbers while she has less than k points
 # During each draw, she gains an integer number of points randomly from the range [1, maxPts], where maxPts is an integer
@@ -22,7 +23,7 @@
 
 ###########################################################################################################
 
-# ❌ ALGORITHM 1: CACHING (TLE 👎)
+# ❌ ALGORITHM 1: HASHMAP CACHING (TLE 👎)
 
 # TIME COMPLEXITY: O(k * maxPoints)
     # base case: stop at k -> we have up to k subproblems

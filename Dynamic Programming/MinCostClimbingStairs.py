@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/min-cost-climbing-stairs/description/
 # EASY
+# Tags: dplc, #746
 
 # GIVEN:
     # integer array, cost, where cost[i] is the cost of ith step on a staircase

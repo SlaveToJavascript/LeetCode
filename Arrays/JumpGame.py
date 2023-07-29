@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/jump-game/description/
 # MEDIUM
+# Tags: dplc, #55
 
 # GIVEN:
     # a positive integer array, nums

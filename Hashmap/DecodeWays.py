@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/decode-ways/description/
 # MEDIUM
-# Tags: hashmaplc, stringlc, dplc
+# Tags: hashmaplc, stringlc, dplc, #91
 
 # GIVEN:
     # integer string s (e.g. "12345")

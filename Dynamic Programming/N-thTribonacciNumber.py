@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/n-th-tribonacci-number/
+# EASY
+# Tags: dplc, hashmaplc, #1137
 
 # GIVEN:
     # integer, n

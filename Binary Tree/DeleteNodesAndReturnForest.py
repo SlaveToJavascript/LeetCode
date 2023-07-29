@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/delete-nodes-and-return-forest/description/
 # MEDIUM
+# Tags: dfslc, postorderlc, #1110
 
 # GIVEN:
     # root of a binary tree

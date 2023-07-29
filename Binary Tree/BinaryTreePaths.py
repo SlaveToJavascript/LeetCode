@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/binary-tree-paths/description/
 # EASY
+# Tags: dfslc, #257
 
 # GIVEN:
     # a binary tree, root
@@ -44,8 +45,8 @@ def binaryTreePaths(root):
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 2: BFS (GET ALL PATHS THEN FORMAT STRINGS TO RETURN)
-# Use bfs to get all paths from root to leaves and append them to array
+# ✅ ALGORITHM 2: DFS (GET ALL PATHS THEN FORMAT STRINGS TO RETURN)
+# Use DFS to get all paths from root to leaves and append them to array
 # format each path into the required format and return
 
 # TIME COMPLEXITY: O(n), n = no. of nodes

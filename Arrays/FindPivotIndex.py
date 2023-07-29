@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/find-pivot-index/
 # EASY
+# Tags: #724
 
 # GIVEN:
     # integer array nums

@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/longest-increasing-subsequence/
 # MEDIUM
+# Tags: dplc, #300
 
 # GIVEN:
     # integer array, nums

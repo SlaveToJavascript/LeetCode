@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/peak-index-in-a-mountain-array/description/
 # MEDIUM
+# binarysearchlc, #852
 
 # GIVEN:
     # a positive integer array, arr, where arr[i] is the height of a mountain

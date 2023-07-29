@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/binary-tree-right-side-view/description/
 # MEDIUM
+# Tags: bfslc, #199
 
 # GIVEN:
     # the root of a binary tree

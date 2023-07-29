@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/path-sum/description/
 # EASY
+# Tags: dfslc, #112
 
 # GIVEN:
     # a binary tree, root

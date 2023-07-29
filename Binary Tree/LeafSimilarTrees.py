@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/leaf-similar-trees/description/
 # EASY
+# dfslc, #872
 
 # GIVEN:
     # 2 binary trees, root1 and root2
@@ -16,7 +17,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: RECURSION
+# ✅ ALGORITHM 1: RECURSIVE DFS
 
 # TIME COMPLEXITY = O(v1 + v2)
     # v1 and v2 are the no.s of vertices in trees root1 and root2
