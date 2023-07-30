@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/merge-sorted-array/
 # EASY
+# Tags: twopointerslc, #88
 
 # GIVEN:
     # two sorted integer arrays, nums1 and nums2
@@ -52,6 +53,9 @@ def merge(nums1, m, nums2, n):
 # else (if pointer2 val > pointer1 val):
     # move pointer2 val to endpointer of nums1; pointer2 moves left, endpointer moves left
 # *** LAST STEP: fill nums1 with leftover nums2 elements (if any)
+
+# TIME COMPLEXITY: O(n+m)
+# SPACE COMPLEXITY: O(1)
 
 def merge(nums1, m, nums2, n):
     p1, p2 = m-1, n-1
