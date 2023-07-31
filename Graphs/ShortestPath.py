@@ -30,8 +30,8 @@ def shortest_path(edges, source, destination):
         graph[a].append(b)
         graph[b].append(a)
 
-    q = [[source, 0]] # format: [node, distance_from_source]
-    # distance from source to source is 0
+    q = [ (source, 0) ] # format: (node, distance_from_source)
+    # here, distance from source to source is 0
     visited = set()
     
     while q:
@@ -41,4 +41,4 @@ def shortest_path(edges, source, destination):
 
         for neighbor in graph[curr]:
             if neighbor not in visited:
-                q.append([neighbor, dist+1])
+                q.append((neighbor, dist+1))
