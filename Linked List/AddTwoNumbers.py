@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/add-two-numbers/description/
 # MEDIUM
+# Tags: linkedlistlc, #2
 
 # GIVEN:
     # 2 linked lists, l1 and l2, representing 2 integers
@@ -23,11 +24,18 @@
 
 ###########################################################################################################
 
-# ALGORITHM:
+# ✅ ALGORITHM:
 # Compare this question similar to doing elementary school calculations, i.e. summing up from the back
 # e.g. for 3342 + 485 = 807, first 2+5=7, then 4+8=12 (2 carry over 1), then 3+4+1(carry-over)=8, then 3+0=3
 # -> result = 3827
 # while summing up each of these pairs, create a corresponding node for the value and chain them tgt
+
+# TIME COMPLEXITY: O(max(m, n))
+    # m = len(l1)
+    # n = len(l2)
+    # the algorithm iterates at most max(m, n)
+# SPACE COMPLEXITY: O(1)
+    # the length of the new list is at most max(m, n) + 1, but we don't count the answer as part of the space complexity
 
 def addTwoNumbers(l1, l2):
     carryOver = 0

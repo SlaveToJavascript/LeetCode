@@ -67,6 +67,9 @@ def numIslands(grid):
 # ✅✅✅ ALGORITHM 2: RECURSIVE DFS OPTIMIZED (WITHOUT VISITED)
 # Instead of maintaining a visited set, mark islands that are visited and not visit them again
 
+# TIME COMPLEXITY: O(mn)
+# SPACE COMPLEXITY: O(mn)
+
 def numIslands(grid):
     # recursive dfs
     def dfs(grid, r, c):

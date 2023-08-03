@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/move-zeroes/description/
 # EASY
+# Tags: twopointerslc, #283
 
 # GIVEN:
     # integer array nums
@@ -27,6 +28,7 @@
         # with every swap, left pointer +1
 
 # TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
 
 def moveZeros(nums):
     left = 0
@@ -42,6 +44,8 @@ def moveZeros(nums):
 # extend() nums array with zeros array
 
 # TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
+    # worst case, if all nums are 0's
 
 def moveZeros(nums):
     i = 0

@@ -16,6 +16,7 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM 1: SORT IN-PLACE USING [:]
+
 def removeDuplicates(nums):
     nums[:] = sorted(set(nums)) # WRONG: nums = sorted(set(nums))
     return len(nums)
@@ -27,6 +28,10 @@ def removeDuplicates(nums):
 #==========================================================================================================
 
 # ✅ ALGORITHM 2: TWO POINTERS
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
+
 def removeDuplicates(nums):
     left = 0
     right = 1

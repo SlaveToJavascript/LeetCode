@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/asteroid-collision/
 # MEDIUM
+# Tags: stacklc, #735
 
 # GIVEN:
     # an array, asteroids, of integers representing asteroids in a row.

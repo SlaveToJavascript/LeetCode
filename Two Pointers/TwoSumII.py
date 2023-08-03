@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/description/
 # MEDIUM
+# Tags: twopointerslc, #167
 
 # GIVEN:
     # Sorted integer array, nums

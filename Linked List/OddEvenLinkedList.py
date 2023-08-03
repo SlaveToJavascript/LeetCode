@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/odd-even-linked-list/description/
 # MEDIUM
+# Tags: linkedlistlc, #328
 
 # GIVEN:
     # head of linked list, 
@@ -18,7 +19,7 @@
 
 ###########################################################################################################
 
-# ALGORITHM: 
+# ✅ ALGORITHM: 
 # return None if head is None
 # Assign 1st node as head of odd list, assign 2nd node as head of even list
 # while even head is not null and even head's next node is not null:
@@ -27,14 +28,22 @@
     # (stopping condition is even != null and even.next != null bc either even or even.next would be the last element in linked list)
 # chain odd list to even list and return it
 
+# TIME COMPLEXITY: O(n)
+    # we visit each node once
+# SPACE COMPLEXITY: O(1)
+    # no extra space
+
 def oddEvenList(head):
     if head == None: return head
+    
     curr_odd = head
     curr_even = even_head = head.next # we initiate an extra var, even_head, to chain odd and even lists at the last step
+    
     while curr_even and curr_even.next: # this is the stopping condition bc either even or even.next would be the last element in linked list
         curr_odd.next = curr_even.next # point odd node's next pointer to even node's next pointer
         curr_odd = curr_odd.next # move odd pointer to new odd node
         curr_even.next = curr_odd.next
         curr_even = curr_even.next
     curr_odd.next = even_head # chain tail of odd list (curr_odd) to head of even list
+    
     return head

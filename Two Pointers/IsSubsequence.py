@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/is-subsequence/
 # EASY
+# Tags: twopointerslc, #392
 
 # GIVEN:
     # 2 strings s and t
@@ -21,6 +22,9 @@
 # while-loop through s and t
     # increase s and t pointers when s[i] == t[i], increase only t pointer otherwise
 # if s pointer can loop through s completely, s is a subsequence of t (return True)
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
 
 def isSubsequence(s, t):
     s_p, t_p = 0, 0 # setting s and t index pointers

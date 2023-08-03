@@ -1,5 +1,6 @@
 # SIMILAR TO BUT SLIGHTLY DIFFERENT FROM https://leetcode.com/problems/reverse-nodes-in-k-group/description/
 # HARD
+# Tags: linkedlistlc, #25, Reverse Nodes in k-Group, ReverseNodesinkGroup
 
 # GIVEN:
     # head of a linked list, head
@@ -39,6 +40,9 @@
     # 5. After the iteration, chunkStart will be the node that comes after the last k-chunk (chunkStart will be null if there are no more remaining nodes after the last k-chunk i.e. if length of the linked list is a multiple of k)
     # 5a. If chunkStart is not null (i.e. there are remaining nodes after the last k-chunk), we iterate to the tail of the last non-k chunk, and chain the last node of this non-k chunk to groupPrev (since groupPrev is the 1st node of the last chunk that we processed) -> return chunkStart
     # 5b. If chunkStart is null (i.e. there are no more remaining nodes after the last k-chunk) -> return groupPrev (i.e. the 1st node of the last chunk we processed)
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
 
 def reverseKGroupFromEnd(head, k):
     def getChunkEnd(curr, k): # get the ending node of a k-chunk whose starting node is curr

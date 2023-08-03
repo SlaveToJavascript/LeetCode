@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/maximum-average-subarray-i/description/
 # EASY
+# Tags: slidingwindowlc, #643
 
 # GIVEN:
     # integer array, nums
@@ -22,6 +23,10 @@
 # We don't need to calculate the average of each subarray!
 # Since the sum of each subarray is divided by the same no. (4), goal is basically to find subarray with the max sum
 # Instead of computing the sum of subarrays over and over, can simply subtract first element of subarray and add next element after subarray to find the sum of next subarray
+
+# TIME COMPLEXITY: O(n)
+    # We iterate over the given nums array of length n once only
+# SPACE COMPLEXITY: O(1)
 
 def findMaxAverage(nums, k):
     k_sum = sum(nums[0:k])

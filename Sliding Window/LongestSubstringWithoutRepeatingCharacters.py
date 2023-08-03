@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 # MEDIUM
+# Tags: slidingwindowlc, #3
 
 # GIVEN:
     # a string, s

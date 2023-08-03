@@ -6,6 +6,9 @@
 # search for target in nums array.
 # If target exists in nums, return its index. Otherwise, return -1.
 
+# TIME COMPLEXITY: O(log n)
+# SPACE COMPLEXITY: O(1)
+
 def search(nums, target):
     upper = len(nums)
     lower = -1

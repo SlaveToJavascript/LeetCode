@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/trapping-rain-water/
 # HARD
+# Tags: twopointerslc, #42
 
 # GIVEN:
     # positive integer array, height, where height[i] is the height of the wall at the uth position
@@ -21,6 +22,9 @@
 # MAIN IDEA: at any height[i], the amount of rainwater trapped = min(leftMax, rightMax) - height[i]
     # leftMax = maximum height of rainwater on the left of i
     # rightMax = maximum height of rainwater on the right of i
+
+# TIME COMPLEXITY: O(n^2)
+# SPACE COMPLEXITY: O(1)
 
 def trap(height):
     total_trapped = 0 # return value
@@ -58,6 +62,9 @@ def trap(height):
     # update the leftMax value if the value at l+1 is greater than existing leftMax
     # add trapped water at current position to total trapped water
 # return total trapped water
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
 
 def trap(height):
     l, r = 0, len(height)-1 # l and r initialized to 1st and last element of height respectively

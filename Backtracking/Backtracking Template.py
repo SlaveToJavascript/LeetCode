@@ -29,3 +29,5 @@ def solve():
     state = set()
     search(state, solutions)
     return solutions
+
+# https://leetcode.com/problems/combination-sum/solutions/16502/a-general-approach-to-backtracking-questions-in-java-subsets-permutations-combination-sum-palindrome-partitioning/

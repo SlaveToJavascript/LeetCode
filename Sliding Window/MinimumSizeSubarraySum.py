@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/minimum-size-subarray-sum/description/
 # MEDIUM
+# Tags: slidingwindowlc, #209
 
 # GIVEN:
     # an array of positive integers, nums

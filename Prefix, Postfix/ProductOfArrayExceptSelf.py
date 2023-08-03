@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/product-of-array-except-self/description/
 # MEDIUM
+# prefix, #238
 
 # GIVEN:
     # integer array, nums
@@ -50,6 +51,8 @@ def productExceptSelf(nums):
         for i in range(len(nums)):
             result.append((pre[i-1] if i-1 >= 0 else 1) * (post[i+1] if i+1 < len(nums) else 1))
         return result
+
+#==========================================================================================================
 
 # ✅✅✅ ALGORITHM 2: PREFIX / POSTFIX PRODUCT ONLY (optimized i.e. O(1) space complexity)
 # Instead of having a prefix/postfix array, use a running integer variable for prefix and postfix

@@ -44,7 +44,9 @@
         # => here, we are capturing everything except unsurrounded regions
     # 5. Go through each cell on the grid again and change all U's back into O's
 
-# TIME COMPLEXITY: O(r*c) where r = no. of rows, c = no. of cols
+# TIME COMPLEXITY: O(r*c) 
+    # r = no. of rows, c = no. of cols
+# SPACE COMPLEXITY: O(r*c) 
 
 def solve(board):
     rows, cols = len(board), len(board[0])

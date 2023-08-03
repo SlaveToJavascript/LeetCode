@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/maximum-subarray/description/
 # MEDIUM
+# Tags: slidingwindowlc, #53
 
 # GIVEN:
     # Given an integer array nums

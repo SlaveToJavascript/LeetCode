@@ -40,6 +40,7 @@
 # TIME COMPLEXITY: O(log n), where n = input no.
     # worst case: non-happy no.
     # Since we are calculating the sum of all digits in a number, TC of this function = O(log n), because the no. of digits in the no. n = log_10 n
+# SPACE COMPLEXITY: O(1)
 
 def isHappy(n):
     def getNext(n): # takes in an integer and returns the sum of squares of its digits

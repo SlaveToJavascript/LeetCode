@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/backspace-string-compare/description/
 # EASY
+# Tags: stacklc, twopointerslc, #844
 
 # GIVEN:
     # two strings S and T
@@ -30,8 +31,9 @@
 # Else, pop from stack
 # return the resulting string formed from the remaining characters in stack
 
-# Time Complexity: O(S+T), where S and T = lengths of strings s and t respectively
-# Space Complexity: O(S+T)
+# TIME COMPLEXITY: O(S+T)
+    # S and T = lengths of strings s and t respectively
+# SPACE COMPLEXITY: O(S+T)
 
 def backspaceCompare(s, t):
     

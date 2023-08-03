@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/merge-two-sorted-lists/
 # EASY
-# Tags: linkedlistlc, #21
+# Tags: linkedlistlc, twopointerslc, #21
 
 # GIVEN:
     # the heads of two sorted linked lists, list1 and list2
@@ -22,8 +22,10 @@
 
 # ✅ ALGORITHM 1: TWO POINTERS
 
-# TIME COMPLEXITY: O(n1 + n2), where n1 and n2 = lengths of list1 and list2 respectively
-# SPACE COMPLEXITY: O(n1 + n2) for the merged LL
+# TIME COMPLEXITY: O(n1 + n2)
+    #  n1 and n2 = lengths of list1 and list2 respectively
+# SPACE COMPLEXITY: O(n1 + n2)
+    # for the merged LL
 
 def mergeTwoLists(list1, list2):
     curr1, curr2 = list1, list2 # pointers for current node in each list

@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/max-consecutive-ones-iii/description/
 # MEDIUM
+# Tags: slidingwindowlc, #1004
 
 # GIVEN:
     # integer array, nums
@@ -26,6 +27,9 @@
 # if elem at end of window = 0, zero counter +1
 # while zero counter > k, shift left pointer until zero counter = k
 # keep track of max count
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
 
 def longestOnes(nums, k):
     if k == 0 and 1 not in nums: return 0 # for edge case where nums = [0, 0, 0], k = 0

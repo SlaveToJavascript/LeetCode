@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/reverse-nodes-in-k-group/description/
 # HARD
+# Tags: linkedlistlc, #25
 
 # GIVEN:
     # head of a linked list, head
@@ -24,6 +25,9 @@
     # 2 jumps from dummy -> 1 and 1 -> 2 gives us the kth (2nd) node in original LL (1 -> 2)
 # Use variables groupPrev to keep track of the node before current group, and groupNext to keep track of the node after current group
 # Reverse the current k-group starting from groupPrev.next and ending with kthNode
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
 
 def reverseKGroup(head, k):
     # getKthNode(curr, k) returns the kth node from curr

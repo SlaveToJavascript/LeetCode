@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/the-latest-time-to-catch-a-bus/description/
 # MEDIUM
+# Tags: twopointerslc, #2332
 
 # GIVEN:
     # positive integer array, buses, where buses[i] = departure time of ith bus

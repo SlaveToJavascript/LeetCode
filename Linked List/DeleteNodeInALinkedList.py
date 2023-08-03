@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/delete-node-in-a-linked-list/description/
 # MEDIUM
+# Tags: linkedlistlc, #237
 
 # GIVEN:
     # node, a node to be deleted from the linked list
@@ -26,6 +27,10 @@
 
 # ALGORITHM: MODIFY NODE TO BE DELETED, THEN DELETE THE NODE AFTER NODE TO BE DELETED INSTEAD
 # i.e. copy over the value of the node after the node to be deleted, then delete that node (that was copied from) instead
+
+# TIME COMPLEXITY: O(1)
+    # since only 1 node needs to be updated and we only traverse one node behind
+# SPACE COMPLEXITY: O(1)
 
 def deleteNode(node):
     node.val = node.next.val # change value of node to be deleted to value of the next node

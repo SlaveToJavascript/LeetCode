@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/
 # MEDIUM
+# Tags: twopointerslc, #122
 
 # GIVEN:
     # an integer array, prices, where prices[i] is the price of a given stock on the ith day

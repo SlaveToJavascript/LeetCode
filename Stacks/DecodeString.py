@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/decode-string/description/
 # MEDIUM
+# Tags: stacklc, #394
 
 # GIVEN:
     # a string s

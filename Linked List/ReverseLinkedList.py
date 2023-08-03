@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/reverse-linked-list/description/
 # EASY
+# Tags: linkedlistlc, twopointerslc, #206
 
 # GIVEN:
     # head of a linked list, 

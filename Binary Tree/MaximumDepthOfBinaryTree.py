@@ -10,7 +10,7 @@
 
 # ✅ ALGORITHM 1: RECURSIVE DFS
 # Depth of a binary tree = 1 + max(depth of left subtree + depth of right subtree)
-    # 1 is for the root itself. The root itself takes 1 level
+    # 1 is for the root itself which takes 1 level
 # if node is null, depth is 0 (there would be no depth)
 
 # TIME COMPLEXITY = O(n)
@@ -21,7 +21,7 @@
 
 def maxDepth(root):
     if not root: return 0 # there would be no depth for a null node
-    return 1 + max(maxDepth(root.left), maxDepth(root.right))
+    return 1 + max(maxDepth(root.left), maxDepth(root.right)) # 1 is for the root itself which takes 1 level
 
 #==========================================================================================================
 

@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/container-with-most-water/description/
 # MEDIUM
+# Tags: twopointerslc, #11
 
 # GIVEN:
     # integer array height of length n containing the heights of n walls

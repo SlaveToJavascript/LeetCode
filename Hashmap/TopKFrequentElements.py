@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/top-k-frequent-elements/
 # MEDIUM
+# Tags: hashmaplc, heaplc, #347
 
 # GIVEN:
     # an integer array, nums

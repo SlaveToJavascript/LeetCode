@@ -47,32 +47,32 @@ def reverseWords(s):
 import re
 
 def reverse_words(sentence):
-   # remove leading, trailing and multiple spaces
-   sentence = sentence.strip()
-   # We need to convert the updated string to lists of characters as strings are immutable in Python
-   sentence = list(sentence)
-   n = len(sentence)
-   
-   #  We will first reverse the entire string.
-   str_rev(sentence, 0, n - 1)
-   
-   #  Now all the words are in the desired location, but in reverse order: "Hello World" -> "dlroW olleH"
- 
-   start = 0
-   end = 0
+    # remove leading, trailing and multiple spaces
+    sentence = sentence.strip()
+    # We need to convert the updated string to lists of characters as strings are immutable in Python
+    sentence = list(sentence)
+    n = len(sentence)
 
-   # iterate the reversed string and reverse each word in place.
-   # "dlroW olleH" -> "World Hello"
-   while (start < n):
-      # Find the end index of the word. 
-    while end < n and sentence[end] != ' ':
+    #  We will first reverse the entire string.
+    str_rev(sentence, 0, n - 1)
+
+    #  Now all the words are in the desired location, but in reverse order: "Hello World" -> "dlroW olleH"
+
+    start = 0
+    end = 0
+
+    # iterate the reversed string and reverse each word in place.
+    # "dlroW olleH" -> "World Hello"
+    while (start < n):
+        # Find the end index of the word. 
+        while end < n and sentence[end] != ' ':
+            end += 1
+        # call our helper function to reverse the word in-place.
+        str_rev(sentence, start, end - 1)
+        start = end + 1
         end += 1
-     # call our helper function to reverse the word in-place.
-    str_rev(sentence, start, end - 1)
-    start = end + 1
-    end += 1
-  
-   return ''.join(sentence)
+
+    return ''.join(sentence)
 
 
 # helper function that reverses a whole sentence character by character

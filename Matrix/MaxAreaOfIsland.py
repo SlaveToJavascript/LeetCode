@@ -37,10 +37,14 @@
 
 def maxAreaOfIsland(grid):
     def dfs(r, c):
-        if r < 0 or c < 0 or r >= len(grid) or c >= len(grid[0]): return 0 # if r, c out of bounds
-        if grid[r][c] != 1: return 0 # if current node is water or is visited (i.e. is not land)
+        if r < 0 or c < 0 or r >= len(grid) or c >= len(grid[0]): 
+            return 0 # if r, c out of bounds
+        if grid[r][c] != 1: 
+            return 0 # if current node is water or is visited (i.e. is not land)
+        
         grid[r][c] = 'v' # mark current node as visited
         size = 1 + dfs(r+1, c) + dfs(r-1, c) + dfs(r, c+1) + dfs(r, c-1) # the 1 is for current node
+        
         return size
 
     max_size = 0

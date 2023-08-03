@@ -1,4 +1,6 @@
 # https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+# EASY
+# Tags: twopointerslc, #121
 
 # GIVEN:
     # integer array, prices, where prices[i] is the price of a given stock on ith day
@@ -64,6 +66,7 @@ def maxProfit(prices):
 # Return max_profit
 
 # TIME COMPLEXITY = O(n) ✅
+# SPACE COMPLEXITY = O(1)
 
 def maxProfit(prices):
     buy_min_idx = 0 # left pointer aims to get the min buy price that will give max profit

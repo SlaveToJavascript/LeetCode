@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/dota2-senate/description/
 # MEDIUM
+# Tags: queuelc, #649
 
 # GIVEN:
     # a string, senate, representing the senators from 2 parties, Radiant ("R") and Dire ("D")

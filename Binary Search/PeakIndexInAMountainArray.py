@@ -22,7 +22,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: BINARY SEARCH
+# ✅ ALGORITHM: BINARY SEARCH
 # left, right and mid pointers
 # if arr[mid] < arr[mid+1], it means the peak might be in the 2nd half of the array (after mid)
     # change left pointer to mid+1 (+1 since arr[mid+1] is the bigger no., so we don't care about the smaller number at mid anymore)
@@ -39,7 +39,7 @@ def peakIndexInMountainArray(arr):
         mid = (l + r) // 2
         if arr[mid+1] > arr[mid]: # peak is in 2nd half
             l = mid + 1
-        else: # peak is in 1st half
+        else: # peak is in 1st half or at arr[mid]
             r = mid
     
     return l # or return r, since l = r at this point

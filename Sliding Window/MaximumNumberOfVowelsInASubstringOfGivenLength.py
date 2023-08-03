@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description
 # MEDIUM
+# Tags: slidingwindowlc, #1456
 
 # GIVEN:
     # string, s
@@ -27,6 +28,12 @@
 # we don't need to get the no. of vowels in every single subarray to get the max no.
 # to get the no. of vowels in a subarray, just find out the no. of of vowels in its previous subarray, then -1 if the 1st letter of the previous subarray is a vowel and +1 if the last char in the new subarray is a vowel
     # i.e. only check the first and last elements
+
+# TIME COMPLEXITY: O(n)
+    # We apply 1 iteration over s
+    # At each step in the iteration, we check if the newly added character and the removed character are in vowels, which takes constant time
+    # To sum up, the time complexity is O(n)
+# SPACE COMPLEXITY: O(1)
 
 def maxVowels(s, k):
     v = {'a', 'e', 'i', 'o', 'u'}

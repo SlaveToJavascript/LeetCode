@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/description/
 # MEDIUM
+# Tags: slidingwindow;c, #1493
 
 # GIVEN:
     # binary array, nums
