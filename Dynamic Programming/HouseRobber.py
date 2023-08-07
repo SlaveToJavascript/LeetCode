@@ -40,3 +40,24 @@ def rob(nums):
     for i in range(2, len(nums)):
         dp[i] = max(nums[i]+dp[i-2], dp[i-1]) # fill up dp with the max amounts that can be robbed up to the ith house for the remaining houses
     return dp[-1] # last element of dp = max that can be robbed up till last house (i.e. all houses)
+
+#==========================================================================================================
+
+# ✅✅✅ ALGORITHM 2: ITERATIVE DP WITH CONSTANT SPACE (space-optimized)
+# Instead of creating a dp array to keep track of the max amount that can be robbed reaching the ith house, we can simply iteratively calculate the max amount and return the max amount that can be robbed at the last house
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
+
+def rob(nums):
+    rob1, rob2 = 0, 0 # rob1 is the max amount that can be robbed reaching the 2nd previous house before the current house, and rob2 is the max amount that can be robbed reaching the house before the current house
+
+    for num in nums: # start calculating the max amounts robbed for each of the houses
+        curr_rob = max(rob1 + num, rob2) # the max amount that can be robbed reaching the current house (i.e. num)
+        
+        # we move on to the next house, and the previous rob2 becomes the next rob1
+        # the previous current becomes the next rob2
+        rob1 = rob2
+        rob2 = curr_rob
+    
+    return curr_rob # at this point curr_rob = max amount that can be robbed reaching the last house

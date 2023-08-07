@@ -34,7 +34,7 @@
 # SPACE COMPLEXITY: O(1)
 
 def maxProduct(nums):
-    result = max(nums) # we initialize result to max(nums) instead of 0 because there might be only 1 element in the array, e.g. [-1], and the result should be -1
+    max_product = max(nums) # we initialize result to max(nums) instead of 0 because there might be only 1 element in the array, e.g. [-1], and the result should be -1
 
     current_min, current_max = 1, 1
 
@@ -44,8 +44,7 @@ def maxProduct(nums):
             continue
         # if code reaches this point, it means n != 0
         
-        temp = current_max # this is done for the "current_min = ..." line
-
+        tempMax = current_max # this is done for the "current_min = ..." line
         current_max = max(n * current_max, n * current_min, n)
         # EXPLANATION FOR ABOVE:
         # 1. if n and existing current max are both positive: curent_max = n * current_max
@@ -56,8 +55,8 @@ def maxProduct(nums):
         
         # do the same for current_min
         # however, we can't use the variable current_max here since it was reassigned above -> we have to use a temp variable to store the value of current_max before the reassignment
-        current_min = min(n * temp, n * current_min, n)
+        current_min = min(n * tempMax, n * current_min, n)
 
-        result = max(result, current_max) # we update result if current_max is greater than existing result
+        max_product = max(max_product, current_max) # we update result if current_max is greater than existing result
     
-    return result
+    return max_product

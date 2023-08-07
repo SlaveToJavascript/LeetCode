@@ -20,14 +20,14 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM: TWO POINTERS
-# set 3 pointers, with variables zero, one, two
+# set 3 pointers: zero, one, two
 # zero, one will point to 0 initially; two points to last element in nums initially
 # if one points to a 0:
     # if zero does not point to a zero:
         # swap values of zero and one
         # increment zero and one each by 1
     # else, if zero points to a zero:
-        # just increment zero and one each by 1 (no point swapping)
+        # increment zero and one each by 1 (no point swapping)
 # else if one points to a 1:
     # increment one by 1
 # else, if one points to a 2:
@@ -35,7 +35,7 @@
         # swap values of one and two
         # decrement two by 1
     # else, if two points to a 2:
-        # just decrement two by 1 (no point swapping)
+        # decrement two by 1 (no point swapping)
     # NOTE: when decrementing two, one remains unchanged since it has to analyze the swapped element to determine if further swapping is required with zero
 
 # TIME COMPLEXITY: O(n)
