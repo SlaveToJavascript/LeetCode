@@ -20,7 +20,7 @@
 
 ###########################################################################################################
 
-# ❌ ALGORITHM 1: BRUTE FORCE
+# ❌ ALGORITHM 1: BRUTE FORCE (TLE)
 # Get every possible substring from s and check if it's a palindrome
 
 # TIME COMPLEXITY: O(n^3) ❌

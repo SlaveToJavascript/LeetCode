@@ -25,7 +25,7 @@
 
 ###########################################################################################################
 
-# ❌ ALGORITHM 1: BRUTE FORCE
+# ❌ ALGORITHM 1: BRUTE FORCE (TLE)
 # Call isBadVersion() on each version until the first True is encountered
 
 # TIME COMPLEXITY: O(n)

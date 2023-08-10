@@ -19,7 +19,7 @@
 
 ###########################################################################################################
 
-# ❌ ALGORITHM 1: BRUTE FORCE
+# ❌ ALGORITHM 1: BRUTE FORCE (TLE)
 # Get every possible subarray and get maximum product
 
 # TIME COMPLEXITY: O(n^2)

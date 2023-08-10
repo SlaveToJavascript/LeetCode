@@ -34,7 +34,7 @@
 
 ###########################################################################################################
 
-# ❌ ALGORITHM 1: RECURSION
+# ❌ ALGORITHM 1: RECURSION (TLE)
 # e.g. if s = "12345",
 # MAIN IDEA:
 # To decode "12345": either decode "1" (-> "A") then decode("2345"), OR, decode "12" (-> "L") then decode("345")

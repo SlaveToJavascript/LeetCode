@@ -29,8 +29,8 @@
 
 # TIME COMPLEXITY: O(n)
     # BFS visits each node once
-# SPACE COMPLEXITY: O(2n)
-    # O(n) for queue
+# SPACE COMPLEXITY: O(n)
+    # O(n) for queue +
     # O(n) for level_nodes array
 
 def rightSideView(root):
@@ -45,7 +45,7 @@ def rightSideView(root):
             if node.left: q.append(node.left)
             if node.right: q.append(node.right)
         
-        # at this point (i.e. at the end of every for-loop), q contains only elements from next level
+        # at this point (i.e. after every for-loop iteration), q contains only elements from next level
         rightmost_nodes.append(curr_level_nodes[-1]) # the last node from current level will be the node you can see
     
     return rightmost_nodes

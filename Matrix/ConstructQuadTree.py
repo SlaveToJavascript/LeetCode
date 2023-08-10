@@ -65,7 +65,7 @@ def construct(grid):
     def buildTree(n, r, c): # n = length of current grid/subgrid, (r,c) = coords of topleft cell of current grid/subgrid
     # buildTree returns the subtree of the resulting root node
         
-        # 1. Check if all values in current grid/subgrid are the same
+        # Check if all values in current grid/subgrid are the same
         all_same = True # initialize to True (i.e. all values in current grid/subgrid are the same)
         # iterate current grid/subgrid to find any values that are different
         for i in range(n):

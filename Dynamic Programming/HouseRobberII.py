@@ -27,7 +27,8 @@
 
 # ✅ ALGORITHM 1: ITERATIVE DP
 # Since we cannot rob both the 1st and last house (as they are adjacent), the max amount that can be robbed = max(max amount that can be robbed from all houses except 1st house, max amount that can be robbed from all houses except last house, amount at 1st house)
-    # the "amount at 1st house" is included for the edge case where there is only 1 house
+    # we will eliminate the possibility of selecting the first and last house simultaneously by dividing it into two sets
+    # the "amount at 1st house" is included in the comparison for the edge case where there is only 1 house
 # We run the function from House Robber twice, 1 time for each of the above situations (i.e. without first house, without last house)
 
 # TIME COMPLEXITY: O(n)

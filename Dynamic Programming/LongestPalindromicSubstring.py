@@ -18,7 +18,7 @@
 
 ###########################################################################################################
 
-# ❌ ALGORITHM 1: BRUTE FORCE
+# ❌ ALGORITHM 1: BRUTE FORCE (TLE)
 # Get every possible substring from s and check if it's a palindrome, then return the palindromic substring that has the max length
 
 # TIME COMPLEXITY: O(n^3) ❌

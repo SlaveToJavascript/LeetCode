@@ -21,7 +21,7 @@
 
 ###########################################################################################################
 
-# ❌ ALGORITHM 1: BRUTE FORCE (DFS)
+# ❌ ALGORITHM 1: BRUTE FORCE (DFS) (TLE)
 # For each element in nums, if current element > previous element, there are 2 choices: to include the element or not (because we may get a smaller element somewhere ahead which is greater than previous and picking that would be optimal) -> We try both options
 # If the current element <= previous element, it can't be picked
 
