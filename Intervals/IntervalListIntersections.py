@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/interval-list-intersections/description/
 # MEDIUM
-# Tags: twopointerslc, #986
+# Tags: twopointerslc, intervalslc, #986
 
 # GIVEN:
     # 2 lists of closed intervals, firstList and secondList, 

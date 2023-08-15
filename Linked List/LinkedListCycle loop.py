@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/linked-list-cycle/description/
 # EASY
-# Tags: setlc, #141
+# Tags: setlc, loop, #141
 
 # Given the head of a linked list, determine if the linked list has a loop in it
 # Return True if loop exists, False otherwise

@@ -45,6 +45,7 @@ def findMaximizedCapital(k, w, profits, capital):
         if not profits_maxheap: # if max-heap is empty,
             break # we cannot afford any projects
 
-        w -= heapq.heappop(profits_maxheap) # since we added -ve profits to max-heap earlier we use -= instead of += here since +ve minus -ve = +ve plus +ve
+        w -= heapq.heappop(profits_maxheap) # add greatest profit from max-heap to capital
+            # since we added -ve profits to max-heap earlier we use -= instead of += here since +ve minus -ve = +ve plus +ve
     
     return w # w is our final capital + profits amount after investing in k projects

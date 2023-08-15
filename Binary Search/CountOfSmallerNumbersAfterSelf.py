@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/count-of-smaller-numbers-after-self/description/
 # HARD
-# Tags: binarysearchlc, #315
+# Tags: binarysearchlc, google, #315
 
 # GIVEN:
     # an integer array, nums

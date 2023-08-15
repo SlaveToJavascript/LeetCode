@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/task-scheduler/description/
 # MEDIUM
-# Tags: heaplc, hashmaplc, #621
+# Tags: heaplc, hashmaplc, intervalslc, #621
 
 # GIVEN:
     # a characters array, tasks, representing the tasks a CPU needs to do, where each letter represents a different task
