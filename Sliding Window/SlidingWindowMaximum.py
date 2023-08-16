@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/sliding-window-maximum/description/
 # HARD
-# Tags: queuelc, slidingwindowlc, heaplc, #239
+# Tags: monotonicqueuelc, monotoniclc, slidingwindowlc, #239
 
 # GIVEN:
     # an array of integers, nums
@@ -59,18 +59,14 @@ def maxSlidingWindow(nums, k):
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 2: QUEUE
-# Create a queue which will always hold the biggest number in any sliding window
-# for-loop iterates over the 1st sliding window (i.e. 1st k elements from index 0 to k-1):
-    # while q is not empty and current element nums[i] is greater than/equal to the last element in q, pop the last element from q
-    # append the current element's index to q
-# after the loop, q will have 1 element which is the index of the biggest no. in 1st sliding window
-    # -> add this element in q to results array
-# for-loop with i iterates over remaining elements from index k to n-1:
-    # if the element of q (i.e. index of max no. in prev window) is = i-k, pop this no. from q since it represents the 1st no. in our prev window, which is not in current window
-    # while q is not empty and current element nums[i] is greater than/equal to the last element in q, pop the last element from q
-    # append the current element's index to q
-    # add the 1st element in q to results array, since this is the max no. in the current window
+# ✅ ALGORITHM 2: MONOTONIC QUEUE / DEQUE
+# NOTE: monotonic queue is a double-ended queue where we can pop from both left and right
+# Create a monotonic queue which will always hold the index of the biggest number in any sliding window
+# Before adding any new element to q (i.e. the rightmost element of the new window), keep popping from q if the last element in q is smaller than new element
+    # the smaller numbers will definitely not be the max number in current window -> pop them
+# Remove the leftmost element from q if the leftmost element is the largest element in previous window
+# if current window size is at least k, add largest no. in current window (i.e. 1st element in q) to result array
+# increment l and r pointers
 
 # TIME COMPLEXITY: O(n)
     # each element can only be added to the queue once -> queue is limited to n pushes
@@ -78,24 +74,29 @@ def maxSlidingWindow(nums, k):
 # SPACE COMPLEXITY: O(k)
     # max possible length of queue = k
 
-def maxSlidingWindow(nums, k):
-    result = []
-    
-    q = []
-    for i in range(k):
-        while q and nums[i] >= nums[q[-1]]: # if current number >= last element in q,
-            q.pop() # remove last element in q
-        q.append(i) # add index of current element to q
-    
-    # at this point, the 1st element in q is the index of the biggest number in the 1st sliding window
-    result.append(nums[q[0]])
+from collections import deque
 
-    for i in range(k, len(nums)):
-        if q and q[0] == i-k:
-            q.pop(0) # remove this element from q as it represents the 1st no. in the prev sliding window
-        while q and nums[i] >= nums[q[-1]]: # if current number >= last element in q,
-            q.pop() # remove last element in q
-        q.append(i) # add index of current element to q
-        result.append(nums[q[0]]) # 1st element in q is the index of the biggest no. in this window
+def maxSlidingWindow(nums, k):
+    result = [] # return value
+    q = deque() # monotonic queue stores indexes
+    l = r = 0 # l and r denote the boundaries of the queue
+
+    while r < len(nums):
+        # keep popping from queue if the value is smaller than current nums[r]
+        while q and nums[r] > nums[q[-1]]:
+            q.pop()
+        
+        q.append(r) # add current nums[r] to queue
+
+        # remove the leftmost value of the previous window from current window
+        if l > q[0]:
+            q.popleft()
+        
+        # edge case: since we initiate r to 0, we need to ensure window is at least size k in order to start adding elements to result; if current window is less than size k, we continue with the next r
+        if r-l+1 >= k: # if window is at least size k,
+            result.append(nums[q[0]]) # 1st element in q is the max element in current window
+            l += 1 # move window forward
+        
+        r += 1 # move window forward
     
     return result

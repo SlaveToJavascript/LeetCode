@@ -28,7 +28,7 @@ def leafSimilar(root1, root2):
     def dfs(node, leafs):
         if not node: 
             return []
-        if not node.left and not node.right: # root is a leaf node
+        if not node.left and not node.right: # node is a leaf node
             leafs.append(node.val)
         if node.left: dfs(node.left, leafs)
         if node.right: dfs(node.right, leafs)

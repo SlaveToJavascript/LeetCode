@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/daily-temperatures/
 # MEDIUM
-# Tags: monotonicstacklc, stacklc, #739
+# Tags: monotonicstacklc, monotoniclc, stacklc, #739
 
 # GIVEN:
     # an array of integers, temperatures, which represents the daily temperatures

@@ -45,15 +45,16 @@
 # We start from comparing the last character of each string (i.e. "e")
 # Since the last character of both substrings = "e", at the dp cell for "e" vs "e", we put 1 + the value at the bottom-right-diagonal cell
     # bottom-right-diagonal is because we are building the dp from bottom-right to top-left -> the answer we're looking for is in the topleft-most cell
-    # +1 is because since the substrings "e" and "e" are the same, we +1 as this is a common subsequence
+    # +1 is because since the substrings "e" and "e" are the same -> we +1 as this is a common subsequence
 # If the characters don't match, we put the value of the cell as max(value in the right cell, value in the bottom cell)
     # e.g. for text1 = "abcde" and text2 = "bce", since their 1st chars are different, the no. of LCS = max of LCS("abcde" and "ce") vs LCS("bcde" and "bce")
         # -> the value we put at the "a" vs "b" cell = max(value in the right cell, value in the left cell)
 # After iterating through each cell of the dp matrix from bottom-right to top-left, we return the value at dp[0][0] (topleft)
 
-# TIME COMPLEXITY: O(len(str1) * len(str2))
+# TIME COMPLEXITY: O(m * n)
+    # m = len(str1), n = len(str2)
     # for the nested for-loop
-# SPACE COMPLEXITY: O(len(str1) * len(str2))
+# SPACE COMPLEXITY: O(m * n)
     # for the dp matrix
 
 def longestCommonSubsequence(text1, text2):

@@ -1,5 +1,5 @@
 # https://leetcode.com/discuss/interview-question/3276093/Google-Onsite-Interview-Problem
-# Tags: dplc, google, stacklc, motononicstacklc,
+# Tags: dplc, google, stacklc, motononicstacklc, monotoniclc
 
 # You are a frog
 # Your starting position is index = -1
