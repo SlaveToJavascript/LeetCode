@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/palindrome-number/
 # EASY
+# Tags: stringlc, #9
 
 # GIVEN:
     # integer x

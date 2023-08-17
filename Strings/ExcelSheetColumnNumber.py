@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/excel-sheet-column-number/
 # EASY
+# Tags: stringlc, #171
 
 # GIVEN:
     # string columnTitle that represents the column title as appears in an Excel sheet
