@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/shuffle-an-array/description/
 # MEDIUM
-# Tags: #384
+# Tags: designlc, #384
 
 # GIVEN:
     # an integer array, nums

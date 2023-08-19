@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/construct-quad-tree/
 # MEDIUM
-# Tags: matrixlc, treelc, binarytreelc
+# Tags: matrixlc, treelc, binarytreelc, designlc, #427
 
 # GIVEN:
     # n * n matrix, grid, of 0's and 1's

@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/search-suggestions-system/description
 # MEDIUM
-# Tags: trieslc, twopointerslc, #1268
+# Tags: trielc, twopointerslc, #1268
 
 # GIVEN:
     # an array of strings, products

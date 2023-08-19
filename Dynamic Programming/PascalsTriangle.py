@@ -1,8 +1,12 @@
 # https://leetcode.com/problems/pascals-triangle/
 # EASY
+# Tags: dplc, #118
 
 # GIVEN:
-    # integer numRows, return the first numRows rows of Pascal's triangle
+    # integer numRows
+
+# TASK:
+    # return the first numRows rows of Pascal's triangle
     # In Pascal's triangle, each number is the sum of the two numbers directly above it
 
 # EXAMPLES:
@@ -13,6 +17,8 @@
     # Output: [[1]]
 
 ###########################################################################################################
+
+# ✅ ALGORITHM: DYNAMIC PROGRAMMING
 
 # TIME COMPLEXITY: O(n^2)
 

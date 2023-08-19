@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/find-median-from-data-stream/
 # HARD
-# Tags: heaplc, #295
+# Tags: heaplc, designlc, #295
 
 # The median is the middle value in a sorted integer list
 # If the size of the list is even, there is no middle value, and the median is the mean of the 2 middle values

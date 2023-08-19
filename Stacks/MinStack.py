@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/min-stack/description/
 # MEDIUM
-# Tags: stacklc, #155
+# Tags: stacklc, designlc, #155
 
 # Design a stack that supports push, pop, top, and retrieving the minimum element in constant time
 # Implement the MinStack class:

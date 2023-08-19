@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/random-pick-with-weight/
 # MEDIUM
-# Tags: prefixlc, binarysearchlc, #528
+# Tags: prefixlc, binarysearchlc, designlc, #528
 
 # GIVEN:
     # array of positive integers, w, where w[i] = weight of the ith index

@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/replace-words/description/
 # MEDIUM
-# Tags: trieslc, #648
+# Tags: trielc, designlc, #648
 
 # GIVEN:
     #  a dictionary consisting of many roots

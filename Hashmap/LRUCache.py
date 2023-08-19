@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/lru-cache/
 # MEDIUM
-# Tags: hashmaplc, linkedlistlc, doublylinkedlistlc
+# Tags: hashmaplc, linkedlistlc, designlc, doublylinkedlistlc
 
 # Design a data structure that follows the constraints of a LRU cache
 # Implement the LRUCache class:

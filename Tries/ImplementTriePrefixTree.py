@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/implement-trie-prefix-tree/description/
 # MEDIUM
-# Tags: trielc, #208
+# Tags: trielc, designlc, #208
 
 # A trie or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings
 # There are various applications of this data structure, such as autocomplete and spellchecker
