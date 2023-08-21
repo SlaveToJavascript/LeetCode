@@ -1,5 +1,5 @@
 # https://www.lintcode.com/problem/3620/
-# MEDIUM
+# EASY
 # Tags: hashmaplc, designlc, #359
 
 # Design a logger system that receives a stream of messages along with its timestamps

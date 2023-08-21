@@ -66,7 +66,7 @@ def longestPalindrome(self, s):
             left -= 1 # shift left and right pointers
             right += 1 # if chars at left and right are not the same, no point shifting the pointers as current string is not palindrome
         
-        # check for even-length palindromic substrings
+        # check for even-lengthed palindromic substrings
         left = i # reset left and right pointers
         right = left + 1 # right now points to char after left instead of left, so we can start with a substring of size 2
 

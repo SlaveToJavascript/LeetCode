@@ -115,7 +115,7 @@ def latestTimeCatchTheBus(buses, passengers, capacity):
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 1B: TWO POINTERS (slightly cleaner code)
+# ✅✅✅ ALGORITHM 1B: TWO POINTERS (slightly cleaner code)
 # This solution is same as above, except that instead of using a while-loop + 2 pointers, we use a for-while-loop + 1 pointer
 
 # TIME COMPLEXITY: O(n log n)
@@ -126,27 +126,28 @@ def latestTimeCatchTheBus(buses, passengers, capacity):
     # sort the 2 arrays for easier iteration
     buses.sort()
     passengers.sort()
-
     p = 0 # p is the pointer for passengers
-    
-    cap = capacity # cap = current capcity for current buses[b]; initialize for 1st bus
     
     # *** THE BELOW for-while LOOP IS THE SLIGHT MODIFICATION FROM SOLUTION ABOVE ***
     for depart_time in buses:
-        cap = capacity
-        while p < len(passengers) and passengers[p] <= depart_time and cap > 0: # p can board this bus
+        cap = capacity # each bus has the same capacity
+        while p < len(passengers) and passengers[p] <= depart_time and cap > 0: # passenger p can board this bus
             p += 1
             cap -= 1
     
-    if cap > 0: # if there are still remaining capacity on that bus, 
-        my_arrival_time = depart_time # I just need to arrive the same time the last bus leaves
-            # NOTE: last bus is b-1 since we did b+1 in the last step in the while loop before loop ends
+    # at this point,
+        # depart_time = departure time of the last bus
+        # p = index of the last passenger who boarded the last bus at depart_time
+        # cap = remaining capacity on the last bus
+
+    if cap > 0: # if there are still remaining capacity on the last bus bus, 
+        my_arrival = depart_time # I just need to arrive the same time the last bus leaves?
     else: # if there are no more seats,
-        my_arrival_time = passengers[p-1] # I need to find the arrival time of the last passenger who boarded the last bus, and arrive before that passenger
-            # NOTE: p-1 is the last passenger who boarded the last bus, since we did p+1 in the last loop
+        my_arrival = passengers[p-1] # I need to find the arrival time of the last passenger who boarded the last bus, and arrive before that passenger
     
     passengers = set(passengers) # *** THIS IS THE LINE THAT IS MODIFIED FOR OPTIMIZATION ***
-    while my_arrival_time in passengers: # if I arrive at the same time as any other passenger,
-        my_arrival_time -= 1 # I have to arrive at an earlier time, since I cannot arrive at the same time as any other passenger
     
-    return my_arrival_time
+    while my_arrival in passengers: # if I arrive at the same time as any other passenger,
+        my_arrival -= 1 # I have to arrive at an earlier time, since I cannot arrive at the same time as any other passenger
+    
+    return my_arrival

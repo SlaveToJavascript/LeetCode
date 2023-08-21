@@ -25,11 +25,13 @@
 # When we delete a node, its children (if any) will automatically become new roots
     # However, we can't add these children (new roots) to our answer automatically, as these children's children etc. also have to be checked for deletions
 
-# While traversing a tree, at every node there are 2 options:
-# 1. delete the node -> we will delete it and then recurse the dfs into its children
-# 2. don't delete the node -> check if we need to delete any of its children 
-                                # if yes, i.e. must delete child(ren) -> set child(ren) to null
-                                # recurse the dfs on its child(ren)
+# MAIN IDEA:
+    # While traversing a tree, at every node there are 2 options:
+    # 1. delete the node -> we will delete it and then recurse the dfs into its children to process them
+    # 2. don't delete the node -> check if we need to delete any of its children 
+                                    # if yes, i.e. must delete child(ren)
+                                    # recurse the dfs on its child(ren) to process them
+                                    # set child(ren) to null
 
 # TIME COMPLEXITY: O(n)
     # DFS visits each node once
@@ -41,30 +43,35 @@ def delNodes(root, to_delete):
     remaining_roots = [] # this is our return value
 
     # this is our helper function
-    def dfs(node, to_delete, is_root): # is_root indicates if node is the root of a tree
+    def dfs(node, is_root): # is_root indicates if node is the root of a tree
         if not node: return # stopping condition
 
         if node.val in to_delete: # if node needs to be deleted, recurse dfs to children
-            dfs(node.left, to_delete, True) # is_root=True bc child is now a root node since its parent is deleted
-            dfs(node.right, to_delete, True)
+            dfs(node.left, True) # is_root=True bc child is now a root node since its parent is deleted
+            dfs(node.right, True)
+            
             # at this point, the current node would have been deleted
+        
         else: # if current node doesn't need to be deleted, we check if child(ren) needs to be deleted
             if node.left:
                 if node.left.val in to_delete: # if left child needs to be deleted,
-                    dfs(node.left, to_delete, True)
+                    dfs(node.left, True) # we need to first process this left child to be deleted
+                        # is_root can be True/False, doesn't matter
                     node.left = None # remove left child by setting it to null
                 else: # if we do not need to delete left child
-                    dfs(node.left, to_delete, False) # we continue with our dfs
+                    dfs(node.left, False) # we continue with our dfs
+            
             # now do the same thing for the right child
             if node.right:
                 if node.right.val in to_delete: # if right child needs to be deleted,
-                    dfs(node.right, to_delete, True)
+                    dfs(node.right, True) # we need to first process this right child to be deleted
+                        # is_root can be True/False, doesn't matter
                     node.right = None # remove right child by setting it to null
                 else: # if we do not need to delete right child
-                    dfs(node.right, to_delete, False) # we continue with our dfs
+                    dfs(node.right, False) # we continue with our dfs
             
             if is_root: # if current node is root, and doesn't need to be deleted, we add it to return arr
                 remaining_roots.append(node)
 
-    dfs(root, to_delete, True) # start dfs from the root node
+    dfs(root, True) # start dfs from the root node
     return remaining_roots
