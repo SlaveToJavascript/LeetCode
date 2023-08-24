@@ -19,7 +19,7 @@
 
 ###########################################################################################################
 
-# Algorithm:
+# ✅ ALGORITHM:
 # To get number that each individual char is mapped to, use ord(char)-64
 # Formula for getting BCD (e.g.):
     # start from last char to 1st char, i.e. D (4) -> C (3) -> B (2) = 4 * 26^0 + 3 * 26^1 + 2 * 26^2

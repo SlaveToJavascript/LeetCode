@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/
 # MEDIUM
-# Tags: inorderlc, preorderlc, #105
+# Tags: binarytreelc, inorderlc, preorderlc, #105
 
 # GIVEN:
     # 2 integer arrays, preorder and inorder,
@@ -32,7 +32,8 @@
 
 # TIME COMPLEXITY: O(n^2)
     # O(n) for each recursive call
-# SPACE COMPLEXITY:
+# SPACE COMPLEXITY: O(n)
+    # for the function call stack
 
 def buildTree(preorder, inorder):
     # get root node value from preorder's 1st element
@@ -69,6 +70,8 @@ def buildTree(preorder, inorder):
 # Same algorithm as above, except the code is slightly cleaner and less verbose
 
 # TIME COMPLEXITY: O(n^2)
+# SPACE COMPLEXITY: O(n)
+    # for the function call stack
 
 def buildTree(preorder, inorder):
     if not preorder or not inorder: return
