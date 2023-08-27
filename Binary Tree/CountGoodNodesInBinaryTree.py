@@ -1,5 +1,6 @@
 # https://leetcode.com/problems/count-good-nodes-in-binary-tree/description
 # MEDIUM
+# Tags: binarytreelc, dfslc, #1448
 
 # GIVEN:
     # binary tree root

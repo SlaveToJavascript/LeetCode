@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/merge-k-sorted-lists/description/
 # HARD
-# Tags: mergesortlc, linkedlistlc, heaplc, minheaplc, #23
+# Tags: mergesortlc, linkedlistlc, heaplc, minheaplc, divideconquerlc, #23
 
 # GIVEN:
     # an array of k linked-lists, lists, where each linked-list is sorted in ascending order
@@ -51,12 +51,13 @@ def mergeKLists(lists):
         dummy = ListNode(0) # dummy node to chain our merged sorted LL to
         curr = dummy
 
+        # sorting
         while curr1 and curr2:
             if curr1.val <= curr2.val:
-                curr.next = curr1
+                curr.next = curr1 # chain smaller node to curr
                 curr1 = curr1.next
             else:
-                curr.next = curr2
+                curr.next = curr2 # chain smaller node to curr
                 curr2 = curr2.next
             curr = curr.next
 

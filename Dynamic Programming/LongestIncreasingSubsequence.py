@@ -43,37 +43,40 @@ def lengthOfLIS(nums):
 
 # ✅ ALGORITHM 2: DYNAMIC PROGRAMMING
 # Create integer array dp where each dp[i] = length of the LIS ending at i
+# Initiate dp as an array of 1's, since each number on its own is an LIS of length 1
 
 #              0  1  2  3  4
 # e.g. nums = [1, 2, 4, 3, 5]
 
-# for LIS[0], there are no previous elements to compare -> the only LIS is [1] -> LIS[0] = 1
+# for LIS[0], there are no previous elements to compare
+    # the only LIS is [1] -> LIS[0] = 1
 
 # for LIS[1], there may be:
-    # LIS[1] = LIS[0], LIS[1], or
-    # LIS[1] = LIS[1]
+    # LIS[1] = [ LIS[1] ] = [2] = 1, or
+    # LIS[1] = [ LIS[0], LIS[1] ] = [1,2] = 2
 # -> LIS[1] = max(LIS[0] + 1, LIS[1]) = 2
 
 # for LIS[2], there may be:
-    # LIS[2] = LIS[0], LIS[2], or
-    # LIS[2] = LIS[1], LIS[2], or
-    # LIS[2] = LIS[2]
-# -> LIS[2] = max(LIS[0] + LIS[2], LIS[1] + LIS[2], LIS[2])
+    # LIS[2] = [ LIS[2] ] = [4] = 1, or
+    # LIS[2] = [ LIS[0], LIS[2] ] = [1,4] = 2, or
+    # LIS[2] = [ LIS[0], LIS[1], LIS[2] ] = [1,2,4] = 3
+# -> LIS[2] = max(LIS[0] + LIS[2], LIS[1] + LIS[2], LIS[2]) = 3
 
 # for LIS[3], there may be:
-    # LIS[3] = LIS[0], LIS[3], or
-    # LIS[3] = LIS[1], LIS[3], or
-        # (note that there is no LIS[2], LIS[3] since LIS[2] > LIS[3] ❌)
-    # LIS[3] = LIS[3],
-# -> LIS[3] = max(LIS[0] + LIS[3], LIS[1] + LIS[3], LIS[3])
+    # LIS[3] = [ LIS[3] ] = [3] = 1, or
+    # LIS[3] = [ LIS[0], LIS[3] ] = [1,3] = 2, or
+    # LIS[3] = [ LIS[0], LIS[1], LIS[3] ] = [1,2,3] = 3
+        # note that there is no [ LIS[0], LIS[1], LIS[2], LIS[3] ] since LIS[2] > LIS[3] ❌
+# -> LIS[3] = max(LIS[0] + LIS[3], LIS[1] + LIS[3], LIS[3]) = 3
 
 # for LIS[4], there may be:
-    # LIS[4] = LIS[0], LIS[4], or
-    # LIS[4] = LIS[1], LIS[4], or
-    # LIS[4] = LIS[2], LIS[4], or
-    # LIS[4] = LIS[3], LIS[4], or
-    # LIS[4] = LIS[4]
-# -> LIS[4] = max(LIS[0] + LIS[4], LIS[1] + LIS[4], LIS[2] + LIS[4], LIS[3] + LIS[4], LIS[4])
+    # LIS[4] = [ LIS[4] ] = [5] = 1, or
+    # LIS[4] = [ LIS[0], LIS[4] ] = 2, or
+    # LIS[4] = [ LIS[0], LIS[1], LIS[4] ] = 3, or
+    # LIS[4] = [ LIS[0], LIS[1], LIS[2], LIS[4] ] = 4, or
+    # LIS[4] = [ LIS[0], LIS[1], LIS[2], LIS[3], LIS[4] ] = 4
+        # note that both LIS[3] and LIS[2] = 3 -> max(3+1, 3+1) = 4, so 4 remains the same
+# -> LIS[4] = max(LIS[0] + LIS[4], LIS[1] + LIS[4], LIS[2] + LIS[4], LIS[3] + LIS[4], LIS[4]) = 4
 
 # ... and so on
 

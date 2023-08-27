@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/powx-n/description/
 # MEDIUM
-# Tags: divideconquerlc, #50
+# Tags: divideconquerlc, mathlc, #50
 
 # Implement pow(x, n), which calculates x raised to the power n (i.e., x^n)
 

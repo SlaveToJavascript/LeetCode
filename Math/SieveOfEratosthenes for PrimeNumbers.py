@@ -1,4 +1,6 @@
 # SIEVE OF ERATOSTHENES
+# Tags: mathlc,
+
 # Main idea:
     # To get all prime numbers less than n,
     # Make a boolean array of size n; the booleans will tell us if the numbers are prime or not

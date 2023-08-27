@@ -39,7 +39,7 @@ def combine(n, k):
         # start is the value we start making combinations from
             # e.g. if start = 2, combinations = [2, 3], [2, 4], etc.
         if len(curr_combination) == k: # we stop the backtracking when we have k combinations – we don't add anymore elements to it
-            result.append(curr_combination.copy()) # since we will continue to add to curr_combination in other recursive calls, we add a copy of it to result so when we update combinations we don't add it to result
+            result.append(curr_combination[:]) # since we will continue to add to curr_combination in other recursive calls, we add a copy of it to result so when we update combinations we don't add it to result
             return
         
         for i in range(start, n+1): # i = 1 to n

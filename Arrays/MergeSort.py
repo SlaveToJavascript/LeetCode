@@ -1,3 +1,5 @@
+# Tags: divideconquerlc, mergesortlc, 
+
 # TIME COMPLEXITY: O(n log n)
     # merge() takes O(n) time
     # The main function, merge_sort(), splits the input array recursively and calls merge() on each half -> total no. of halving operations performed = log_2 n
