@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/maximum-subarray/description/
 # MEDIUM
-# Tags: slidingwindowlc, #53
+# Tags: kadanelc, #53
 
 # GIVEN:
     # Given an integer array nums
@@ -55,6 +55,7 @@
 # If prefix (i.e. sum of elements) before a number is -ve, remove it out of the subarray
 
 # TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
 
 def maxSubarray(nums):
     max_subarray_sum = nums[0] # start finding max subarray sum from 1st element
@@ -66,3 +67,23 @@ def maxSubarray(nums):
         current_sum += num # add current element to current subarray sum
         max_subarray_sum = max(max_subarray_sum, current_sum)
     return max_subarray_sum
+
+#============================================================================================================
+
+# ✅ ALGORITHM 4: KADANE'S ALGORITHM
+# Maintain 2 maximums: current maximum and global maximum
+# Iterate nums array; for each element i, current_max is updated to max(element i, sum up to and INCLUDING element i)
+# every time after curr_max is updated, we also update global_max to be the max of existing global_max value vs curr_max value
+# after iterating through entire list, return final global_max value
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
+
+def maxSubarray(nums):
+    currMax, globalMax = float('-inf'), float('-inf') # initiate globalMax and currMax
+    
+    for num in nums: # for each no. in nums,
+        currMax = max(num, currMax + num) # get the max between current no. sum of no.s from 1st to current no.
+        globalMax = max(globalMax, currMax) # update global max after every currMax update
+
+    return globalMax
