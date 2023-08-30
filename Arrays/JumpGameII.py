@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/jump-game-ii/description/
 # MEDIUM
-# dplc, #45
+# Tags: greedly, dplc, #45
 
 # GIVEN:
     # a positive integer array, nums

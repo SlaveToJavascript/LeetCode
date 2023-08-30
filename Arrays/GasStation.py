@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/gas-station/description/
 # MEDIUM
-# Tags: arraylc, #134
+# Tags: arraylc, greedylc, #134
 
 # There are n gas stations along a circular route, where the amount of gas at the ith station = gas[i]
 # it costs cost[i] of gas to travel from the ith station to the next (i + 1)th station
