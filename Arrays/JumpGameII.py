@@ -8,7 +8,7 @@
 # TASK:
     # You are initially positioned at nums[0]
     # Each element nums[i] represents the maximum length of a jump you can take from index i
-        # e.g. for nums = [2,3,1,1,4], we can jump 0/1/2 steps from nums[0] -> land on 3 or 1
+        # e.g. for nums = [2,3,1,1,4], we can jump 1 or 2 steps from nums[0] -> land on 3 or 1
     # Return the minimum number of jumps to reach the last element in nums
     # NOTE: it is definitely possible to jump to the last element in nums
 
