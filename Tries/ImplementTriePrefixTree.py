@@ -35,7 +35,7 @@
 class TrieNode():
     def __init__(self):
         self.children = {} # hashmap of 26 possible children; key = character, value = TrieNode for this character
-        self.isEnd = False # boolean to indicate if this character (child) is the end of a word
+        self.isWord = False # boolean to indicate if this character (child) is the end of a word
     
 class Trie():
     def __init__(self):
@@ -58,7 +58,7 @@ class Trie():
                 curr = curr.children[char] # move curr to point to this new char node
         
         # at this point, curr is pointing to the trie node of the last char
-        curr.isEnd = True # set isEnd to True to indicate that this char is the end of a word
+        curr.isWord = True # set isWord to True to indicate that this char is the end of a word
     
 
 
@@ -75,7 +75,7 @@ class Trie():
         
         # at this point, all chars in word exist in trie
         # curr now points to the node of the last char in word
-        return curr.isEnd # return True if this char is the end of a word, else return False
+        return curr.isWord # return True if this char is the end of a word, else return False
 
 
 

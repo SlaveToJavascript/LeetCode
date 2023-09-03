@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/word-break/
 # MEDIUM
-# dplc, #139
+# Tags: dplc, #139
 
 # GIVEN:
     # a string, s, and a dictionary of strings, wordDict
@@ -25,7 +25,6 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM 1: DYNAMMIC PROGRAMMING (RECURSIVE, TOP DOWN)
-    # WAIT THIS IS WRONG
 # dp(i) returns True if it's possible to build s up to and including index i with the words in wordDict
     # e.g. if s = "leetcode" and wordDict = ["leet", "code"],
     # dp(3) = True, because s up to index i is "leetcode"
@@ -43,24 +42,28 @@
 # SPACE COMPLEXITY: O(n)
     # The data structure we use for memoization and the recursion call stack can use up to O(n) space
 
+from functools import cache
+
 def wordBreak(s, wordDict):
+    @cache
     def dp(i):
         if i < 0: return True # it's always possible to build s up to an empty string
 
         for word in wordDict:
-            if s[i - len(word) + 1 : i + 1] == word and dp(i - len(word) == True):
+            if s[i - len(word) + 1 : i + 1] == word and dp(i - len(word)):
                 return True
         
         return False
     
-    dp(len(s)-1)
+    return dp(len(s)-1)
 
 #==========================================================================================================
 
 # ✅ ALGORITHM 2: DYNAMIC PROGRAMMING (BOTTOM UP)
 # dp[i] is True if it's possible to build s up to and including index i with the words in wordDict
     # e.g. if s = "leetcode" and wordDict = ["leet", "code"],
-    # dp[3] = True, because s up to index i is "leetcode"
+    # dp[3] = True, because s up to index 3 is "leet"
+    # dp[4] = False, because s up to index 4 is "leetc"
     # -> the answer to the problem should be dp[len(s)-1]
 # Initialize dp of size len(s) with all False values
 # i is the index in s we are currently at
