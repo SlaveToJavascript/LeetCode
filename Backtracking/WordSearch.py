@@ -47,7 +47,7 @@ def exist(board, word):
         if i == len(word): # if index i == length of word we're searching for, it means all chars in word have been found in board and in path
             return True
         
-        if r < 0 or r >= rows or c < 0 or c >= cols: # if r,c are within boundaries of board
+        if r < 0 or r >= rows or c < 0 or c >= cols: # if r,c out of bounds
             return False
         if word[i] != board[r][c]: # if current char in board is not the current char in word that we're searching for
             return False
