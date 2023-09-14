@@ -8,7 +8,8 @@
 # TASK:
     # Find the maximum profit you can achieve
     # You may complete at most 2 transactions
-    # NOTE: Do not engage in multiple transactions simultaneously (you must sell a stock before you buy again)
+    # NOTE: Do not engage in multiple transactions simultaneously
+        # i.e. you must sell a stock before you buy again
 
 # EXAMPLES:
     # Input: prices = [3,3,5,0,0,3,1,4]

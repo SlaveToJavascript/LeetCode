@@ -23,7 +23,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: BACKTRACKING DFS
+# ✅ ALGORITHM 1: RECURSIVE BACKTRACKING DFS
 # DFS: recursively explore each path (up, down, left, right) to check if we can form the target word
     # We dive deep into each path before moving onto the next potential path
 # Backtracking: While DFS helps us to explore paths, backtracking ensures that if a path does not lead to a solution, we step back and explore other possible paths
