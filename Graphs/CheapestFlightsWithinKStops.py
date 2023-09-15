@@ -34,7 +34,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: BELLMAN-FORD ALGORITHM
+# ✅ ALGORITHM: BELLMAN-FORD ALGORITHM
 # Similar to BFS
 # Start from src node
 # While traversing, simultaneously keep track of, for each node that has been visited, what's the min. price it takes to reach that node 
