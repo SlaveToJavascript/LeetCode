@@ -39,7 +39,7 @@
     # in the worst case, we can push to heap m*n times (1 for each cell)
     # -> Overall TC = O(m*n log(m*n))
 # SPACE COMPLEXITY: O(m*n)
-    # worst case: every cell is connected to every other cell -> SC = O(m*n)
+    # heap has max m*n cells
 
 from heapq import heappop, heappush
 
