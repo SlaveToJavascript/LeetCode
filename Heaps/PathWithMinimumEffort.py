@@ -29,8 +29,17 @@
 
 # ✅ ALGORITHM: ITERATIVE BFS + MIN HEAP
 # Iterative BFS is used to find minimum path sums (for this question, we are finding minimum effort instead)
-# Min heap is used to always pop out the neighbor with the smallest difference, so that we prioritize and first visit neighbors that have smallest differences
+# Min heap is used to always pop out the neighbor with the smallest difference, so that we prioritize and firstly visit neighbors that have smallest differences
 # Once we pop out the cell at the last row last col (i.e. detination cell), we return the minimum effort
+    # Otherwise, if popped cell is not destination, we visit all 4 neighbors of popped cell and add them to queue
+    # keep track of visited cells so that we don't visit them again 
+
+# TIME COMPLEXITY: O(m*n log(m*n))
+    # each push/pop operation is O(log(m*n))
+    # in the worst case, we can push to heap m*n times (1 for each cell)
+    # -> Overall TC = O(m*n log(m*n))
+# SPACE COMPLEXITY: O(m*n)
+    # worst case: every cell is connected to every other cell -> SC = O(m*n)
 
 from heapq import heappop, heappush
 
