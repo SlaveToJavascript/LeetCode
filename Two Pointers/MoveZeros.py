@@ -33,7 +33,7 @@
 def moveZeros(nums):
     left = 0
     for right in range(len(nums)):
-        if nums[right]: # if nums[right] != 0
+        if nums[right]: # if nums[right] != 0,
             nums[left], nums[right] = nums[right], nums[left] # elements at left and right swap places
             left += 1
 
