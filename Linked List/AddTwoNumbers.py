@@ -38,19 +38,25 @@
     # the length of the new list is at most max(m, n) + 1, but we don't count the answer as part of the space complexity
 
 def addTwoNumbers(l1, l2):
-    carryOver = 0
+    carry_over = 0
     dummy = ListNode(-1) # start of the new LL to be returned
     curr = dummy
 
-    while l1 or l2 or carryOver:
+    while l1 or l2 or carry_over:
         v1 = l1.val if l1 else 0
         v2 = l2.val if l2 else 0
-        total = v1 + v2 + carryOver # 12
-        carryOver = total//10 # 1
-        total %= 10 # 2
+        
+        total = v1 + v2 + carry_over
+        carry_over = 0 # reset carry_over after using it
+        if total >= 10:
+            carry_over = 1
+            total %= 10
+        
         node = ListNode(total) # create new node for the sum of current pair
         curr.next = node # chain the summed nodes together
+        curr = curr.next
+
         l1 = l1.next if l1 else None
         l2 = l2.next if l2 else None
-        curr = curr.next
+    
     return dummy.next

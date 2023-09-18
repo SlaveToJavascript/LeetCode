@@ -52,21 +52,29 @@
 #============================================================================================================
 
 # ✅ ALGORITHM 3: REMOVE NEGATIVE PREFIX / SLIDING WINDOW
-# If prefix (i.e. sum of elements) before a number is -ve, remove it out of the subarray
+# Iterate through nums and add each number to curr_sum
+# If prefix sum is -ve, we would exclude this negative prefix sum out from our calculation (curr_sum)
+    # because a negative prefix will only reduce our current sum, it cannot contribute positively to current sum so we might as well exclude it
+    # therefore, if curr_sum is negative, reset curr_sum to 0 so we only continue with the remaining elements in nums
+    # else, if curr_sum is positive, we continue adding current num to curr_sum
+    # every time we add a num to curr_sum, we update max_sum with curr_sum
 
 # TIME COMPLEXITY: O(n)
 # SPACE COMPLEXITY: O(1)
 
 def maxSubarray(nums):
-    max_subarray_sum = nums[0] # start finding max subarray sum from 1st element
-    current_sum = 0 # current running sum of subarray
+    max_sum = nums[0] # start finding max subarray sum from 1st element
+        # we cannot initiate max_sum = 0 as it will incorrectly return 0 for the edge case where all numbers in nums are -ve
+    curr_sum = 0 # current running sum of subarray
 
     for num in nums:
-        if current_sum < 0: # if current sum until the element before num is -ve, 
-            current_sum = 0 # remove from current sum
-        current_sum += num # add current element to current subarray sum
-        max_subarray_sum = max(max_subarray_sum, current_sum)
-    return max_subarray_sum
+        if curr_sum < 0: # if current sum until the element before num is -ve, 
+            curr_sum = 0 # remove previous elements from current sum and reset curr_sum to 0
+        
+        curr_sum += num # add current element to current sum
+        max_sum = max(max_sum, curr_sum) # update max sum encountered so far
+    
+    return max_sum
 
 #============================================================================================================
 

@@ -59,13 +59,14 @@ def lengthOfLongestSubstring(s):
 # iterate right pointer across string:
     # while s[right_pointer] is in window:
         # remove s[left_pointer] from window
-        # shift left to the right by 1
+        # shift left forward by 1
     # add s[right_pointer] to window (now that there are no duplicates)
     # update new max length (= right-left+1) against existing max length
 # return max length
 
 # TIME COMPLEXITY: O(n)
-# SPACE COMPLEXITY: O(n) (because of the set)
+# SPACE COMPLEXITY: O(n)
+    # for the set
 
 def lengthOfLongestSubstring(s):
     max_len = 0
