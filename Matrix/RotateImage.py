@@ -29,8 +29,9 @@ def rotate(matrix):
     n = len(matrix)
 
     matrix[:] = matrix[::-1] # reverse order of rows in matrix
+        # OR matrix.reverse()
 
     # transpose matrix
     for i in range(n):
-        for j in range(i+1, n):
+        for j in range(i+1, n): # j should only be i+1 and above, otherwise we would be flipping twice (i.e. flipping [i,j] to become [j,i], then flipping [j,i] back to [i,j])
             matrix[j][i], matrix[i][j] = matrix[i][j], matrix[j][i]
