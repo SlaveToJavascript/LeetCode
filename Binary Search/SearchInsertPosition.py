@@ -25,7 +25,8 @@
 # ✅ ALGORITHM 1: BINARY SEARCH
 # Binary search except last step if target not found in nums: return lower +1
 
-# Time complexity: O(log n)
+# TIME COMPLEXITY: O(log n)
+# SPACE COMPLEXITY: O(1)
 
 def searchInsert(nums, target):
     left = -1
@@ -40,3 +41,19 @@ def searchInsert(nums, target):
             return mid
     return left+1 # if target not found, the last left index element directly precedes where target should be inserted
     # +1 because if target is inserted in order, it would be after the last left index element
+
+#==========================================================================================================
+
+# ✅ ALGORITHM 1B: BINARY SEARCH USING BISECT_LEFT
+# Same as above, except we use bisect_left() which implements the binary search function that is implemented in the above solution
+    # bisect_left() returns leftmost index to insert an element at, while maintaining the sorted order
+        # if target is in nums: it returns index of target in num
+        # if target not in nums: it returns leftmost index where target would be inserted if insertion preserves order
+
+# TIME COMPLEXITY: O(log n)
+# SPACE COMPLEXITY: O(1)
+
+from bisect import bisect_left
+
+def searchInsert(nums, target):
+    return bisect_left(nums, target) # bisect_left() uses binary search to find the index to be returned
