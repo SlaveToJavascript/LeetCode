@@ -59,7 +59,7 @@ def wordBreak(s, wordDict):
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 2: DYNAMIC PROGRAMMING (BOTTOM UP)
+# ✅ ALGORITHM 2: DYNAMIC PROGRAMMING (ITERATIVE, BOTTOM UP)
 # dp[i] is True if it's possible to build s up to and including index i with the words in wordDict
     # e.g. if s = "leetcode" and wordDict = ["leet", "code"],
     # dp[3] = True, because s up to index 3 is "leet"
@@ -90,10 +90,10 @@ def wordBreak(s, wordDict):
             if i < len(word)-1: # if s up to and including i cannot even match the length of current word
                 continue # go to the next word
 
-            if (i == len(word)-1 or dp[i - len(word)]) and s[i - len(word) + 1 : i + 1] == word:
+            if (i+1 == len(word) or dp[i - len(word)]) and s[i+1-len(word) : i+1] == word:
             # if s up to index i is the same length as current word, or the index before i - len(word) is True,
             # and s up to index i matches the word,
                 dp[i] = True
-                break # break out of wordDict loop
+                break # break out of wordDict loop since at least 1 word already matches current substring
     
     return dp[-1]
