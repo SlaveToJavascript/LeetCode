@@ -13,12 +13,25 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM: TWO POINTERS
-# Repetition of Two Sum Set II except with 1 pointer iterating whole array, 
-# and Two Pointers iterating rest of array
+# (Repetition of Two Sum Set II except with 1 pointer iterating whole array, and 2 other pointers iterating rest of array)
+# Sort nums array
+# use p1 to iterate through all elements in nums
+    # p1 is a fixed target for current iteration, i.e. while p2 and p3 are shifting to get target, p1 remains pointing to the same element
+    # therefore, target for p2+p3 for each iteration of p1 = -target (since the target sum is 0)
+# initialize p2 to point to next element after p1
+# initialize p3 to point to last element in nums
+# keep comparing if p2+p3 less than/greater than/equals target
+    # if p2+p3 less than target, need to increase p2+p3 sum -> shift p2 to the right
+    # if p2+p3 more than target, need to decrease p2+p3 sum -> shift p3 to the left
+    # if p2+p3 = target, add [p1, p2, p3] to result, and shift both p2 and p3 to the right and left respectively
+        # but before adding [p1, p2, p3] to result, first check if it already exists in result array -> this is to prevent duplicates in result
 
 # TIME COMPLEXITY: O(n^2)
     # O(n log n) for sorting nums array
     # O(n^2) for for-while nested loop
+        # for-loop iterates each element of nums -> O(n)
+        # at each element in nums, in the worst case, p2 and p3 iterate the whole of the remaining array to the right of p1 -> O(n) in the worst case
+        # -> Overall TC = O(n^2)
 # SPACE COMPLEXITY: O(n)
     # Python sort function requires O(n) space
 
