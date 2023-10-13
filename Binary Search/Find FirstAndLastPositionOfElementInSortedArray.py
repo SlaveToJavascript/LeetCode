@@ -52,7 +52,8 @@ def searchRange(nums, target):
             while mid_right < len(nums) and nums[mid_right] == target:
                 result.append(mid_right)
                 mid_right += 1
-            break # after no more numbers are = target, break out of loop
+            break # after no more numbers are = target, break out of while loop
+                # NOTE: unlike other binary search problems that return mid when nums[mid] = target, we have to manually break out of loop, otherwise even after the first target number is found in nums, the binary search will continue
     
     if not result: return [-1, -1] # if target not found
     if len(result) == 1: return [result[0], result[0]] # if there is only 1 element found that is = target
