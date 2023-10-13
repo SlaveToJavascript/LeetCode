@@ -31,7 +31,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: ITERATIVE DP
+# ✅ ALGORITHM 1: ITERATIVE DP (fill dp array backwards)
 # Create an integer dp array where dp[i] is the min cost to climb from step i to the top floor
 # essentially, the min cost to climb from nth floor to top of floor = minimum between (cost of nth floor + cost of next (n+1th) floor i.e. take 1 step) AND (cost of nth floor + cost of nextnext (n+2th) floor i.e. take 2 steps)
 # since we can start from step 0 or 1, return the minimum between the 0th and 1st element of dp
@@ -46,3 +46,26 @@ def minCostClimbingStairs(cost):
     for i in range(len(dp)-3,-1,-1): # reverse iteration from the 2nd last step
         dp[i] = min(cost[i] + dp[i+1], cost[i] + dp[i+2]) # find min between taking 1 step from step i VS taking 2 steps from step i
     return min(dp[0], dp[1]) # since we can start from step 0 or step 1, choose to start from the step that requires the min cost
+
+#==========================================================================================================
+
+# ✅ ALGORITHM 1B: ITERATIVE DP (fill dp array from front to back)
+# cost[i] is the cost of TAKING the ith step, not the cost of REACHING the ith step
+    # i.e. when we reach the ith step, the cost incurred is 0
+# dp[i] is the cost of REACHING the ith step
+# dp[0] and dp[1] are initialized to 0 as we can start from either of these steps without incurring any cost
+# For each step i from 2 to n+1 (n+1 is the destination step), the minimum cost dp[i] to reach that step is the minimum of:
+    # cost to reach the previous (i-1)th step (which costs dp[i-1]) and then taking a single step (the i-1th step) to reach step i, which costs dp[i-1] + cost[i-1]
+    # cost to reach the 2nd previous (i-2)th step (which costs dp[i-2]) and then taking a double step to reach step i, which costs dp[i-2] + cost[i-2]
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(n)
+
+def minCostClimbingStairs(cost):
+    dp = [0] * (len(cost)+1)
+
+    # NOTE: dp[0] and dp[1] are initialized to 0 as we can start from either of these steps without incurring any cost
+    for i in range(2, len(dp)):
+        dp[i] = min(dp[i-1] + cost[i-1] , dp[i-2] + cost[i-2])
+    
+    return dp[-1] # the last element in dp is the min cost to reach the last step (destination)
