@@ -39,13 +39,14 @@ def rightSideView(root):
     q = [root]
     while q:
         curr_level_nodes = [] # stores the values of all nodes from the current level
-        for _ in range(len(q)): # for-loop iterates within the current level
+        for _ in range(len(q)): # each iteration of this for-loop iterates within the current level
             node = q.pop(0)
             curr_level_nodes.append(node.val)
             if node.left: q.append(node.left)
             if node.right: q.append(node.right)
         
-        # at this point (i.e. after every for-loop iteration), q contains only elements from next level
+        # at this point (i.e. after every for-loop iteration), q contains only elements from NEXT level
+            # all elements from current level have been popped out in the for-loop
         rightmost_nodes.append(curr_level_nodes[-1]) # the last node from current level will be the node you can see
     
     return rightmost_nodes
