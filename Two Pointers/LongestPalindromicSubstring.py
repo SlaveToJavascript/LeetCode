@@ -52,7 +52,7 @@
     # O(n) * O(n) -> O(n^2)
 # SPACE COMPLEXITY: O(1)
 
-def longestPalindrome(self, s):
+def longestPalindrome(s):
     max_palindrome_len = 1 # initiate the length of the longest palindrome to 1, since the minimum length of a palindrome is just 1 character in s
     ans = s[0] # return value; initiate the answer (i.e. longest palindromic substring) to any char in s
 
