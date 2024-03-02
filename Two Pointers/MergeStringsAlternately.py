@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/merge-strings-alternately/description/
 # EASY
-# Tags: twopointerslc, stringlc, #1768
+# Tags: twopointerslc, stringlc, blind75lc, #1768
 
 # GIVEN:
     # 2 strings, word1 and word2

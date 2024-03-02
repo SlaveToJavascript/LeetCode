@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/greatest-common-divisor-of-strings/description/
 # EASY
-# Tags: #1071
+# Tags: blind75lc, #1071
 
 # GIVEN:
     # two strings str1 and str2

@@ -9,18 +9,39 @@
 # TIME COMPLEXITY: O(log n)
 # SPACE COMPLEXITY: O(1)
 
+# ✅ SOLUTION 1:
 def search(nums, target):
-    upper = len(nums)
-    lower = -1
-    while upper-lower > 1: # if upper-lower = 1, that means the range is empty
-        mid = (upper+lower)//2
+    left = 0
+    right = len(nums)-1 # here, left and right pointers are within boundaries
+    
+    while left <= right: # if there is only 1 element in the window, left == right == mid
+        mid = (left+right)//2
         if nums[mid] == target:
             return mid
         elif nums[mid] < target:
-            lower = mid
+            left = mid + 1 # since mid < target, target is in right half -> discard left half including mid
         else:
-            upper = mid
+            right = mid - 1 # since mid > target, target is in left half -> discard right half including mid
+    
     return -1
+
+
+# ✅ SOLUTION 2:
+def search(nums, target):
+    left = -1
+    right = len(nums) # here, left and right pointers are beyond boundaries
+    
+    while right-left > 1: # if right-left = 1, that means the range is empty
+        mid = (left+right)//2
+        if nums[mid] == target:
+            return mid
+        elif nums[mid] < target:
+            left = mid
+        else:
+            right = mid
+    
+    return -1
+
 
 # Time complexity = O(log n)
     # Reducing an area of size n down to an area of size 1:
