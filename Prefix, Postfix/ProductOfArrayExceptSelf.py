@@ -82,3 +82,29 @@ def productExceptSelf(nums): # nums = [1, 2, 3, 4]
 
     return result
     # result = [24,12,8,6]
+
+#==========================================================================================================
+
+# ✅✅✅ ALGORITHM 2B: MY SOLUTION with O(1) space (attempted March 2, 2024)
+
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(1)
+
+def productExceptSelf(nums):
+    result = [1] * len(nums) # this will be prefix array first
+    
+    # GET PREFIXES
+    # result[0] = 1 (prefix of 1st elem is always 1, since there are no elems on the left of the 1st elem)
+    for i in range(1, len(nums)): # start from 2nd element, since prefix of 1st elem is already set
+        result[i] = result[i-1] * nums[i-1] # FORMULA: prefix(n) = prefix(n-1) * nums(n-1)
+    
+    # at this point, result = array of prefixes of nums
+        
+    # GET POSTFIXES
+    # postfix of last elem is always 1, so we skip last element and go to 2nd last elem
+    postfix = nums[-1] # for the 2nd last elem in nums, its postfix is the last elem in nums
+    for i in range(len(nums)-2, -1, -1):
+        result[i] = result[i] * postfix # FORMULA: result(i) = prefix(i) * postfix
+        postfix *= nums[i] # update postfix value for the nums elem (nums[i-1]) in the next iteration; postfix for i-1 = postfix(n) * nums[n]
+    
+    return result

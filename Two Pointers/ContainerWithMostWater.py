@@ -46,7 +46,7 @@ def maxArea(height):
     # if height[left] < height[right], move left to the right (i.e. left +1);
     # else, move right to the left (i.e. right -1)
         # rationale: if we shift pointer with lower height, the area might increase if next wall is taller
-        # but if we shift pointer with taller height, area cannot possibly increase as area = min height x width!
+        # but if we shift pointer with taller height, area cannot possibly increase (may even decrease) as area = min(height) x width!
 
 # TIME COMPLEXITY: O(n)
 # SPACE COMPLEXITY: O(1)

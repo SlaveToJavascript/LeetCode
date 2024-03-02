@@ -22,12 +22,15 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM: BRUTE FORCE
-# Start checking from the max possible length of the common divisor string, which is length of the shorter string
-    # because question asks for longest possible common divisor string
-# For each length, check if this length might be the length of a common divisor string
-    # to check: first check if lengths of both strings are divisible by this length
-        # then check if substring extracted from str1 of this length multiplied by (length of str2 divided by this length) == str2, and vice versa
-        # if true, a substring of this length is a common divisor string
+# Start checking from the max possible length of the common divisor string
+    # the max possible length of the common divisor string is the length of the shorter string
+    # qn asks for largest gcd string, so this is a greedy approach
+# For each gcd string length, check if this length can possibly be the length of a common divisor string
+    # to check: first check if lengths of both str1 and str2 are divisible by this gcd string length
+        # if False, this gcd string is impossible to be the answer
+    # if True, check if gcd substring of length substr_len extracted from str2 multiplied by (length of str1 divided by substr_len) == str1, and vice versa
+    # if true, a substring of this length is a common divisor string
+# return empty string if no common divisor string is found
 
 # TIME COMPLEXITY: O(min(m,n) * (m+n))
     # there are up to min(m, n) substring lengths to check (if it's a common divisor string length)
@@ -36,15 +39,12 @@
     # We need to keep a copy of base in each iteration, which takes O(min(m,n)) space
 
 def gcdOfStrings(str1, str2):
-    # helper function to check if str_len could be the length of a common divisor string
-    # returns True if the common divisor string has a length of str_len
-    def isCommonDivisor(str_len):
-        if len(str1) % str_len or len(str2) % str_len:
-            return False
-        return str1[:str_len] * (len(str2)/str_len) == str2 and str2[:str_len] * (len(str1)/str_len) == str1
-
-    for str_len in range(min(len(str1), len(str2)), 0, -1): # start checking from the longest possible length of a common divisor string, i.e. min(len(str1), len(str2))
-        if isCommonDivisor(str_len):
-            return str1[:str_len]
+    for substr_len in range(min(len(str1), len(str2)), 0, -1): # this is the potential gcd substring length; it starts from length of shorter string and decreases at each iteration to find max length of potential gcd string
+        
+        if len(str1) % substr_len != 0 or len(str2) % substr_len != 0: # if either str1 or str2 cannot fully be divided by substr_len, this substr_len cannot possibly be length of gcd string
+            continue # continue to the next iteration
+        
+        elif len(str1)//substr_len * str2[:substr_len] == str1 and len(str2)//substr_len * str1[:substr_len] == str2: # check if gcd substring of length substr_len extracted from str2 multiplied by (length of str1 divided by substr_len) == str1, and vice versa
+            return str1[:substr_len]
     
-    return "" # no common divisor string found
+    return "" # if no gcd substring was returned at this point, it means there is no gcd substring for str1 and str2

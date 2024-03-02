@@ -17,7 +17,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: TWO POINTERS
+# ✅ ALGORITHM: TWO POINTERS
 # Use 2 index pointers, 1 for s, 1 for t
 # while-loop through s and t
     # increase s and t pointers when s[i] == t[i], increase only t pointer otherwise

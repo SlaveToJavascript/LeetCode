@@ -22,7 +22,7 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM 1: TWO POINTERS
-# left pointer (for zeros) and right pointer (iterate through nums)
+# left pointer (that indicates start of zeros group) and right pointer (iterate through nums)
 # right pointer iterates through nums:
     # if right != 0, swap with left (this brings all non-zero elements to the left)
         # with every swap, left pointer +1

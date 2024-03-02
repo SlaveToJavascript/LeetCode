@@ -23,13 +23,12 @@
 ###########################################################################################################
 
 def canPlaceFlowers(flowerbed, n):
-    for i in range(len(flowerbed)):
-        if flowerbed[i] == 0:
-            left_empty = (i==0) or (flowerbed[i-1] == 0)
-            right_empty = (i==len(flowerbed)-1) or (flowerbed[i+1] == 0)
-            if left_empty and right_empty:
-                flowerbed[i] = 1
-                n -= 1
-                if n == 0:
-                    return True
-    return n == 0
+    f = 0 # pointer for flowerbed array
+    while n > 0 and f < len(flowerbed): # while there are more flowers to be placed, and f is not out of bounds,
+        left_empty = (f == 0) or (flowerbed[f-1] == 0) # left spot is empty
+        right_empty = (f == len(flowerbed)-1) or (flowerbed[f+1] == 0) # right spot is empty
+        if flowerbed[f] == 0 and left_empty and right_empty: # if current, left and right spots are empty
+            flowerbed[f] = 1 # plant flower here
+            n -= 1 # reduce remaining flowers to be planted by 1
+        f += 1 # mmove t the next spot
+    return n == 0 # if n = 0, all flowers have been planted
