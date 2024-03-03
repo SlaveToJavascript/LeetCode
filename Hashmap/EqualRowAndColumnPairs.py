@@ -1,6 +1,7 @@
+# 2352. Equal Row and Column Pairs
 # https://leetcode.com/problems/equal-row-and-column-pairs/description/
 # MEDIUM
-# Tags: hashmaplc, matrixlc, #2352
+# Tags: hashmaplc, matrixlc, leetcode75lc, lc75lc, #2352
 
 # GIVEN:
     # n x n integer matrix grid
@@ -54,9 +55,37 @@ def equalPairs(grid):
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 2: HASHMAP
-# Store each row of grid as a hashable object (tuple) in a dictionary; value is frequency of row in grid
-# Iterate each column of grid, checking if column exists in dictionary
+# ❌ ALGORITHM 2: GET COLS AND STORE PAIRS IN SET
+# Create a separate list of cols in grid
+# Create hash set for pairs of (rows, cols) where rows = cols
+# Double for-loop iterates through each row and col in grid, checks if they're similar -> if yes, add (row, col) index pair to hash set
+# return length of hash set
+
+# TIME COMPLEXITY: O(n^3) ❌
+    # double for-loop: O(n^2)
+    # within double for-loop: "if grid[r] == cols[c]" is O(n) time
+    # -> total = O(n^3)
+# SPACE COMPLEXITY: O(n^2)
+
+def equalPairs(grid):
+    n = len(grid)
+    cols = [[] for x in range(n)]
+    for i in range(n):
+        for j in range(n):
+            cols[i].append(grid[j][i])
+    pairs = set()
+    for r in range(n):
+        for c in range(n):
+            if grid[r] == cols[c]: # this step on its own is O(n), since this is an element-by-element comparison of 2 arrays
+                pairs.add((r, c))
+    
+    return len(pairs)
+
+#==========================================================================================================
+
+# ✅ ALGORITHM 3: STORE ROWS IN HASHMAP, CHECK IF EACH COL EXISTS IN HASHMAP
+# Store each row of grid as a hashable object (tuple) in a hashmap ; value is frequency of row in grid
+# Iterate each column of grid, checking if column exists in hashmap
 # If it exists, increment counter by value of the key-value pair
 # Return counter
 
@@ -66,21 +95,21 @@ def equalPairs(grid):
 # SPACE COMPLEXITY: O(n^2)
     # we store each row in hashmap; worst case scenario: hashmap contains n distinct rows of length n
 
-def equalPairs(grid):
-    row_hm = {}
+from collections import defaultdict
 
-    # add every row in grid into dictionary
+def equalPairs(grid):
+    rows_hm = defaultdict(int)
+
+    # add every row in grid into hashmap as a tuple
     for row in grid:
-        if tuple(row) in row_hm:
-            row_hm[tuple(row)] += 1
-        else:
-            row_hm[tuple(row)] = 1
+        rows_hm[tuple(row)] += 1
     
-    counter = 0
+    result = 0
     
-    # check every column if it is in dictionary
+    # check every column, if it exists in hashmap
     for i in range(len(grid)):
         col = [row[i] for row in grid]
-        if tuple(col) in row_hm:
-            counter += row_hm[tuple(col)] # no. of frequencies = no. of pairs for that column
-    return counter
+        if tuple(col) in rows_hm:
+            result += rows_hm[tuple(col)] # no. of frequencies = no. of pairs for that column
+    
+    return result

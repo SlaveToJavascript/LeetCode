@@ -1,6 +1,7 @@
+# 1071. Greatest Common Divisor of Strings
 # https://leetcode.com/problems/greatest-common-divisor-of-strings/description/
 # EASY
-# Tags: blind75lc, #1071
+# Tags: stringlc, leetcode75lc, lc75lc, #1071
 
 # GIVEN:
     # two strings str1 and str2

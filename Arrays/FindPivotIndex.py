@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/find-pivot-index/
 # EASY
-# Tags: #724
+# Tags: leetcode75lc, arraylc, lc75lc, #724
 
 # GIVEN:
     # integer array nums
@@ -35,7 +35,9 @@
 # ✅ ALGORITHM 1: COMPARE LEFT AND RIGHT SUMS FOR EACH ELEMENT
 # Iterate nums and compare if sum of elements on the left = sum of elements on the right
 
-# TIME COMPLEXITY: O(n)
+# TIME COMPLEXITY: O(n^2) 👎
+    # for-loop = O(n)
+    # sum() in for-loop is O(n)
 # SPACE COMPLEXITY: O(1)
 
 def pivotIndex(nums):
@@ -43,3 +45,23 @@ def pivotIndex(nums):
         if sum(nums[:i]) == sum(nums[i+1:]): # exclude pivot element in left and right element sums
             return i
     return -1 # pivot index not found
+
+#============================================================================================================
+
+# ✅ ALGORITHM 2: O(n) SOLUTION
+# Instead of calculating sum() of left and right subarrays, just get the sum once at the start and minus/add to this sum respectively for each potential pivot element
+
+# TIME COMPLEXITY: O(n) 👍
+# SPACE COMPLEXITY: O(1)
+
+def pivotIndex(nums):
+    left = 0
+    right = sum(nums)
+
+    for i in range(len(nums)):
+        right -= nums[i]
+        if left == right:
+            return i
+        left += nums[i]
+    
+    return -1

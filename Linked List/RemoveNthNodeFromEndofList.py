@@ -1,6 +1,7 @@
+# Remove Nth Node From End of List
 # https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
 # MEDIUM
-# Tags: twopointerslc, #19
+# Tags: twopointerslc, leetcode75lc, lc75lc, #19
 
 # GIVEN:
     # head of a linked list
@@ -25,11 +26,11 @@
     # so that if length of LL = 1, i.e. head = [1], we can still iterate from dummy -> 1
 # create Right pointer starting from dummy
 # Right pointer moves n steps to the right
-# Left pointer starts from dummy node
-# while Right pointer is not at the last node, continue shifting L and R pointers forward
-    # Stop at R = last node
-    # When R @ last node, L would be pointing to the node before node to be deleted
-# L.next = L.next.next
+# Left pointer points to dummy node
+# while Right pointer is not at the last node, continue shifting L and R pointers forward each by 1
+    # Stop when R reaches last node
+    # When R @ last node, L would be pointing to the node before target node that is to be deleted
+# make L.next = L.next.next
 
 # TIME COMPLEXITY: O(n)
     # O(n) for iterating LL with n nodes

@@ -1,6 +1,7 @@
+# 1493. Longest Subarray of 1's After Deleting One Element
 # https://leetcode.com/problems/longest-subarray-of-1s-after-deleting-one-element/description/
 # MEDIUM
-# Tags: slidingwindow;c, #1493
+# Tags: slidingwindowlc, lc75lc, leetcode75lc, #1493
 
 # GIVEN:
     # binary array, nums
@@ -38,19 +39,26 @@
     # Therefore, the total time complexity would equal O(n)
 
 def longestSubarray(nums):
-    l = max_count = zero_count = 0
+    l = 0
+    max_window = 0
+    zero_count = 0
     
-    for r in range(len(nums)): # l and r both start at 0; r iterates but l stays @ the same place unless zerocount > 1
-        zero_count += int(nums[r] == 0) # this code can be written as: 
-        # if nums[r] == 0: zero_count += 1
+    for r in range(len(nums)): # l and r both start at 0; r iterates over nums but l stays @ the same place unless zero_count > 1
+        # expand window from the right
+        # if last element in window is 0, increase zero_count by 1
+        if nums[r] == 0:
+            zero_count += 1
+        # More sophisticated way to write this: 
+            # zero_count += int(nums[r] == 0)
 
-        while zero_count > 1: # if more than 1 zero, shift l pointer forward until zerocount = 1
-            zero_count -= int(nums[l] == 0) # this code can be written as: 
-            # if nums[l] == 0: zero_count -= 1
+        while zero_count > 1: # while more than 1 zero (which is not allowed)
+            if nums[l] == 0:
+                zero_count -= 1 # shrink window from left until zero_count = 1
+            # this code can be written as:
+                # zero_count -= int(nums[l] == 0)
             l += 1
         
         # at this point, there would be max 1 zero in window
-        max_count = max(max_count, r-l)
+        max_window = max(max_window, r-l+1)
     
-    return max_count # instead of returning max_count + 1 which is the total length including zero (if any), we return max_count instead as we do not include the 0
-    # even if there were no 0's in the max count string, we still have to delete one element according to the question
+    return max_window-1 # we need to -1 since there can be either 1 zero or no zeros in max_window. In either case, we need to remove 1 element, so remove either a zero or a one 

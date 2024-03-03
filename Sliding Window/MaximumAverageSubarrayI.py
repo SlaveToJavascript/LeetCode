@@ -1,6 +1,7 @@
+# 643. Maximum Average Subarray I
 # https://leetcode.com/problems/maximum-average-subarray-i/description/
 # EASY
-# Tags: slidingwindowlc, #643
+# Tags: slidingwindowlc, leetcode75lc, lc75lc, #643
 
 # GIVEN:
     # integer array, nums
@@ -19,7 +20,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: SLIDING WINDOW
+# ✅ ALGORITHM: SLIDING WINDOW
 # We don't need to calculate the average of each subarray!
 # Since the sum of each subarray is divided by the same no. (4), goal is basically to find subarray with the max sum
 # Instead of computing the sum of subarrays over and over, can simply subtract first element of subarray and add next element after subarray to find the sum of next subarray
@@ -29,12 +30,13 @@
 # SPACE COMPLEXITY: O(1)
 
 def findMaxAverage(nums, k):
-    k_sum = sum(nums[0:k])
-    maxx = k_sum
-    l, r = 0, k
+    k_sum = sum(nums[:k]) # initialize sum of 1st window
+    max_sum = k_sum # initialize max sum as sum of 1st window
+    l = 0 # l points to the element before the start of the 2nd window
+    r = k # r points to the last element of the 2nd window
     while r < len(nums):
-        k_sum = k_sum - nums[l] + nums[r]
-        maxx = max(maxx, k_sum)
+        k_sum = k_sum - nums[l] + nums[r] # 2nd window onwards: remove 1st element of previous window and add last element of current window
+        max_sum = max(max_sum, k_sum)
         l += 1
         r += 1
-    return maxx/float(k)
+    return max_sum/float(k)

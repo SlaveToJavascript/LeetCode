@@ -1,6 +1,7 @@
+# 1456. Maximum Number of Vowels in a Substring of Given Length
 # https://leetcode.com/problems/maximum-number-of-vowels-in-a-substring-of-given-length/description
 # MEDIUM
-# Tags: slidingwindowlc, #1456
+# Tags: slidingwindowlc, leetcode75lc, lc75lc, #1456
 
 # GIVEN:
     # string, s
@@ -36,13 +37,15 @@
 # SPACE COMPLEXITY: O(1)
 
 def maxVowels(s, k):
-    v = {'a', 'e', 'i', 'o', 'u'}
-    v_count = len([char for char in s[:k] if char in v])
-    max_count = v_count
-
-    for i in range(k, len(s)):
-        v_count += int(s[i] in v) # s[i] is the char to be included in new sliding window
-        v_count -= int(s[i - k] in v) # s[i-k] is the char to remove from existing sliding window
-        max_count = max(max_count, v_count)
+    vowels = {'a', 'e', 'i', 'o', 'u'}
+    window_vowels_count = sum(char in vowels for char in s[:k]) # no. of vowels in 1st window
+    max_count = window_vowels_count
+    l = 0 # 1st element of 1st window
+    
+    for r in range(k, len(s)): # start iterating from 2nd window onwards
+        window_vowels_count -= (1 if s[l] in vowels else 0) # s[l] is the char removed from current window
+        window_vowels_count += (1 if s[r] in vowels else 0) # s[r] is the new char in current window
+        max_count = max(max_count, window_vowels_count)
+        l += 1
 
     return max_count

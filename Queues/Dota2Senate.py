@@ -28,7 +28,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: QUEUES
+# ✅ ALGORITHM: QUEUES
 # Maintain 2 queues, 1 for indexes of R and another for indexes of D
 # while both stacks are not empty, dequeue from both stacks and compare indexes
     # -> smaller index senator will ban the other -> gets added back to queue with new index = prev index + length of senator string

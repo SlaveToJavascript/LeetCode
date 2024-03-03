@@ -1,6 +1,7 @@
+# 238. Product of Array Except Self
 # https://leetcode.com/problems/product-of-array-except-self/description/
 # MEDIUM
-# prefixlc, #238
+# Tags: prefixlc, lc75lc, leetcode75lc, #238
 
 # GIVEN:
     # integer array, nums

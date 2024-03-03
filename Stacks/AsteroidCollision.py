@@ -1,6 +1,7 @@
+# 735. Asteroid Collision
 # https://leetcode.com/problems/asteroid-collision/
 # MEDIUM
-# Tags: stacklc, #735
+# Tags: stacklc, leetcode75lc, lc75lc, #735
 
 # GIVEN:
     # an array, asteroids, of integers representing asteroids in a row.
@@ -44,12 +45,12 @@
 
 def asteroidCollision(asteroids):
     stack = []
+
     for current in asteroids:
-        while stack and stack[-1] > 0 and current < 0: # existing asteroid is moving to the right and current asteroid is moving to the left -> clash
-            if abs(stack[-1]) > abs(current): # current is smaller than existing -> current clashes
-                # make current = 0 so it wouldn't be added to the array after the while loop
-                current = 0
-            elif abs(stack[-1]) < abs(current): # existing is smaller than current -> existing clashes
+        while stack and stack[-1] > 0 and current < 0: # CLASH: existing asteroid is moving to the right and current asteroid is moving to the left
+            if abs(stack[-1]) > abs(current): # CURRENT DESTROYED: current is smaller than existing
+                current = 0 # make current = 0 so it wouldn't be added to the array after the while loop
+            elif abs(stack[-1]) < abs(current): # EXISTING DESTROYED: existing is smaller than current
                 stack.pop() # pop existing from stack
             else: # both current and existing destroyed
                 current = 0 # make current = 0 so it wouldn't be added to the array after the while loop

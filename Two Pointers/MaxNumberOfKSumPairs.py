@@ -1,6 +1,7 @@
+# 1679. Max Number of K-Sum Pairs
 # https://leetcode.com/problems/max-number-of-k-sum-pairs/description/
 # MEDIUM
-# Tags: twopointerslc, #1679
+# Tags: twopointerslc, leetcode75lc, lc75lc, #1679
 
 # GIVEN:
     # an integer array, nums
@@ -75,5 +76,5 @@ def maxOperations(nums, k):
                 continue # if < 2 occurrences, this is not a pair and cannot be removed -> skip to next num
             result += 1
             hm[target] -= 1
-            hm[num] -= 1 # remove current pair of num and target
+            hm[num] -= 1 # remove num and target from hashmap
     return result

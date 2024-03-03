@@ -1,5 +1,7 @@
+# Determine if Two Strings Are Close
 # https://leetcode.com/problems/determine-if-two-strings-are-close/description/
 # MEDIUM
+# Tags: hashmaplc, leetcode75lc, lc75lc, #1657
 
 # 2 strings are close to each other if you can get one from the other using the following operations:
 # Operation 1: Swap any two existing characters
@@ -32,6 +34,7 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM 1: HASHMAP
+# NOTE: since answer should be True/False, you don't actually have to perform the operations on the strings
 # Operation 1 (swap any 2 existing characters) basically means you can freely reorder any characters in the strings
 # Operation 2 (transform every occurrence of any 1 existing char into another, and do the same w the other char) basically means you can freely assign the frequencies of the characters
     # i.e. the frequencies of chars in both strings are the same numbers
