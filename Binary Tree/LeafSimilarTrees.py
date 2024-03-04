@@ -1,6 +1,7 @@
+# 872. Leaf-Similar Trees
 # https://leetcode.com/problems/leaf-similar-trees/description/
 # EASY
-# dfslc, #872
+# Tags: dfslc, leetcode75lc, lc75lc, binarytreelc, #872
 
 # GIVEN:
     # 2 binary trees, root1 and root2
@@ -19,14 +20,15 @@
 
 # ✅ ALGORITHM 1: RECURSIVE DFS
 
-# TIME COMPLEXITY = O(v1 + v2)
-    # v1 and v2 are the no.s of vertices in trees root1 and root2
-# SPACE COMPLEXITY = O(v1 + v2)
+# TIME COMPLEXITY = O(n1 + n2)
+    # n1 and n2 are the no.s of nodes in trees root1 and root2 respectively
+# SPACE COMPLEXITY = O(h1 + h2)
+    # h1 and h2 are the heights trees root1 and root2 respectively
 
 def leafSimilar(root1, root2):
     # dfs(root) returns an array of leaf values of the tree
     def dfs(node, leafs):
-        if not node: 
+        if not node:
             return []
         if not node.left and not node.right: # node is a leaf node
             leafs.append(node.val)
