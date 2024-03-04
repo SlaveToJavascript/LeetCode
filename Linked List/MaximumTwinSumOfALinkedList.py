@@ -98,7 +98,7 @@ def getMaximumTwinSum(head):
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 3: TWO POINTERS TO REVERSE 2ND HALF IN PLACE
+# ✅✅✅ ALGORITHM 3: TWO POINTERS TO REVERSE 2ND HALF IN PLACE with O(1) space
 # Flip the 2nd half of the LL so the last elem points to the 2nd last elem, which points to 3rd last elem, and so on
 # to reverse 2nd half of LL, first obtain the list's middle node using slow and fast pointers
     # fast pointer moves at 2x faster speed than slow pointer so that when fast reaches the end, slow would point to the middle node

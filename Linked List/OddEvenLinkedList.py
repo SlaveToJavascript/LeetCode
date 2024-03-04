@@ -42,8 +42,9 @@ def oddEvenList(head):
     while curr_even and curr_even.next: # this is the stopping condition bc either even or even.next would be the last element in linked list
         curr_odd.next = curr_even.next # point odd node's next pointer to even node's next pointer
         curr_odd = curr_odd.next # move odd pointer to new odd node
-        curr_even.next = curr_odd.next
+        curr_even.next = curr_odd.next # note: if while loop was "while curr_even and curr_ODD", this line might throw null pointer error as cur_odd might be null here
         curr_even = curr_even.next
+    
     curr_odd.next = even_head # chain tail of odd list (curr_odd) to head of even list
     
     return head

@@ -1,6 +1,7 @@
+# 104. Maximum Depth of Binary Tree
 # https://leetcode.com/problems/maximum-depth-of-binary-tree/description/
 # EASY
-# Tags: dfslc, bfslc, #104
+# Tags: dfslc, bfslc, leetcode75lc, lc75lc, #104
 
 # GIVEN:
     # root of a binary tree, return its maximum depth 
