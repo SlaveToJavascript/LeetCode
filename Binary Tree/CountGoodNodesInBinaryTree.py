@@ -1,6 +1,7 @@
+# 1448. Count Good Nodes in Binary Tree
 # https://leetcode.com/problems/count-good-nodes-in-binary-tree/description
 # MEDIUM
-# Tags: binarytreelc, dfslc, #1448
+# Tags: binarytreelc, dfslc, leetcode75lc, lc75lc, #1448
 
 # GIVEN:
     # binary tree root
@@ -29,16 +30,22 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM: RECURSIVE DFS
+    # https://www.youtube.com/watch?v=7cp5imvDzl4
 # Recursively iterate through binary tree
 # if current node's value is >= max value, counter +1
 # update max value if needed
 # return counter result for left and right children of current node
 
+# TIME COMPLEXITY: O(n)
+# SPACE COMPLEXITY: O(h)
+    # h = height of tree
+
 def goodNodes(root):
-    def dfs(node, max_val):
-        if not node: return 0
-        result = 1 if node.val >= max_val else 0
-        max_val = max(max_val, node.val)
-        return result + dfs(node.left, max_val) + dfs(node.right, max_val)
+    def getNumberOfGoodNodes(node, max_val):
+        if not node: 
+            return 0
+        current_count = 1 if node.val >= max_val else 0 # if current node is a good node, count=1
+        max_val = max(max_val, node.val) # update max val if needed
+        return current_count + getNumberOfGoodNodes(node.left, max_val) + getNumberOfGoodNodes(node.right, max_val)
     
-    return dfs(root, float('-inf')) # must use -ve infinity instead of 0 since node values may be < 0
+    return getNumberOfGoodNodes(root, float('-inf')) # must use -ve infinity instead of 0 since node values may be < 0

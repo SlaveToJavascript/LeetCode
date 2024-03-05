@@ -18,7 +18,10 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: RECURSIVE DFS
+# ✅ ALGORITHM: RECURSIVE DFS
+    # https://www.youtube.com/watch?v=Nr8dbnL0_cM
+# recursively visit each node ; if node is leaf node, add node value to array of leaf values
+# check if leaf values arrays of both trees are the same
 
 # TIME COMPLEXITY = O(n1 + n2)
     # n1 and n2 are the no.s of nodes in trees root1 and root2 respectively
@@ -27,13 +30,13 @@
 
 def leafSimilar(root1, root2):
     # dfs(root) returns an array of leaf values of the tree
-    def dfs(node, leafs):
+    def getLeaves(node, leaves):
         if not node:
             return []
         if not node.left and not node.right: # node is a leaf node
-            leafs.append(node.val)
-        if node.left: dfs(node.left, leafs)
-        if node.right: dfs(node.right, leafs)
-        return leafs
+            leaves.append(node.val)
+        if node.left: getLeaves(node.left, leaves)
+        if node.right: getLeaves(node.right, leaves)
+        return leaves
     
-    return dfs(root1, []) == dfs(root2, [])
+    return getLeaves(root1, []) == getLeaves(root2, [])

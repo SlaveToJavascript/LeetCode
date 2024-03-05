@@ -35,7 +35,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: TWO POINTERS
+# ✅ ALGORITHM: TWO POINTERS
 # use 2 pointers: pointer p1 for word1, and pointer p2 for word2
 # while both pointers are within bounds, add the respective chars to resulting string, and increment pointers
 # add remaining chars not added to the resulting string from either word1 or word2, if any
