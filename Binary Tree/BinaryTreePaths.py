@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/binary-tree-paths/description/
 # EASY
-# Tags: dfslc, #257
+# Tags: dfslc, binarytreelc, #257
 
 # GIVEN:
     # a binary tree, root
