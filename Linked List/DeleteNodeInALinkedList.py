@@ -25,7 +25,7 @@
 
 ###########################################################################################################
 
-# ALGORITHM: MODIFY NODE TO BE DELETED, THEN DELETE THE NODE AFTER NODE TO BE DELETED INSTEAD
+# ✅ ALGORITHM: MODIFY NODE TO BE DELETED, THEN DELETE THE NODE AFTER NODE TO BE DELETED INSTEAD
 # i.e. copy over the value of the node after the node to be deleted, then delete that node (that was copied from) instead
 
 # TIME COMPLEXITY: O(1)
