@@ -52,7 +52,7 @@
 # TIME COMPLEXITY: O(n)
 # SPACE COMPLEXITY: O(n)
     # average case: O(h)
-    # worst case: h = n -> O(n)
+    # worst case: O(n) when h=n
 
 def flatten(root):
     def dfs(root): # dfs(root) flattens tree/subtree from root and returns LL tail
