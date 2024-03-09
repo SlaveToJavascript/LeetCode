@@ -34,10 +34,12 @@
     # O(n) for level_nodes array
 
 def rightSideView(root):
+    if not root:
+        return []
     rightmost_nodes = [] # this is the return value
 
     q = [root]
-    while q:
+    while q: # NOTE: [None] evaluates to be True, so while q would be True even if root is null
         curr_level_nodes = [] # stores the values of all nodes from the current level
         for _ in range(len(q)): # each iteration of this for-loop iterates within the current level
             node = q.pop(0)

@@ -107,6 +107,8 @@ sorted_hashmap = sorted(hashmap.items(), key=lambda x:int(x[1]))
 # GRAPHS #################################################################################################
 
 # convert array of edges into graph adjacency list (hashmap)
+
+# 1. NUMBER OF NODES (n) IS GIVEN
 edges = [[1,2], [2,3], [3,4], [4,5], [5,6], [6,1]]
 
 graph = {c:[] for c in range(n)} # n is the number of nodes in graph -> nodes are numbered 0 to n-1
@@ -115,8 +117,14 @@ for s, e in edges:
     graph[s].append(e)
     graph[e].append(s)
 
-# OR
+# 2. DEFAULTDICT()
+graph = defaultdict(list)
 
+for s, e in edges:
+    graph[s].append(e)
+    graph[e].append(s) # include this if graph is bi-directional
+
+# 3. NO DEFAULTDICT
 graph = {}
   
 for a, b in edges:
@@ -128,16 +136,20 @@ for a, b in edges:
     graph[a].append(b)
     graph[b].append(a)
 
+
+
+
+
 # BINARY TREES ############################################################################################
 
 # Preorder traversal (parent → left → right)
 def preorder(root):
-  return [root.val] + preorder(root.left) + preorder(root.right) if root else []
+    return [root.val] + preorder(root.left) + preorder(root.right) if root else []
 
 # Inorder traversal (left → parent → right)
 def inorder(root):
-  return inorder(root.left) + [root.val] + inorder(root.right) if root else []
+    return inorder(root.left) + [root.val] + inorder(root.right) if root else []
 
 # Postorder traversal (left → right → parent)
 def postorder(root):
-  return postorder(root.left) + postorder(root.right) + [root.val] if root else []
+    return postorder(root.left) + postorder(root.right) + [root.val] if root else []

@@ -1,5 +1,7 @@
+# 1971. Find if Path Exists in Graph
 # https://leetcode.com/problems/find-if-path-exists-in-graph/description/
 # EASY
+# Tags: graphlc, dfslc, #1971
 
 # GIVEN:
     # undirected graph with n vertices, where each vertex is labeled from 0 to n-1 (inclusive)

@@ -30,9 +30,9 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1A: RECURSIVE DFS
+# ✅✅✅ ALGORITHM 1A: RECURSIVE DFS
 # maxZigzagPath() function keeps track of whether we traversed to the current node's left child or right child
-# if we traversed to the left child, in the next recursion of dfs(), we should traverse to the right child, and vice versa
+# if we traversed to the left child, in the next recursion of maxZigzagPath(), we should traverse to the right child, and vice versa
 # maxZigzagPath() also keeps track of the longest zigzag path so far
 # to start the zigzag path from non-root nodes, we can simply reset the longest zigzag path length to 0 and go the child node that is not part of the zigzag direction
     # e.g. if the longest zigzag path is on the right of the root node but the root node cannot access this longest zigzag path because we need to go take 2 right directions, then:
@@ -49,14 +49,14 @@ def longestZigZag(root):
         if not node: 
             return max_path_len # if node is null, we have reached the end of the path, return max path length
 
-        if goLeft: # if we went to the left child in the previous recursion of dfs()
+        if goLeft: # if we went to the left child in the previous recursion of maxZigzagPath()
             max_path_len = max(
                                 max_path_len, 
                                 maxZigzagPath(node.right, False, max_path_len+1), # since we went left in the previous recursion, now we go right
                                 maxZigzagPath(node.left, True, 0) # if we start the zigzag path from the current node, we must reset the max path length to 0
             ) # get the max path length
         
-        else: # if we went to the right child in the previous recursion of dfs()
+        else: # if we went to the right child in the previous recursion of maxZigzagPath()
             max_path_len = max(
                                 max_path_len, 
                                 maxZigzagPath(node.left, True, max_path_len+1), # since we went right in the previous recursion, now we go left
