@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/01-matrix/description/
 # MEDIUM
-# Tags: matrixlc, bfslc, dplc, #542
+# Tags: matrixlc, bfslc, dplc, graphlc, #542
 
 # GIVEN:
     # an m x n binary matrix, mat

@@ -1,6 +1,7 @@
+# 133. Clone Graph
 # https://leetcode.com/problems/clone-graph/description
 # MEDIUM
-# Tags: hashmaplc, dfslc, graphlc, #133
+# Tags: hashmaplc, dfslc, graphlc, topinterviewlc, #133
 
 # GIVEN:
     # a reference of a node in a connected undirected graph
@@ -39,16 +40,16 @@
 # SPACE COMPLEXITY: O(E+V)
 
 def cloneGraph(node):
-    old_new = {} # hashmap of original node : cloned node
+    hashmap = {} # hashmap of original node : cloned node
 
     def clone_graph(node):
         if not node: 
             return
-        if node in old_new: # if node has already been cloned before
-            return old_new[node] # return cloned node
+        if node in hashmap: # if node has already been cloned before
+            return hashmap[node] # return cloned node
         
         clone = Node(node.val) # create clone of node
-        old_new[node] = clone # add clone to hashmap
+        hashmap[node] = clone # add clone to hashmap
         for neighbor in node.neighbors: # iterate through original node's neighbors
             clone.neighbors.append(clone_graph(neighbor)) # clone each neighbor and add cloned neighbor to cloned node's neighbors array
         
