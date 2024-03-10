@@ -1,3 +1,4 @@
+# 542. 01 Matrix
 # https://leetcode.com/problems/01-matrix/description/
 # MEDIUM
 # Tags: matrixlc, bfslc, dplc, graphlc, #542
@@ -27,8 +28,9 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM 1: BFS (WITH VISITED SET i.e. not space optimized)
+# NOTE: approach: instead of focusing on the 1's, we focus on the 0's and update their neighbors, which are 1's, with the respective distance-from-0 values
 # Create result matrix of the same dimensions as input matrix
-# Create queue and hashset, visited
+# Create queue and "visited" set
 # For every element in matrix, 
     # if element = 0, add it to queue, and add it to visited hashset
         # any q[i] = (r, c, distance_to_nearest_0)
@@ -39,7 +41,8 @@
     # add current neighbor to queue, with incremented distance from 0
 # Return result matrix
 
-# TIME COMPLEXITY: O(m * n), where m = height of matrix, n = length of matrix
+# TIME COMPLEXITY: O(m * n)
+    # m = height of matrix, n = length of matrix
 # SPACE COMPLEXITY: O(m * n)
     # result array is m * n size
     # set and queue are each approx. m*n size
@@ -58,7 +61,7 @@ def updateMatrix(mat):
     
     # Perform bfs to update distance from 0 for each neighbor node
     while q:
-        r, c, dist = q.pop(0)
+        r, c, dist = q.pop(0) # popped elements are 0's and neighbors of 0's
 
         for x, y in [(0, -1), (0, 1), (-1, 0), (1, 0)]: # 4 neighbors, 1 in each direction
             nr, nc = r+x, c+y # index row and col of current neighbor
@@ -72,11 +75,13 @@ def updateMatrix(mat):
 #==========================================================================================================
 
 # ✅ ALGORITHM 2: BFS (WITHOUT VISITED SET i.e. space optimized)
+# NOTE: approach: instead of focusing on the 1's, we focus on the 0's and update their neighbors, which are 1's, with the respective distance-from-0 values
 # Same as above, except we are modifying the matrix in-matrix (i.e. no additional result matrix to return)
 # we mark out the 1's until they are updated; everything else (that are not marked) are already updated by previous iterations
 # We also don't need a 3rd element in each tuple in the queue (i.e. the distance-from-0 value) to keep track of it
 
-# TIME COMPLEXITY: O(m * n), where m = height of matrix, n = length of matrix
+# TIME COMPLEXITY: O(m * n)
+    # m = height of matrix, n = length of matrix
 # SPACE COMPLEXITY: O(m * n)
     # length of queue might be m*n in the worst case scenario (if matrix contains all 0's)
     # but space complexity is still much better than above as we don't create visited hashset and result matrix
@@ -88,18 +93,18 @@ def updateMatrix(mat):
     for r in range(len(mat)):
         for c in range(len(mat[r])):
             if mat[r][c] == 0:
-                q.append((r, c))
-            else:
+                q.append((r, c)) # add all 0's to q
+            else: # if cell = 1
                 mat[r][c] = -1 # mark out all cells that require updating; all other cells (except the -1) are cells that are already updated with distance-from-0 values
     
-    # Perform bfs to update distance from 0 for each neighbor node
+    # Perform bfs to update distance-from-0 for each neighbor node
     while q:
-        r, c = q.pop(0)
+        r, c = q.pop(0) # popped elements are 0's and neighbors of 0's
 
         for x, y in [(0, -1), (0, 1), (-1, 0), (1, 0)]: # 4 neighbors, 1 in each direction
             nr, nc = r+x, c+y # index row and col of current neighbor
-            if 0 <= nr < rows and 0 <= nc < cols and mat[nr][nc] == -1: # if current neighbor is within matrix and it is waiting to get updated
-                mat[nr][nc] = mat[r][c] + 1 # update current neighbor's distance-from-0 value
+            if 0 <= nr < rows and 0 <= nc < cols and mat[nr][nc] == -1: # if current neighbor is within matrix and is not visited (if mat(r,c) = -1, it means it's unvisited/un-updated)
+                mat[nr][nc] = mat[r][c] + 1 # update current neighbor's distance-from-0 value ; since mat(nr,nc) is an immediate neighbor of mat(r,c), the distance-from-0 value of mat(nr, nc) = distance-from-0 value of mat(r,c) + 1
                 q.append((nr, nc)) # add current neighbor to queue, with its updated distance-from-0 value
     
     return mat
