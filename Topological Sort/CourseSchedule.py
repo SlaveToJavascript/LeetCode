@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/course-schedule/description/
 # MEDIUM
-# Tags: graphlc, toposortlc, dfslc, #207
+# Tags: graphlc, topologicalsortlc, toposortlc, topsortlc, dfslc, backtracklc, backtrackinglc, #207
 
 # There are a total of numCourses courses you have to take, labeled from 0 to numCourses - 1
 # You are given an array prerequisites where prerequisites[i] = [a_i, b_i] indicates that you must take course b_i first if you want to take course a_i
@@ -21,7 +21,8 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM: DFS
+# ✅ ALGORITHM: RECURSIVE DFS
+    # https://www.youtube.com/watch?v=EgI5nU9etnU
 # Create adjacency list of each course and its prerequisites
 # If a course doesn't have any prerequisites, it can definitely be completed
     # so a base case is: if prerequisites of a course is empty, return True (as this course can be completed)
@@ -60,7 +61,7 @@ def canFinish(numCourses, prerequisites):
         
         # if we reached this point, it means course can be completed
         visited.remove(course) # since we finished checking whether current course can be completed, we remove it from visited
-            # see below for examples of why this line is needed
+            # *** NOTE: see below for examples of why this line is needed
         
         prereqsList[course] = set() # since we know course can definitely be completed, we can empty its prerequisites set so that in the next recursions where course is passed, the base case will pick up that it's a course that can definitely be completed and return True immediately (instead of having to check its prereqs all over again)
         
@@ -72,8 +73,12 @@ def canFinish(numCourses, prerequisites):
     
     return True # if we reached this point, it means all courses can be completed
 
-# WHY DO WE NEED visited.remove(course)?
-    # Imagine an example expected to return TRUE like 0 -> 1 -> 3 and 0 -> 2  -> 3
-    # After we do DFS for 0 -> 1 -> 3, imagine if we didn't remove 3 from visited
-    # Then when we do 0 -> 2 -> 3, DFS will fail for 3, even though above example is a valid set of courses you can take
-    # In order to avoid this situation, after you do DFS for 0 -> 1 -> 3, you have to remove 3 and 1 from visited
+
+
+# *** NOTE: WHY DO WE NEED "visited.remove(course)"?
+    # Example scenario: 
+        # Imagine courses A and B both require course C as a prereq (i.e. A -> C and B -> C)
+        # When exploring A's prereqs, C is added to visited
+        # After C (and hence A) is confirmed to be completable, we backtrack, removing C from visited
+        # Later, when exploring B's prereqs, we encounter C again
+            # *** If C were not removed from visited after exploring A's prerequisites, the algorithm would incorrectly identify a cycle when there is none, leading to a false conclusion that courses cannot be completed

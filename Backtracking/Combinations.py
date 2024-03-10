@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/combinations/
 # MEDIUM
-# backtracklc, #77
+# Tags: backtracklc, #77
 
 # GIVEN:
     # 2 integers, n and k
