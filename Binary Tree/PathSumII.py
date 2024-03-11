@@ -40,8 +40,10 @@ def pathSum(root, targetSum):
 
         if not node.left and not node.right and curr_sum == targetSum: # if node is leaf and current sum = targetSum
             result.append(path)
-        if node.left: dfs(node.left, curr_sum, path)
-        if node.right: dfs(node.right, curr_sum, path)
+        if node.left: 
+            dfs(node.left, curr_sum, path)
+        if node.right: 
+            dfs(node.right, curr_sum, path)
     
     dfs(root, 0, [])
 

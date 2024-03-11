@@ -69,7 +69,7 @@ def longestZigZag(root):
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 1B: RECURSIVE DFS
+# ✅ ALGORITHM 1B: RECURSIVE DFS (ChatGPT solution)
 # at each node, you track two things:
     # 1. The longest ZigZag path starting at this node and going left first
     # 2. The longest ZigZag path starting at this node and going right first
