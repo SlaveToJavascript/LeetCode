@@ -32,7 +32,8 @@
 def hasPathSum(root, targetSum):
 
     def dfs(node, current_sum):
-        if not node: return False
+        if not node: 
+            return False
         current_sum += node.val
         if not node.left and not node.right: # if leaf node
             return current_sum == targetSum
@@ -46,15 +47,21 @@ def hasPathSum(root, targetSum):
 # ✅ ALGORITHM 2: ITERATIVE DFS
 
 def hasPathSum(root, targetSum):
-    stack = [(root, targetSum)]
+    stack = [(root, 0)]
+    curr_sum = 0
+
     while stack:
-        curr_node, curr_sum = stack.pop()
-        if not curr_node: return False
-        if not curr_node.left and not curr_node.right and curr_sum == curr_node.val:
+        node, curr_sum = stack.pop()
+        if not node: 
+            return False # this handles the edge case where root is null
+        
+        curr_sum += node.val
+        if not node.left and not node.right and curr_sum == targetSum: # if node is leaf node and targetSum is reached
             return True
         
-        if curr_node.left: 
-            stack.append((curr_node.left, curr_sum - curr_node.val))
-        if curr_node.right: 
-            stack.append((curr_node.right, curr_sum - curr_node.val))
+        if node.right: 
+            stack.append((node.right, curr_sum))
+        if node.left: 
+            stack.append((node.left, curr_sum))
+    
     return False

@@ -1,3 +1,4 @@
+# 113. Path Sum II
 # https://leetcode.com/problems/path-sum-ii/description/
 # MEDIUM
 # Tags: dfslc, #113
@@ -30,16 +31,17 @@ def pathSum(root, targetSum):
     result = []
 
     def dfs(node, curr_sum, path):
-        if not node: return
+        if not node: 
+            return
 
         curr_sum += node.val
-        temp = path + [node.val] # need to create a new temp list instead of adding node.val to path, otherwise all nodes will get added to path
+        path = path + [node.val] # need to create a new temp list instead of adding node.val to path, otherwise all nodes will get added to path
         # if we are to append node.val to path instead of using temp, we need to pop the last element from path every time if node is not leaf and/or current sum is not = targetSum
 
         if not node.left and not node.right and curr_sum == targetSum: # if node is leaf and current sum = targetSum
-            result.append(temp)
-        if node.left: dfs(node.left, curr_sum, temp)
-        if node.right: dfs(node.right, curr_sum, temp)
+            result.append(path)
+        if node.left: dfs(node.left, curr_sum, path)
+        if node.right: dfs(node.right, curr_sum, path)
     
     dfs(root, 0, [])
 

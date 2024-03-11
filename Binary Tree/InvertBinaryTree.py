@@ -25,11 +25,10 @@
     # since h ∈ O(n), space complexity is O(n)
 
 def invertTree(root):
-    if not root: return None
+    if not root: 
+        return None
 
-    left = root.left
-    root.left = root.right
-    root.right = left
+    root.left, root.right = root.right, root.left
 
     invertTree(root.left)
     invertTree(root.right)

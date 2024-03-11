@@ -25,12 +25,13 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM: TOPOLOGICAL SORT
+    # https://www.youtube.com/watch?v=Akt3glAwyfY
 # A course has 3 possible states:
-    # course has been added to result
+    # VISITED: course has been added to result
         # we don't ever have to visit it again
-    # course not added to result, but added to visited set
+    # VISITING: course not added to result, but added to visited set
         # this means course has been visited in the current path of prerequisites
-    # unvisited, i.e. course not added to result or visited set
+    # UNVISITED: course not added to result or visited set
         # visited is the current dfs path we're tracing to find the sequence of courses to take
 # Create adjacency list of each course and its prerequisites
 
@@ -53,6 +54,7 @@ def findOrder(numCourses, prerequisites):
     result = []
 
     visited = set() # visited is the current dfs path we're tracing to find the sequence of courses to take
+        # it also serves as cycle detection
 
     def dfs(course):
         if course in visited: # this means there is a cycle as we already visited course in this path
