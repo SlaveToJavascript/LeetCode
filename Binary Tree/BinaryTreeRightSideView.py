@@ -44,8 +44,11 @@ def rightSideView(root):
         for _ in range(len(q)): # each iteration of this for-loop iterates within the current level
             node = q.pop(0)
             curr_level_nodes.append(node.val)
-            if node.left: q.append(node.left)
-            if node.right: q.append(node.right)
+            
+            if node.left: 
+                q.append(node.left)
+            if node.right: 
+                q.append(node.right)
         
         # at this point (i.e. after every for-loop iteration), q contains only elements from NEXT level
             # all elements from current level have been popped out in the for-loop

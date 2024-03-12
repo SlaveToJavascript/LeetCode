@@ -27,8 +27,11 @@
 # If a course doesn't have any prerequisites, it can definitely be completed
     # so a base case is: if prerequisites of a course is empty, return True (as this course can be completed)
 # If a course has prerequisites, we have to check if all its prerequisites can be completed
-    # course can only be completed if all its prerequisites can be completed
-        # do dfs on every prerequisite of this course to check if course can be completed
+    # do dfs on every prerequisite of this course to check if course can be completed
+# if all prerequisites can be completed, we know this course can be completed
+    # remove course from visited set (backtracking) to explore other paths, preventing the incorrect identification of a cycle for those paths
+    # since we know this course can be completed, we can empty out its prerequisites set
+        # so that in the next recursions where course is passed, the base case will pick up that it's a course that can definitely be completed and return True immediately (instead of having to check its prereqs all over again)
 
 # TIME COMPLEXITY: O(c+p)
     # c = no. of course
