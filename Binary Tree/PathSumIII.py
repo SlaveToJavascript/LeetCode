@@ -1,7 +1,7 @@
 # 437. Path Sum III
 # https://leetcode.com/problems/path-sum-iii/description/
 # MEDIUM
-# Tags: dfslc, hashmaplc, leetcode75lc, lc75lc, #113
+# Tags: dfslc, hashmaplc, prefixlc, leetcode75lc, lc75lc, #113
 
 # GIVEN:
     # root of a binary tree
@@ -26,10 +26,13 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM 1: RECURSIVE DFS
-# Maintain prefix sums in hashmap while doing dfs from root to leaf
-# If currentSum - prefixSum found in hashmap = targetSum, then we've found a path that has a value of target
-# If we encountered prefixSum n times, then we've found n such paths -> increment num_paths by n
-# for each curr_sum (i.e. sum of previous nodes' vals encountered), add it to prefix sums hashmap as it may be a prefix to a valid path in the tree
+# Maintain running (prefix) sum, prefix_sum, in hashmap while doing dfs from root to leaf
+    # key : value = prefix_sum : frequency
+# at each node, add current node's val to prefix_sum and add prefix_sum to hashmap
+# check if (prefix_sum - targetSum) is in hashmap
+    # yes -> we've found a path that sums up to targetSum -> result += frequency of prefix_sum in hashmap (i.e. the respective hashmap value)
+        # If we encountered prefix_sum n times, then we've found n such paths -> increment result by n
+# then add prefix_sum to hashmap (or increase its frequency by 1) and continue traversing
 
 # TIME COMPLEXITY: O(n)
     # n = no. of nodes in tree
@@ -39,26 +42,25 @@
     # hashmap can contain up to n entries (if each node has a unique value)
 
 def pathSum(root, targetSum):
-    prefix_sums = {} # hashmap of prefix sums encountered in current path, and their frequencies
-    prefix_sums[0] = 1 # initiate the no. of 0 prefixes = 1
+    prefixes = {} # hashmap of prefix sums encountered in current path, and their frequencies
+    prefixes[0] = 1 # initiate the no. of 0 prefixes = 1
     result = 0 # no. of paths in tree with sum of target
 
-    def dfs(node, curr_sum):
-        nonlocal result # so we can access the num_paths variable declared outside the function
+    def dfs(node, prefix_sum):
+        nonlocal result # so we can access the result variable declared outside the function
 
         if not node: 
             return
         
-        curr_sum += node.val # add current node's val to curr_sum
+        prefix_sum += node.val # add current node's val to prefix_sum
 
-        prefix_sum = curr_sum - targetSum
-        result += prefix_sums.get(prefix_sum, 0) # if prefix sum found in hashmap, increment result by counts of this prefix sum found; else, result is unchanged
-        prefix_sums[curr_sum] = prefix_sums.get(curr_sum, 0) + 1 # add curr_sum to hashmap as a prefix sum, with a count of 1 (or if curr_sum already exists in hashmap as a prefix sum, increment its value i.e. count)
+        result += prefixes.get(prefix_sum - targetSum, 0) # if prefix sum found in hashmap, increment result by counts of this prefix sum found; else, result is unchanged
+        prefixes[prefix_sum] = prefixes.get(prefix_sum, 0) + 1 # add prefix_sum to hashmap as a prefix sum, with a count of 1 (or if prefix_sum already exists in hashmap, increment its frequency i.e. the respective hashmap value)
         
-        # iterate rest of the tree to increment num_paths
-        dfs(node.left, curr_sum)
-        dfs(node.right, curr_sum)
-        prefix_sums[curr_sum] -= 1 # Reduce the count of this prefixSum path (this path has been explored -> not available for later traversals)
+        # iterate rest of the tree to increment result
+        dfs(node.left, prefix_sum)
+        dfs(node.right, prefix_sum)
+        prefixes[prefix_sum] -= 1 # Reduce the count of this prefix_sum path (this path has been explored -> not available for later traversals)
         
     dfs(root, 0)
     return result
