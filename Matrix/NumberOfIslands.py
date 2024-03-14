@@ -40,26 +40,33 @@
 
 def numIslands(grid):
     # recursive dfs
-    def dfs(grid, r, c, visited):
-        # if current row and/or column is out of bounds
-        if (r < 0 or r >= len(grid)) or (c < 0 or c >= len(grid[0])): return False
-        if grid[r][c] == "0": return False # if current node is water
-        if (r,c) in visited: return False # if current node in visited
+    rows, cols = len(grid), len(grid[0])
+    
+    def dfs(r, c, visited):
+        if (r < 0 or r >= len(grid)) or (c < 0 or c >= len(grid[0])): 
+            return False # if current row and/or column is out of bounds
+        if grid[r][c] == "0": 
+            return False # if current node is water
+        if (r,c) in visited: 
+            return False # if current node was visited
         visited.add((r,c)) # add current node to visited in the form of "r,c"
 
         # visit all the 4 nodes surrounding each node
-        dfs(grid, r+1, c, visited)
-        dfs(grid, r-1, c, visited)
-        dfs(grid, r, c+1, visited)
-        dfs(grid, r, c-1, visited)
+        dfs(r+1, c, visited)
+        dfs(r-1, c, visited)
+        dfs(r, c+1, visited)
+        dfs(r, c-1, visited)
         
         return True # if True is returned, it means I finished expanding a new island
 
     visited = set()
     island_count = 0
-    for row in range(len(grid)):
-        for col in range(len(grid[0])):
-            if dfs(grid, row, col, visited): island_count += 1 # True means I finished expanding a new island
+    
+    for r in range(rows):
+        for c in range(cols):
+            if dfs(r, c, visited): 
+                island_count += 1 # True means I finished expanding a new island
+    
     return island_count
 
 #==========================================================================================================
@@ -67,29 +74,32 @@ def numIslands(grid):
 # ✅✅✅ ALGORITHM 2: RECURSIVE DFS OPTIMIZED (WITHOUT VISITED)
 # Instead of maintaining a visited set, mark islands that are visited and not visit them again
 
-# TIME COMPLEXITY: O(mn)
-# SPACE COMPLEXITY: O(mn)
-
 def numIslands(grid):
     # recursive dfs
-    def dfs(grid, r, c):
+    rows, cols = len(grid), len(grid[0])
+    
+    def dfs(r, c):
         # if current row and/or column is out of bounds
-        if (r < 0 or r >= len(grid)) or (c < 0 or c >= len(grid[0])): return False
-        if grid[r][c] != "1": return False # if current node is water OR is visited
+        if (r < 0 or r >= rows) or (c < 0 or c >= cols): 
+            return False
+        if grid[r][c] != "1": 
+            return False # if current node is water OR is visited
         grid[r][c] = 'v' # mark current node as visited
 
         # visit all the 4 nodes surrounding each node
-        dfs(grid, r+1, c)
-        dfs(grid, r-1, c)
-        dfs(grid, r, c+1)
-        dfs(grid, r, c-1)
+        dfs(r+1, c)
+        dfs(r-1, c)
+        dfs(r, c+1)
+        dfs(r, c-1)
         
         return True # if True is returned, it means I finished expanding a new island
 
     island_count = 0
-    for row in range(len(grid)):
-        for col in range(len(grid[0])):
-            if dfs(grid, row, col): island_count += 1 # True means I finished expanding a new island
+    for row in range(rows):
+        for col in range(cols):
+            if dfs(row, col):
+                island_count += 1 # True means I finished expanding a new island
+    
     return island_count
 
 #==========================================================================================================
