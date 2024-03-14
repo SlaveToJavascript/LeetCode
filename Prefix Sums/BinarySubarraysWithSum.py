@@ -23,6 +23,8 @@
     # Input: nums = [0,0,0,0,0], goal = 0
     # Output: 15
 
+# NOTE: FOR A SIMILAR QUESTION USING NON-BINARY SUBARRAYS AS INPUT, REFER TO Prefix Sums/SubarraySumEqualsK.py
+
 ###########################################################################################################
 
 # ✅✅✅ ALGORITHM 1: PREFIX SUMS
@@ -31,13 +33,14 @@
 # STEPS:
     # Create a hashmap of prefix_sums : frequencies
     # iterate nums array and add element to prefix_sum
-    # if prefix_sum = goal, add 1 to the result since this is a subarray whose sum = 0
+    # if prefix_sum = goal, add 1 to the result since this is a subarray whose sum = goal
     # add freq[prefix_sum - goal] to result for every prefix_sum
         # freq[prefix_sum - goal] = no. of valid subarrays that do NOT start with 1st element of array, but ending with current element of the iteration
     # lastly, add prefix_sum to hashmap and increase frequency (hashmap value) by 1
 
 # TIME COMPLEXITY: O(n)
 # SPACE COMPLEXITY: O(n)
+    # for hashmap
 
 from collections import defaultdict
 

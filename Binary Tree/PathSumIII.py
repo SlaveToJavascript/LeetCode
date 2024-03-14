@@ -1,7 +1,7 @@
 # 437. Path Sum III
 # https://leetcode.com/problems/path-sum-iii/description/
 # MEDIUM
-# Tags: dfslc, hashmaplc, prefixlc, leetcode75lc, lc75lc, #113
+# Tags: dfslc, hashmaplc, prefixlc, binarytreelc, leetcode75lc, lc75lc, #113
 
 # GIVEN:
     # root of a binary tree
@@ -41,9 +41,13 @@
     # n = no. of nodes in tree
     # hashmap can contain up to n entries (if each node has a unique value)
 
+from collections import defaultdict
+
 def pathSum(root, targetSum):
-    prefixes = {} # hashmap of prefix sums encountered in current path, and their frequencies
+    prefixes = defaultdict(int) # hashmap of prefix sums encountered in current path, and their frequencies
     prefixes[0] = 1 # initiate the no. of 0 prefixes = 1
+        # NOTE: need this line bc if path from root node to a child node is a valid path, then the prefix_sum at that child node would be = targetSum
+            # -> targetSum - targetSum = 0, therefore we are looking for 0 in hashmap
     result = 0 # no. of paths in tree with sum of target
 
     def dfs(node, prefix_sum):
@@ -55,20 +59,24 @@ def pathSum(root, targetSum):
         prefix_sum += node.val # add current node's val to prefix_sum
 
         if prefix_sum - targetSum in prefixes:
-            result += 1 # if prefix sum found in hashmap, increment result by frequencies of this prefix sum
+            result += prefixes[prefix_sum - targetSum] # if prefix sum found in hashmap, increment result by frequencies of this prefix sum
         
-        if prefix_sum in prefixes:
-            prefixes[prefix_sum] += 1 # if prefix sum already in hashmap, increment its frequency (value) by 1
-        else:
-            prefixes[prefix_sum] = 1 # if prefix sum not in hashmap, add prefix_sum to hashmap
+        prefixes[prefix_sum] += 1 # if prefix sum already in hashmap, increment its frequency (value) by 1 ; else, add prefix_sum to hashmap
         
         # iterate rest of the tree to increment result
         dfs(node.left, prefix_sum)
         dfs(node.right, prefix_sum)
+        
         prefixes[prefix_sum] -= 1 # Reduce the count of this prefix_sum path (this path has been explored -> not available for later traversals)
+            # NOTE: WHY DO WE NEED THE LINE "prefixes[prefix_sum] -= 1" ?
+                # see *****
         
     dfs(root, 0)
     return result
+
+# NOTE: ***** WHY DO WE NEED THE LINE "prefixes[prefix_sum] -= 1" ?
+    # backtracking – once we're done exploring all paths through a particular node, we no longer consider its prefix sum for the remaining parts of the tree
+    # e.g. you're exploring a left subtree and incrementing prefix_sum values in prefixes hashmap. If you don't decrement these values after exploring the left subtree and before exploring the right subtree, you might incorrectly include paths from the left subtree when calculating the no. of paths in the right subtree
 
 #==========================================================================================================
 
