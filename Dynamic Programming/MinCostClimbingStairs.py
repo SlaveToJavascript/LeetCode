@@ -1,3 +1,4 @@
+# 746. Min Cost Climbing Stairs
 # https://leetcode.com/problems/min-cost-climbing-stairs/description/
 # EASY
 # Tags: dplc, #746

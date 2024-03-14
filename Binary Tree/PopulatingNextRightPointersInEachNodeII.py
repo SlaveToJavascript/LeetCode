@@ -39,18 +39,21 @@ class Node(object):
 # SPACE COMPLEXITY: O(n)
 
 def connect(root):
-    if not root: return
+    if not root: 
+        return # handles edge case where root = None
+    
     q = [root]
-
     while q:
         prev = None # before the start of every level, initialize prev node to None
         for _ in range(len(q)):
             node = q.pop(0)
             if prev: # if prev is not None,
                 prev.next = node # set prev's next pointer to current node
-            
-            if node.left: q.append(node.left)
-            if node.right: q.append(node.right)
             prev = node # update prev to current node before proceeeding to next iteration of for-loop
+            
+            if node.left: 
+                q.append(node.left)
+            if node.right: 
+                q.append(node.right)
     
     return root

@@ -1,7 +1,7 @@
 # 133. Clone Graph
 # https://leetcode.com/problems/clone-graph/description
 # MEDIUM
-# Tags: hashmaplc, dfslc, graphlc, topinterviewlc, #133
+# Tags: hashmaplc, dfslc, graphlc, topinterview150lc, #133
 
 # GIVEN:
     # a reference of a node in a connected undirected graph

@@ -21,7 +21,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: ITERATIVE DP
+# ✅ ALGORITHM 1A: ITERATIVE DP (BOTTOM-UP)
 # Create integer array, dp, with same length as nums
 # For every house nums[i], dp[i] will be the max amount that can be robbed up to the house at nums[i]
 # max amount at dp[i] = max(dp[i-1], nums[i] + dp[i-2])
@@ -32,18 +32,22 @@
 # SPACE COMPLEXITY: O(n)
 
 def rob(nums):
-    if len(nums) == 1: return nums[0]
+    if len(nums) == 1: 
+        return nums[0]
+    
     dp = [0] * len(nums) # initiate dp of len(nums)
-    dp[0], dp[1] = nums[0], max(nums[1], nums[0])
+    dp[0] = nums[0]
+    dp[1] = max(nums[0], nums[1])
     # at the 0th house, max that can be robbed = nums[0]
     # at the 1st house, max that can be robbed = max between current house (i=1) and previous house (i=0)
+    
     for i in range(2, len(nums)):
         dp[i] = max(nums[i]+dp[i-2], dp[i-1]) # fill up dp with the max amounts that can be robbed up to the ith house for the remaining houses
     return dp[-1] # last element of dp = max that can be robbed up till last house (i.e. all houses)
 
 #==========================================================================================================
 
-# ✅✅✅ ALGORITHM 2: ITERATIVE DP WITH CONSTANT SPACE (space-optimized)
+# ✅✅✅ ALGORITHM 1B: ITERATIVE DP (BOTTOM-UP) WITH CONSTANT SPACE (space-optimized)
 # Instead of creating a dp array to keep track of the max amount that can be robbed reaching the ith house, we can simply iteratively calculate the max amount and return the max amount that can be robbed at the last house
 
 # TIME COMPLEXITY: O(n)
@@ -61,3 +65,26 @@ def rob(nums):
         rob2 = curr_rob
     
     return curr_rob # at this point curr_rob = max amount that can be robbed reaching the last house
+
+#==========================================================================================================
+
+# ✅✅✅ ALGORITHM 2: RECURSION (TOP-DOWN) WITH MEMOIZATION
+# FORMULA: rob(n) = max(rob(n-2)+n, rob(n-1))
+    # rob(n) = max money that can be robbed from house n
+# hashmap stores house index : max amount that can be robbed up to that house
+
+def rob(nums):
+    memo = {}
+
+    def robbing(house):
+        if house in memo:
+            return memo[house]
+        if house == 0:
+            return nums[0]
+        if house == 1:
+            return max(nums[0], nums[1])
+        
+        memo[house] = max(robbing(house-2)+nums[house], robbing(house-1))
+        return memo[house]
+    
+    return robbing(len(nums)-1)

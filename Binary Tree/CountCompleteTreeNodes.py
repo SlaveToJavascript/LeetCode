@@ -51,20 +51,23 @@
     # due to recursive call stack
 
 def countNodes(root):
-    if not root: return 0
+    if not root: 
+        return 0
 
-    def left_height(node):
-        if not node: return 0
-        return 1 + left_height(node.left)
+    def get_height(node, is_left_height):
+        if not node: 
+            return 0
+
+        if is_left_height: # if we're trying to get the left height
+            return 1 + get_height(node.left, True)
+
+        # if we're trying to get the right height
+        return 1 + get_height(node.right, False)
     
-    def right_height(node):
-        if not node: return 0
-        return 1 + right_height(node.right)
-    
-    left_height = left_height(root)
-    right_height = right_height(root)
+    left_height = get_height(root, True)
+    right_height = get_height(root, False)
 
     if left_height == right_height: # this is a perfect binary tree/subtree
-        return 2**left_height - 1 # no. of nodes in perfect binary tree = 2^h - 1
+        return 2**left_height - 1 # no. of nodes in PERFECT binary tree = 2^h - 1
     
     return 1 + countNodes(root.left) + countNodes(root.right) # 1 is for the root
