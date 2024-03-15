@@ -65,12 +65,9 @@ def productExceptSelf(nums):
 
 def productExceptSelf(nums): # nums = [1, 2, 3, 4]
     result = [1] * len(nums) # result array will first store prefix values through the 1st for-loop
-        
-    prefix = 1 # initialize prefix to 1, since the prefix of the 1st element in nums would be 1
-    for i in range(len(nums)):
-        result[i] = prefix # if i=0 (i.e. 1st element of nums), prefix will be 1
-        prefix = prefix * nums[i] # this prefix value set here is meant for the next no. (i.e. at i+1)
-        # here, we set the prefix for the next number, then add it to result array in the next iteration
+
+    for i in range(1, len(nums)): # we can start getting prefixes from 2nd element (index=1) onwards since for the 1st element in nums, its prefix product is 1 (since there are no elems on the left of this 1st elem)
+        result[i] = result[i-1] * nums[i-1]
     
     # at this step, prefix = [1, 1, 2, 6]
     
