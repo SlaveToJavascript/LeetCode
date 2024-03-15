@@ -1,3 +1,4 @@
+# 198. House Robber
 # https://leetcode.com/problems/house-robber/
 # MEDIUM
 # Tags: dplc, #198
@@ -43,6 +44,7 @@ def rob(nums):
     
     for i in range(2, len(nums)):
         dp[i] = max(nums[i]+dp[i-2], dp[i-1]) # fill up dp with the max amounts that can be robbed up to the ith house for the remaining houses
+    
     return dp[-1] # last element of dp = max that can be robbed up till last house (i.e. all houses)
 
 #==========================================================================================================

@@ -23,26 +23,42 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: RECURSION, TOP-DOWN (time limit exceeded!)
+# ✅ ALGORITHM 1: DYNAMIC PROGRAMMING (RECURSIVE, TOP DOWN) WITH MEMOIZATION
 # If n == 1, there is only 1 way to climb the stair
 # If n == 2, there are two ways: climb two 1-step stairs or one 2-step stair
 # For any other n, the no. of ways to climb to step n = no. of ways to climb to step n-1 + no. of ways to climb to step n-2
     # because at the (n-1)th step, you can take 1 more step to reach n, and at the (n-2)th step, you can take a 2-step jump to reach n
 
-# TIME COMPLEXITY: O(2^n) 👎
-    # each call generates 2 more calls, forming a binary tree of calls, where n is the depth of the tree
+# TIME COMPLEXITY: O(n) 
+    # there are n unique subproblems (1 for each step from 1 to n) ; with memoization, each subproblem is solved once
+    # NOTE: without memoization, TC = O(2^n) 👎
+        # each call generates 2 more calls, forming a binary tree of calls, where n is the depth of the tree
 # SPACE COMPLEXITY: O(n)
-    # due to depth of recursion stack
+    # memo takes O(n) space
+    # max depth of recursion call stack = n (worst case)
 
 def climbStairs(n):
-    if n <= 2:
-        return n
-        
-    return climbStairs(n-1) + climbStairs(n-2)
+    memo = {}
+
+    def climb(n):
+        if n in memo:
+            return memo[n]
+        if n <= 2:
+            return n
+            
+        memo[n] = climb(n-1) + climb(n-2)
+        return memo[n]
+    
+    return climb(n)
 
 #==========================================================================================================
 
-# ✅✅✅ ALGORITHM 2: ITERATIVE, BOTTOM-UP
+# ✅ ALGORITHM 2: DYNAMIC PROGRAMMING (ITERATIVE, BOTTOM UP)
+# create array dp of size n+1
+    # +1 because 0 to n (both inclusive)
+# each dp[i] = no. of ways to reach the ith step
+# FORMULA: no. of ways to reach ith step = no. of ways to reach (i-1)th step + no. of ways to reach (i-2)th step
+# return the last element in dp (that is the no. of ways to reach the top of the stairs)
 
 # TIME COMPLEXITY: O(n)
 # SPACE COMPLEXITY: O(n)

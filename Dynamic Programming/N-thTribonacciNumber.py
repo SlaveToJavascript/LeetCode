@@ -1,3 +1,4 @@
+# 1137. N-th Tribonacci Number
 # https://leetcode.com/problems/n-th-tribonacci-number/
 # EASY
 # Tags: dplc, hashmaplc, #1137
@@ -32,11 +33,14 @@
     # We build an array of size n + 1, which takes O(n) space
 
 def tribonacci(n):
-    if n < 2: return n
+    if n < 2: 
+        return n
     dp = [0] * (n+1)
     dp[0], dp[1], dp[2] = 0, 1, 1
+
     for i in range(3, n+1):
         dp[i] = sum(dp[i-3:i])
+    
     return dp[-1]
 
 #==========================================================================================================
@@ -71,26 +75,32 @@ def tribonacci(n):
 #==========================================================================================================
 
 # ✅ ALGORITHM 3: RECURSIVE DP (TOP DOWN)
-# let dfs(i) = T_i
-# we are also given the following; store them in a dictionary:
-    # dfs(0) = 0
-    # dfs(1) = 1
-    # dfs(2) = 1
-# create recursive function where dfs(i) = dfs(i - 1) + dfs(i - 2) + dfs(i - 3)
+# let trib(i) = T_i
+# we are also given the following; store them in a hashmap:
+    # trib(0) = 0
+    # trib(1) = 1
+    # trib(2) = 1
+# create recursive function where trib(i) = trib(i - 1) + trib(i - 2) + trib(i - 3)
     # if i = 0 or 1 or 2, return its corresponding value from the dictionary
 
 # TIME COMPLEXITY: O(n)
-    # We recursively call dfs on subproblems and each subproblem dfs(i) is computed once
+    # We recursively call trib() on subproblems and each subproblem trib(i) is computed once
 # SPACE COMPLEXITY: O(n)
     # The hash map dp contains at most n + 1 key-value pairs
 
 def tribonacci(n):
-    dp = {0: 0, 1: 1, 2: 1}
+    # T_n = T_(n-3) + T_(n-2) + T_(n-1)
+    memo = {}
+
+    def trib(n):
+        if n in memo:
+            return memo[n]
+        if n <= 1:
+            return n
+        if n == 2:
+            return 1
         
-    def dfs(i):
-        if i in dp:
-            return dp[i]
-        dp[i] = dfs(i - 1) + dfs(i - 2) + dfs(i - 3)
-        return dp[i]
+        memo[n] = trib(n-3) + trib(n-2) + trib(n-1)
+        return memo[n]
     
-    return dfs(n)
+    return trib(n)

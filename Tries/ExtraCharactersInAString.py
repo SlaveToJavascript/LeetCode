@@ -1,3 +1,4 @@
+# 2707. Extra Characters in a String
 # https://leetcode.com/problems/extra-characters-in-a-string/
 # MEDIUM
 # Tags: dplc, hashmaplc, trielc, #2707
@@ -22,7 +23,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: DYNAMMIC PROGRAMMING (RECURSIVE, TOP DOWN)
+# ✅ ALGORITHM 1: DYNAMIC PROGRAMMING (RECURSIVE, TOP DOWN) WITH MEMOIZATION
 # dp(start) returns the min. no. of leftover chars by breaking up substring s[start:]
     # i.e. start is the starting index of the substring of s
 # NOTE: even if a char in s is part of a substring of s that is a word in dictionary, we might still choose to skip that char as the min. no. of leftover chars as a result of skipping this char might be greater

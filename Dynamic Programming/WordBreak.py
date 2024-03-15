@@ -1,3 +1,4 @@
+# 139. Word Break
 # https://leetcode.com/problems/word-break/
 # MEDIUM
 # Tags: dplc, #139
@@ -24,7 +25,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: DYNAMMIC PROGRAMMING (RECURSIVE, TOP DOWN)
+# ✅ ALGORITHM 1: DYNAMIC PROGRAMMING (RECURSIVE, TOP DOWN)
 # dp(i) returns True if it's possible to build s up to and including index i with the words in wordDict
     # e.g. if s = "leetcode" and wordDict = ["leet", "code"],
     # dp(3) = True, because s up to index i is "leetcode"

@@ -28,8 +28,8 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: ITERATIVE DP
-# Hint: If you take a number i, have to delete all i-1's and i+1's, so you might as well take all i's (to maximize no. of points earned)
+# ✅ ALGORITHM: ITERATIVE DP
+# HINT: If you take a number i, have to delete all i-1's and i+1's, so you might as well take all i's (to maximize no. of points earned)
 # For each num in nums, add it to a dictionary as key and its corresponding value as frequency in nums
 # Create integer array dp of len(dictionary) (where each dp[i] should be the max no. of points that can be earned up till i)
 # But first, start by populating dp with total points earned from deleting each no.
@@ -40,22 +40,29 @@
     # else, dp[i] = dp[i] + dp[i-1]
 # return the last element in dp
 
-# TIME COMPLEXITY: O(n logn), to sort s
+# TIME COMPLEXITY: O(n log n)
+    # to sort s
 # SPACE COMPLEXITY: O(n), for dictionary and dp
 
 from collections import Counter
 
 def deleteAndEarn(nums):
-    if len(nums) == 1: return nums[0]
+    if len(nums) == 1: 
+        return nums[0]
     nums.sort()
+    
     d = Counter(nums) # dictionary of each unique no. in nums (as key) and their corresponding frequencies (as values)
     if len(d) == 1: # edge case
         return list(d)[0] * list(d.values())[0]
+    
     dp = []
     for key in d:
         dp.append(key * d[key])
+    
     s = sorted(list(d))
     dp[1] = max(dp[1], dp[0]) if s[1]-s[0]==1 else dp[1]+dp[0]
+    
     for i in range(2, len(dp)):
         dp[i] = max(dp[i] + dp[i-2], dp[i-1]) if s[i]-s[i-1]==1 else dp[i]+dp[i-1]
+    
     return dp[-1]

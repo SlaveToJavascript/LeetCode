@@ -41,8 +41,8 @@
 # SPACE COMPLEXITY: O(n)
 
 def minCostClimbingStairs(cost):
-    dp = [0] * (len(cost) + 1) # +1 to represent the top floor (its cost is 0)
-    cost.append(0) # additional 0 to represent the top floor so that len(cost) = len(dp)
+    cost.append(0) # additional last 0 to represent the top floor
+    dp = [0] * len(cost)
     dp[-2] = cost[-2] # from the last step, you can only take 1 step (itself) to the top floor
     for i in range(len(dp)-3,-1,-1): # reverse iteration from the 2nd last step
         dp[i] = min(cost[i] + dp[i+1], cost[i] + dp[i+2]) # find min between taking 1 step from step i VS taking 2 steps from step i
@@ -51,22 +51,21 @@ def minCostClimbingStairs(cost):
 #==========================================================================================================
 
 # ✅ ALGORITHM 1B: ITERATIVE DP (fill dp array from front to back)
-# cost[i] is the cost of TAKING the ith step, not the cost of REACHING the ith step
-    # i.e. when we reach the ith step, the cost incurred is 0
-# dp[i] is the cost of REACHING the ith step
-# dp[0] and dp[1] are initialized to 0 as we can start from either of these steps without incurring any cost
-# For each step i from 2 to n+1 (n+1 is the destination step), the minimum cost dp[i] to reach that step is the minimum of:
-    # cost to reach the previous (i-1)th step (which costs dp[i-1]) and then taking a single step (the i-1th step) to reach step i, which costs dp[i-1] + cost[i-1]
-    # cost to reach the 2nd previous (i-2)th step (which costs dp[i-2]) and then taking a double step to reach step i, which costs dp[i-2] + cost[i-2]
+# dp[i] = cost of reaching ith step (it should include cost[i] itself)
+# dp[0] and dp[1] are initialized to cost[0] and cost[i] respectively
+# add 0 to the back of cost to represent the top floor
+# For each step i from 2 to n+1 (n+1 is the destination step), the minimum cost dp[i] = the minimum of getting to the current step = the minimum of the total cost of reaching either of the 2 previous steps (i-1 or i-2) + the cost of stepping from there to the current step
+    # i.e. cost to arrive at step i = cost[i] + min(cost to reach step i-1, cost to reach step i-2)
 
 # TIME COMPLEXITY: O(n)
 # SPACE COMPLEXITY: O(n)
 
 def minCostClimbingStairs(cost):
-    dp = [0] * (len(cost)+1)
+    cost.append(0) # additional 0 to represent the top floor
+    dp = [0] * len(cost)
+    dp[0], dp[1] = cost[0], cost[1]
 
-    # NOTE: dp[0] and dp[1] are initialized to 0 as we can start from either of these steps without incurring any cost
     for i in range(2, len(dp)):
-        dp[i] = min(dp[i-1] + cost[i-1] , dp[i-2] + cost[i-2])
+        dp[i] = min(dp[i-1], dp[i-2]) + cost[i]
     
     return dp[-1] # the last element in dp is the min cost to reach the last step (destination)

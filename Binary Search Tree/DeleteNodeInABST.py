@@ -1,3 +1,4 @@
+# 450. Delete Node in a BST
 # https://leetcode.com/problems/delete-node-in-a-bst
 # MEDIUM
 # Tags: bstlc, #450
@@ -34,7 +35,8 @@
         # if target has left child: return right child to parent (if target has no right child, null will be returned to parent)
         # if target has right child: return left child to parent (if target has no left child, null will be returned to parent)
 # 3) if target node has 2 children
-    # replace target node with the smallest value from either its left subtree or its right subtree
+    # replace target node with EITHER the largest node in its left subtree OR the smallest node in its right subtree
+        # this is so that the tree remains a BST after replacement
     # run the deleteNode() function recursively on target's left/right subtree (whichever subtree the smallest value was taken from), but now the target node to be deleted is the node that replaced the original target node that was deleted
 
 # TIME COMPLEXITY: O(h)
@@ -43,7 +45,8 @@
     # in the best case, the height of the tree is O(logn) (i.e. the tree is balanced)
 
 def deleteNode(self, root, key):
-    if not root: return
+    if not root: 
+        return
 
     if key < root.val: # find key in left subtree
         root.left = self.deleteNode(root.left, key)
