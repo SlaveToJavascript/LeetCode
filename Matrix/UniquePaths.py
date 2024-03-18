@@ -1,3 +1,4 @@
+# 62. Unique Paths
 # https://leetcode.com/problems/unique-paths/description
 # MEDIUM
 # Tags: dplc, 2ddplc, #62
@@ -61,7 +62,7 @@ def uniquePaths(m, n):
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 2: 2D DYNAMIC PROGRAMMING (TOP DOWN)
+# ✅✅✅ ALGORITHM 2: 2D DYNAMIC PROGRAMMING (TOP DOWN)
 # Create a 2D dp grid m x n
 # Initiate all values in the 1st row and all values in the 1st col to 1
     # since from any cell in the 1st row to destination and from any cell in the 1st col to destination, there will only be 1 path

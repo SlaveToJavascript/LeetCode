@@ -1,3 +1,4 @@
+# 5. Longest Palindromic Substring
 # https://leetcode.com/problems/longest-palindromic-substring/description/
 # MEDIUM
 # Tags: 2ddplc, dplc, twopointerslc, #5
@@ -54,15 +55,16 @@
 
 def longestPalindrome(s):
     max_palindrome_len = 1 # initiate the length of the longest palindrome to 1, since the minimum length of a palindrome is just 1 character in s
-    ans = s[0] # return value; initiate the answer (i.e. longest palindromic substring) to any char in s
+    result = s[0] # return value; initiate the result (i.e. longest palindromic substring) to any char in s
+        # NOTE: you can also initialize max_palindrome_len = 0 and result = "" (this also works)
 
     # loop through all chars in s
     for i in range(len(s)):
         left = right = i # initiate left and right pointers at the current character in s
         while left >= 0 and right < len(s) and s[left] == s[right]: # while left and right pointers are within bounds of s, and char at left = char at right,
             if right-left+1 > max_palindrome_len: # if length of current palindromic substring > existing max length of palindromic substrings,
-                max_palindrome_len = max(max_palindrome_len, right-left+1) # update the max length
-                ans = s[left : right+1] # update the return value with the current palindromic substring
+                max_palindrome_len = right-left+1 # update the max length
+                result = s[left : right+1] # update the return value with the current palindromic substring
             left -= 1 # shift left and right pointers
             right += 1 # if chars at left and right are not the same, no point shifting the pointers as current string is not palindrome
         
@@ -73,18 +75,18 @@ def longestPalindrome(s):
         # the below is the same as the above, but for even-lengthed substrings
         while left >= 0 and right < len(s) and s[left] == s[right]: # while left and right pointers are within bounds of s, and char at left = char at right,
             if right-left+1 > max_palindrome_len: # if length of current palindromic substring > existing max length of palindromic substrings,
-                max_palindrome_len = max(max_palindrome_len, right-left+1) # update the max length
-                ans = s[left : right+1] # update the return value with the current palindromic substring
+                max_palindrome_len = right-left+1 # update the max length
+                result = s[left : right+1] # update the return value with the current palindromic substring
             left -= 1 # shift left and right pointers
             right += 1 # if chars at left and right are not the same, no point shifting the pointers as current string is not palindrome
 
-    return ans
+    return result
 
 #==========================================================================================================
 
 # ✅ ALGORITHM 2: 2D DYNAMIC PROGRAMMING
 # MAIN IDEA:
-    # if we know s[i]...s[j] is a palindrome, then if s[i-1] == s[j+1] (i.e. the char in front of i and the char behind j are the same), then s[i-1]...s[j+1] is also a palindrome
+    # if we know s[i]...s[j] is a palindrome, then if s[i-1] == s[j+1] (i.e. the char in front of i and the char after j are the same), then s[i-1]...s[j+1] is also a palindrome
         # ODD-LENGTH PALINDROMES: each char s[i] on its own is a palindrome -> for each s[i-1]...s[i+1], if s[i-1] = s[i+1], then s[i-1]...s[i+1] is palindrome
         # EVEN-LENGTH PALINDROMES: if s[i] == s[i+1], then s[i]...s[i+1] is a palindrome -> if s[i-1] = s[i+2] (i.e. the char in front of and after the 2 bounds are the same), then s[i-1]...s[i+2] is a palindrome
 # create a 2D array, dp, of size len(s) x len(s)
@@ -113,7 +115,7 @@ def longestPalindrome(s):
     n = len(s)
     dp = [[False for _ in range(n)] for _ in range(n)]
     ans = [0,0] # [i,j] are the inclusive bounds of longest palindromic substring
-        # s[i]...s[j] is the longest palindrome
+        # i.e. s[i]...s[j] is the longest palindrome
 
     for i in range(n): # each char on its own is a palindrome -> set to True
         dp[i][i] = True

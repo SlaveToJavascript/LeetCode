@@ -1,3 +1,4 @@
+# 63. Unique Paths II
 # https://leetcode.com/problems/unique-paths-ii/description/
 # MEDIUM
 # Tags: dplc, 2ddplc, matrixlc, #63
@@ -47,7 +48,8 @@ def uniquePathsWithObstacles(obstacleGrid):
 
     for r in range(rows-1, -1, -1):
         for c in range(cols-1, -1, -1):
-            if r == rows-1 and c == cols-1: continue # this is the destination cell; we already set the value for this cell
+            if r == rows-1 and c == cols-1: 
+                continue # this is the destination cell; we already set the value for this cell
             if obstacleGrid[r][c] != 1: # if current cell is not an obstacle,
                 dp[r][c] = dp[r][c+1] + dp[r+1][c] # set its value = cell on the right + cell below
     
@@ -101,7 +103,8 @@ def uniquePathsWithObstacles(obstacleGrid):
     # dfs(r,c) function returns the no. of paths from source to (r,c)
     def dfs(r,c):
         # base cases:
-        if r < 0 or c < 0: return 0 # if (r,c) is out of bounds
+        if r < 0 or c < 0: 
+            return 0 # if (r,c) is out of bounds
         if (r,c) in dp: 
             return dp[(r,c)] # if value of dfs(r,c) is already cached
         if obstacleGrid[r][c] == 1: 
