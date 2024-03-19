@@ -28,7 +28,7 @@
 # ✅ ALGORITHM 1: DYNAMIC PROGRAMMING (RECURSIVE, TOP DOWN)
 # dp(i) returns True if it's possible to build s up to and including index i with the words in wordDict
     # e.g. if s = "leetcode" and wordDict = ["leet", "code"],
-    # dp(3) = True, because s up to index i is "leetcode"
+    # dp(3) = True, because s up to index i is "leet"
     # -> the answer to the problem should be returned by dp(len(s)-1)
 # We work from the back of s to the front
 # For dp(i) to return true,
@@ -48,7 +48,9 @@ from functools import cache
 def wordBreak(s, wordDict):
     @cache
     def dp(i):
-        if i < 0: return True # it's always possible to build s up to an empty string
+        if i < 0: 
+            return True # it's always possible to build s up to an empty string
+            # also we want dp(-1) to return True so if e.g. s = "leet" which is in wordDict, dp(i - len(word)) in the lines below will return True
 
         for word in wordDict:
             if s[i - len(word) + 1 : i + 1] == word and dp(i - len(word)):
@@ -92,8 +94,9 @@ def wordBreak(s, wordDict):
                 continue # go to the next word
 
             if (i+1 == len(word) or dp[i - len(word)]) and s[i+1-len(word) : i+1] == word:
-            # if s up to index i is the same length as current word, or the index before i - len(word) is True,
-            # and s up to index i matches the word,
+            # if s up to index i is the same length as current word,
+            # OR the index before i - len(word) is True,
+            # AND s up to index i matches the word,
                 dp[i] = True
                 break # break out of wordDict loop since at least 1 word already matches current substring
     

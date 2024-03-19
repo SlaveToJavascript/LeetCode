@@ -1,5 +1,5 @@
 # AWS Software Development Engineer Full-Time Opportunity (Online Assessment)
-# Tags: linkedlistlc, amazon
+# Tags: linkedlistlc, amazon, interviewlc
 
 # Items in a shopping cart are represented as instances of SinglyLinkedListNode
     # each node instances has the following properties:

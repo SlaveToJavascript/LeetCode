@@ -1,5 +1,6 @@
+# GOOGLE ON-SITE TECHNICAL INTERVIEW QUESTION
 # 21 August 2023
-# Tags: bfslc, graphlc, google
+# Tags: bfslc, graphlc, google, interviewlc
 
 # We are trying to build a bridge across an m x n river
 # Each day, we build a bridge cell on the river. The bridge cell can be anywhere on the river and does not have to be in sequential order along a path
