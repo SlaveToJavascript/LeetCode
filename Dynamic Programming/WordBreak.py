@@ -63,6 +63,7 @@ def wordBreak(s, wordDict):
 #==========================================================================================================
 
 # ✅ ALGORITHM 2: DYNAMIC PROGRAMMING (ITERATIVE, BOTTOM UP)
+    # https://www.youtube.com/watch?v=Sx9NNgInc3A
 # dp[i] is True if it's possible to build s up to and including index i with the words in wordDict
     # e.g. if s = "leetcode" and wordDict = ["leet", "code"],
     # dp[3] = True, because s up to index 3 is "leet"

@@ -37,7 +37,8 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: MAX HEAP + QUEUE
+# ✅ ALGORITHM: MAX HEAP + QUEUE
+    # https://youtu.be/s8p8ukTyA2I?si=a0Xd2mSsV1PmeiXo
 # Create a hashmap where key = task and value = frequency of task
 # Using hashmap, create a max-heap of frequencies of each task
 # Create a queue for tasks in progress
@@ -55,12 +56,12 @@
     # + O(n) for the queue
 
 from collections import Counter
-import heapq
+from heapq import heapify, heappop, heappush
 
 def leastInterval(tasks, n):
     hm = Counter(tasks) # hashmap of { task : frequency of task }
     freq_maxHeap = [-freq for freq in hm.values()] # create max-heap of frequencies of every task
-    heapq.heapify(freq_maxHeap)
+    heapify(freq_maxHeap)
 
     time = 0 # use this to track current time
     q = [] # each queue[i] = [ freq_of_task, time_for_task_to_continue ]
@@ -69,11 +70,11 @@ def leastInterval(tasks, n):
         time += 1 # at each loop iteration, 1 task is processed (takes 1 unit of time)
 
         if freq_maxHeap:
-            freq = -heapq.heappop(freq_maxHeap) - 1 # current task's remaining frequency -1 as we just popped the current task from max-heap, i.e. we just processed this task -> remaining frequency of this task -= 1
+            freq = -heappop(freq_maxHeap) - 1 # current task's remaining frequency -1 as we just popped the current task from max-heap, i.e. we just processed this task -> remaining frequency of this task = freq-1
             if freq > 0: # resulting freq > 0 means we have to come back to this task again later
-                q.append([freq, time + n]) # time+n = the time when this task will be available for processing again, i.e. this is the time when we can add this task to maxHeap
+                q.append([freq, time + n]) # time+n = the time when this task will next be available for processing again, i.e. this is the time when we can add this task to maxHeap again to process
             
-        if q and q[0][1] == time: # if the available time for the 1st task in the queue has reached,
-            heapq.heappush(freq_maxHeap, -q.pop(0)[0]) # pop this task from queue and add it back to maxHeap
+        if q and q[0][1] == time: # if the continuation time for the 1st task in the queue has reached,
+            heappush(freq_maxHeap, -q.pop(0)[0]) # pop this task from queue and add it back to maxHeap
     
     return time

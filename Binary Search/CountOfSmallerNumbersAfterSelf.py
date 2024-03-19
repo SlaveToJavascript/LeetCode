@@ -45,7 +45,7 @@ def countSmaller(nums):
 # ✅ ALGORITHM 2: BINARY SEARCH
 # MAIN IDEA: maintain an additional sorted array for nums, so for each num in nums, we can do binary search on the sorted nums array to find this num in sorted nums array -> the no. of elements before this num in sorted nums array is the no. of elements on the right of num in the original nums array that are smaller than num
 # bisect_left() will always insert an element into the lowest possible index of an array while maintaining sorted order
-    # i.e. if num to be inserted is a duplicate element that already exists in sorted_nums, then bisect_left() would return the leftmost index where num can be inserted, which is in front of the duplicate num in sorted_nums
+    # i.e. if num to be inserted already exists in sorted_nums, then bisect_left() would return the leftmost index where num can be inserted, which is in front of the duplicate num in sorted_nums
 # NOTE: bisect_left() is a binary search operation, so its TC is O(log n)
 
 # TIME COMPLEXITY: O(n log n) on average

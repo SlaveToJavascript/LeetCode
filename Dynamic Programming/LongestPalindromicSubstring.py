@@ -29,7 +29,8 @@
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 2: TWO POINTERS, EXPAND FROM CENTERS
+# ✅✅✅ ALGORITHM 2: TWO POINTERS, EXPAND FROM CENTERS
+    # https://www.youtube.com/watch?v=XYQecbcd6_c
 # We iterate s, starting from 1st element
 # We initiate the max_palindrome_len = 1 (since the shortest possible palindrome would be a single char in s)
     # max_palindrome_len is the length of the longest palindrome in s
@@ -55,16 +56,15 @@
 
 def longestPalindrome(s):
     max_palindrome_len = 1 # initiate the length of the longest palindrome to 1, since the minimum length of a palindrome is just 1 character in s
-    result = s[0] # return value; initiate the result (i.e. longest palindromic substring) to any char in s
-        # NOTE: you can also initialize max_palindrome_len = 0 and result = "" (this also works)
+    ans = s[0] # return value; initiate the answer (i.e. longest palindromic substring) to any char in s
 
     # loop through all chars in s
     for i in range(len(s)):
         left = right = i # initiate left and right pointers at the current character in s
         while left >= 0 and right < len(s) and s[left] == s[right]: # while left and right pointers are within bounds of s, and char at left = char at right,
             if right-left+1 > max_palindrome_len: # if length of current palindromic substring > existing max length of palindromic substrings,
-                max_palindrome_len = right-left+1 # update the max length
-                result = s[left : right+1] # update the return value with the current palindromic substring
+                max_palindrome_len = max(max_palindrome_len, right-left+1) # update the max length
+                ans = s[left : right+1] # update the return value with the current palindromic substring
             left -= 1 # shift left and right pointers
             right += 1 # if chars at left and right are not the same, no point shifting the pointers as current string is not palindrome
         
@@ -75,18 +75,18 @@ def longestPalindrome(s):
         # the below is the same as the above, but for even-lengthed substrings
         while left >= 0 and right < len(s) and s[left] == s[right]: # while left and right pointers are within bounds of s, and char at left = char at right,
             if right-left+1 > max_palindrome_len: # if length of current palindromic substring > existing max length of palindromic substrings,
-                max_palindrome_len = right-left+1 # update the max length
-                result = s[left : right+1] # update the return value with the current palindromic substring
+                max_palindrome_len = max(max_palindrome_len, right-left+1) # update the max length
+                ans = s[left : right+1] # update the return value with the current palindromic substring
             left -= 1 # shift left and right pointers
             right += 1 # if chars at left and right are not the same, no point shifting the pointers as current string is not palindrome
 
-    return result
+    return ans
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 2: 2D DYNAMIC PROGRAMMING
+# ✅ ALGORITHM 3: 2D DYNAMIC PROGRAMMING
 # MAIN IDEA:
-    # if we know s[i]...s[j] is a palindrome, then if s[i-1] == s[j+1] (i.e. the char in front of i and the char after j are the same), then s[i-1]...s[j+1] is also a palindrome
+    # if we know s[i]...s[j] is a palindrome, then if s[i-1] == s[j+1] (i.e. the char in front of i and the char behind j are the same), then s[i-1]...s[j+1] is also a palindrome
         # ODD-LENGTH PALINDROMES: each char s[i] on its own is a palindrome -> for each s[i-1]...s[i+1], if s[i-1] = s[i+1], then s[i-1]...s[i+1] is palindrome
         # EVEN-LENGTH PALINDROMES: if s[i] == s[i+1], then s[i]...s[i+1] is a palindrome -> if s[i-1] = s[i+2] (i.e. the char in front of and after the 2 bounds are the same), then s[i-1]...s[i+2] is a palindrome
 # create a 2D array, dp, of size len(s) x len(s)
@@ -115,7 +115,7 @@ def longestPalindrome(s):
     n = len(s)
     dp = [[False for _ in range(n)] for _ in range(n)]
     ans = [0,0] # [i,j] are the inclusive bounds of longest palindromic substring
-        # i.e. s[i]...s[j] is the longest palindrome
+        # s[i]...s[j] is the longest palindrome
 
     for i in range(n): # each char on its own is a palindrome -> set to True
         dp[i][i] = True
@@ -125,8 +125,11 @@ def longestPalindrome(s):
             dp[i][i+1] = True
             ans = [i, i+1] # initiate answer to i, i+1 if s[i] = s[i+1]
 
+    # check all substrings with len > 2, all the way up until len = n-1, for palindromes
+    # diff is basically the difference between the starting and ending indices of the substring (i.e. length of substring -1)
     for diff in range(2, n): # for each possible diff = j-i,
-        for i in range(n-diff): # iterate s
+        for i in range(n-diff): # When checking for palindromes of a specific length (diff + 1), the last starting index (i) that can be considered without going out of bounds is determined by subtracting diff from the total length n
+            # i and j start iterating inwards from the outside (i.e. from the 2 ends of the substring)
             j = i + diff
             if s[i] == s[j] and dp[i+1][j-1]: # (i+1, j-1) is the pair between (i,j)
                 dp[i][j] = True

@@ -1,3 +1,4 @@
+# 5. Longest Palindromic Substring
 # https://leetcode.com/problems/longest-palindromic-substring/description/
 # MEDIUM
 # Tags: 2ddplc, dplc, twopointerslc, #5
@@ -28,7 +29,8 @@
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 2: TWO POINTERS, EXPAND FROM CENTERS
+# ✅✅✅ ALGORITHM 2: TWO POINTERS, EXPAND FROM CENTERS
+    # https://www.youtube.com/watch?v=XYQecbcd6_c
 # We iterate s, starting from 1st element
 # We initiate the max_palindrome_len = 1 (since the shortest possible palindrome would be a single char in s)
     # max_palindrome_len is the length of the longest palindrome in s
@@ -82,7 +84,7 @@ def longestPalindrome(s):
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 2: 2D DYNAMIC PROGRAMMING
+# ✅ ALGORITHM 3: 2D DYNAMIC PROGRAMMING
 # MAIN IDEA:
     # if we know s[i]...s[j] is a palindrome, then if s[i-1] == s[j+1] (i.e. the char in front of i and the char behind j are the same), then s[i-1]...s[j+1] is also a palindrome
         # ODD-LENGTH PALINDROMES: each char s[i] on its own is a palindrome -> for each s[i-1]...s[i+1], if s[i-1] = s[i+1], then s[i-1]...s[i+1] is palindrome
@@ -123,8 +125,11 @@ def longestPalindrome(s):
             dp[i][i+1] = True
             ans = [i, i+1] # initiate answer to i, i+1 if s[i] = s[i+1]
 
+    # check all substrings with len > 2, all the way up until len = n-1, for palindromes
+    # diff is basically the difference between the starting and ending indices of the substring (i.e. length of substring -1)
     for diff in range(2, n): # for each possible diff = j-i,
-        for i in range(n-diff): # iterate s
+        for i in range(n-diff): # When checking for palindromes of a specific length (diff + 1), the last starting index (i) that can be considered without going out of bounds is determined by subtracting diff from the total length n
+            # i and j start iterating inwards from the outside (i.e. from the 2 ends of the substring)
             j = i + diff
             if s[i] == s[j] and dp[i+1][j-1]: # (i+1, j-1) is the pair between (i,j)
                 dp[i][j] = True

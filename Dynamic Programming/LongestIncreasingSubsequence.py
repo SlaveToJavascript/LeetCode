@@ -1,3 +1,4 @@
+# 300. Longest Increasing Subsequence
 # https://leetcode.com/problems/longest-increasing-subsequence/
 # MEDIUM
 # Tags: dplc, #300
@@ -42,6 +43,7 @@ def lengthOfLIS(nums):
 #==========================================================================================================
 
 # ✅ ALGORITHM 2: DYNAMIC PROGRAMMING
+    # https://www.youtube.com/watch?v=cjWnW0hdF1Y
 # Create integer array dp where each dp[i] = length of the LIS ending at i
 # Initiate dp as an array of 1's, since each number on its own is an LIS of length 1
 
@@ -102,3 +104,36 @@ def lengthOfLIS(nums):
                 dp[j] = max(dp[j], 1 + dp[i])
     
     return max(dp)
+
+#==========================================================================================================
+
+# ✅✅✅ ALGORITHM 3: GREEDY + BINARY SEARCH
+# GREEDY: always try to make the numbers in the increasing subsequence as small as possible -> this greedy approach maximizes the chance of appending MORE elements to the subsequence in later steps
+# create subsequence array which stores the longest increasing subsequence
+# for each num in nums, perform binary search on subsequence array to find the smallest index i where num can be inserted that maintains the increasing order
+    # NOTE: we can use binary search bc subsequence array is in increasing order
+# if i == len(subsequence), it means num is greater than all elements in subsequence array -> append num to subsequence
+# if i < len(subsequence), it means num can be inserted somewhere within subsequence array and replace a bigger number while still maintaining increasing order of subsequence -> replace subsequence[i] with num
+    # after the replacement, subsequence is still in increasing order but subsequence[i] will now be a smaller no. than it was before!
+# return length of subsequence array ; it should be the max possible length of an increasing subsequence of nums
+
+# TIME COMPLEXITY: O(n log n) ✅
+    # each bisect_left() function (binary search) takes O(log n) time
+    # for-loop iterates through nums array once -> O(n)
+    # -> overall TC = O(n) * O(log n) = O(n log n)
+# SPACE COMPLEXITY: O(n)
+    # for subsequence array
+
+from bisect import bisect_left
+
+def lengthOfLIS(nums):
+    subsequence = [] # increasing subsequence
+    for num in nums:
+        i = bisect_left(subsequence, num) # use binary search to find the smallest index in subsequence to insert num
+
+        if i == len(subsequence): # if num is greater than every element in subsequence,
+            subsequence.append(num) # append num to subsequence
+        else: # else, if num can be inserted somewhere within subsequence,
+            subsequence[i] = num # replace the bigger number with num while maintaining increasing order of subsequence, to ensure that the no.s in the subsequence are kept as small as possible
+    
+    return len(subsequence)

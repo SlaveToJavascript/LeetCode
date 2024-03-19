@@ -28,6 +28,7 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM: 2D DYNAMIC PROGRAMMING (BOTTOM UP)
+    # https://www.youtube.com/watch?v=Ua0GhsJSlWM
 # MAIN IDEA: if text1 = "abcde" and text2 = "ace", since the 1st character of each string is "a", then we can reduce this problem into its subproblem: we are now finding the LCS of "bcde" and "ce" (i.e. removed "a" from both strings)
     # if text1 = "abcde" and text2 = "bce", since the 1st character of both strings are different, we can reduce this problem into its subproblem: the LCS of the 2 strings are either in "abcde" and "ce", OR in "bcde" and "bce"
 # Create a 2D dp grid m x n where m = len(text1), n = len(text2)
@@ -47,8 +48,8 @@
     # bottom-right-diagonal is because we are building the dp from bottom-right to top-left -> the answer we're looking for is in the topleft-most cell
     # +1 is because since the substrings "e" and "e" are the same -> we +1 as this is a common subsequence
 # If the characters don't match, we put the value of the cell as max(value in the right cell, value in the bottom cell)
-    # e.g. for text1 = "abcde" and text2 = "bce", since their 1st chars are different, the no. of LCS = max of LCS("abcde" and "ce") vs LCS("bcde" and "bce")
-        # -> the value we put at the "a" vs "b" cell = max(value in the right cell, value in the left cell)
+    # e.g. for text1 = "abcde" and text2 = "bce", since their 1st chars are different, the max length of LCS = max length of LCS("abcde" and "ce") (WHICH IS REPRESENTED BY THE CELL ON ITS RIGHT) vs LCS("bcde" and "bce") (WHICH IS REPRESENTED BY THE CELL AT ITS BOTTOM)
+        # -> the value we put at the "a" vs "b" cell = max(value in the right cell, value in the bottom cell)
 # After iterating through each cell of the dp matrix from bottom-right to top-left, we return the value at dp[0][0] (topleft)
 
 # TIME COMPLEXITY: O(m * n)
@@ -67,6 +68,6 @@ def longestCommonSubsequence(text1, text2):
             if text1[i] == text2[j]: # if the characters in the strings are the same,
                 dp[i][j] = 1 + dp[i+1][j+1] # we put (1 + value at diagonal cell) as the cell's value
             else: # if the characters in the strings are not the same,
-                dp[i][j] = max(dp[i][j+1], dp[i+1][j]) # no. of LCS = max(value in the right cell, value in the left cell)
+                dp[i][j] = max(dp[i][j+1], dp[i+1][j]) # length of LCS = max(value in the right cell, value in the bottom cell)
     
     return dp[0][0]

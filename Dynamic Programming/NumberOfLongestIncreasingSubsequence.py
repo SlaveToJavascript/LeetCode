@@ -21,6 +21,7 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM 1: DYNAMIC PROGRAMMING (BOTTOM UP)
+    # https://www.youtube.com/watch?v=Tuc-rjJbsXU
 # Create 2 dp arrays, each initialized to [1] * len(nums): 
     # (1) lengths dp array: length[i] = length of the LIS ending at i
                         #  0 1 2 3
