@@ -32,7 +32,9 @@
 # MAIN IDEA: if text1 = "abcde" and text2 = "ace", since the 1st character of each string is "a", then we can reduce this problem into its subproblem: we are now finding the LCS of "bcde" and "ce" (i.e. removed "a" from both strings)
     # if text1 = "abcde" and text2 = "bce", since the 1st character of both strings are different, we can reduce this problem into its subproblem: the LCS of the 2 strings are either in "abcde" and "ce", OR in "bcde" and "bce"
 # Create a 2D dp grid m x n where m = len(text1), n = len(text2)
+    # dp[i][j] = length of LCS of text1[i:] and text2[j:]
 # to this dp grid, add a layer of 0's to its right and bottom borders
+    # this is so we don't have to check for out of bounds errors ; also, the LCS of an empty string and any other string will always have a length of 0
     # e.g. if text1 = "abcde" and text2 = "ace", the grid should look like this:
         
         # a   c   e

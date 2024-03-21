@@ -1,14 +1,19 @@
-# https://www.lintcode.com/problem/3673/
+# 1136. Parallel Courses
+# https://leetcode.com/problems/parallel-courses/description/ (premium) OR https://www.lintcode.com/problem/3673/ (free)
 # MEDIUM
 # Tags: topsortlc, topologicalsortlc, toposortlc, bfslc, queuelc, #1136
 
-# There are n courses numbered 1 to n
-# There is also a 2D array, relations
-    # Inside each nested array contains 2 courses
-        # The 1st course is a pre-requisite for the 2nd course
-        # That is, you must learn the 1st course in the array before learning the 2nd course in the array
-# You may study any number of courses in a semester, provided you have completed all prerequisites for that course in the previous semester
-# TODO: Return minimum semester of full coursework, or -1 if full coursework cannot be completed
+# GIVEN:
+    # an integer, n
+        # indicates that there are n courses labeled from 1 to n
+    # an array, relations
+        # relations[i] = [prevCourse_i, nextCourse_i], representing a prerequisite relationship between prevCourse_i and nextCourse_i course
+            # prevCourse_i has to be taken before course nextCourse_i
+
+# TASK:
+    # In 1 semester, you can take any no. of courses as long as you have taken all the prerequisites in the previous semester for those courses
+    # Return the minimum no. of semesters needed to take all courses
+    # If there is no way to take all the courses, return -1
 
 # EXAMPLES:
     # Input: n = 4, relations = [[1,2],[2,3],[2,4]]

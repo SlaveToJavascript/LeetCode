@@ -1,4 +1,5 @@
-# https://www.lintcode.com/problem/3620/
+# 359. Logger Rate Limiter
+# https://leetcode.com/problems/logger-rate-limiter/description/ (premium) OR https://www.lintcode.com/problem/3620/ (free)
 # EASY
 # Tags: hashmaplc, designlc, #359
 
@@ -41,26 +42,24 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM: HASHMAP
-
 # Create a hashmap to store the message and its timestamp
 # If the message is not in the hashmap, add it and return True
 # If the message is in the hashmap, check if the timestamp is greater than or equal to the previous timestamp + 10
 # If it is, update the timestamp and return True
 # If it is not, return False
 
-from collections import defaultdict
+# TIME COMPLEXITY: O(1)
+# SPACE COMPLEXITY: O(n)
+    # n = number of unique messages
 
 class Logger:
     def __init__(self):
-        self.timestamps = defaultdict(int)
+        self.messages = {}
 
     def shouldPrintMessage(self, timestamp, message):
-        if message not in self.timestamps:
-            self.timestamps[message] = timestamp
-            return True
+        if message in self.messages and timestamp < self.messages[message]:
+            return False
         
-        if timestamp >= self.timestamps[message] + 10:
-            self.timestamps[message] = timestamp
-            return True
-        
-        return False
+        # if message not in self.messages OR timestamp >= self.messages[message]:
+        self.messages[message] = timestamp+10
+        return True
