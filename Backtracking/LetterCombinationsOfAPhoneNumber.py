@@ -48,10 +48,10 @@ def letterCombinations(digits):
 
     def backtrack(i, curr_string): # i = the current index in digit string
         if len(curr_string) == len(digits): # if current string's length becomes the same as length of digits string,
-            result.append(curr_string) # add to results array
+            result.append(curr_string) # add current string to results array
             return
         
-        for char in hm[digits[i]]: # for every character that current digits[i] can be mapped to,
+        for char in hm[digits[i]]: # for every character that the current digits[i] can be mapped to,
             backtrack(i + 1, curr_string + char) # build current string and move to the next digit
     
     if digits: # this line exists because of the edge case where digits = ""

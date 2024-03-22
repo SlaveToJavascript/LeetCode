@@ -39,9 +39,10 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM 1: DFS WITH ADJACENCY LIST
-# Create an adjacency list, where key = i (for the ith bomb) and value = list of bombs that the ith bomb can reach
+    # https://www.youtube.com/watch?v=8NPbAvVXKR4
+# Create an adjacency list, where key = i (for the i'th bomb) and value = list of bombs that the i'th bomb can reach
 # Iterate the bombs list, find the distance between each pair of bombs to find out if any 1 (or both) of the pair of bombs can reach the other, given its range
-    # if ith bomb can reach another jth and kth bombs, add j and k to the array value of i
+    # if i'th bomb can reach another jth and kth bombs, add j and k to the array value of i
     # i.e. adjList[i] = [j, k]
 # Define dfs(i) that returns the no. of bombs that ith bomb can detonate in sequence (one after another) by making use of the adjacency list
 # iterate bombs array again, and run dfs(i) on each ith bomb, while tracking the max no. of bombs that an ith bomb can detonate
@@ -59,15 +60,13 @@
     # max no. of edges = n^2
 
 import math
+from collections import defaultdict
 
 def maximumDetonation(bombs):
-    adjList = {}
+    adjList = defaultdict(list) # key = i, value = list of bombs that the i'th bomb can reach
 
     for i in range(len(bombs)):
-        if i not in adjList: adjList[i] = []
         for j in range(i+1, len(bombs)):
-            if j not in adjList: adjList[j] = []
-
             x1, y1, r1 = bombs[i]
             x2, y2, r2 = bombs[j]
             distance = math.sqrt((x1-x2)**2 + (y1-y2)**2)
@@ -77,12 +76,14 @@ def maximumDetonation(bombs):
                 adjList[j].append(i)
 
     # dfs() returns the no. of bombs that bombs[i] can detonate one after another
-    def dfs(i, visited):
+    def dfs(bomb, visited):
         # every bombs[i] would have a different visited list as visited is the list of bombs detonated by i
-        if i in visited: return 0
-        visited.add(i)
+        if bomb in visited: 
+            return 0 # if a bomb has been detonated, we can't detonate any more bombs in this direction
         
-        for neighbor in adjList[i]:
+        visited.add(bomb)
+        
+        for neighbor in adjList[bomb]:
             dfs(neighbor, visited)
         
         return len(visited)
