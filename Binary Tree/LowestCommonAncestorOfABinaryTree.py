@@ -1,6 +1,7 @@
+# 236. Lowest Common Ancestor of a Binary Tree
 # https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree
 # MEDIUM
-# Tags: binarytreelc, dfslc, #236
+# Tags: binarytreelc, dfslc, leetcode75lc, lc75lc,  #236
 
 # Given a binary tree, find the lowest common ancestor (LCA) of two given nodes in the tree.
 # The lowest common ancestor is defined between two nodes p and q as the lowest node in T that has both p and q as descendants (where we allow a node to be a descendant of itself).
@@ -20,6 +21,7 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM 1: RECURSIVE DFS
+    # https://www.youtube.com/watch?v=WO1tfq2sbsI
 # 2 situations:
     # 1. p and q are in different subtrees of root -> LCA is the parent of the node (p/q) that is closest to the root
     # 2. p is a child of q or vice versa -> LCA is the node (p/q) that is closest to the root
@@ -37,8 +39,10 @@
 # SPACE COMPLEXITY: O(N) -> we store the entire tree in memory
 
 def lowestCommonAncestor(root, p, q):
-    if not root: return
-    if root == p or root == q: return root
+    if not root: 
+        return
+    if root == p or root == q: # if root is either p or q, then root is the LCA for this subtree which contains p or q
+        return root
 
     left = lowestCommonAncestor(root.left, p, q)
     right = lowestCommonAncestor(root.right, p, q)

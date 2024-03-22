@@ -74,7 +74,8 @@ def buildTree(preorder, inorder):
     # for the function call stack
 
 def buildTree(preorder, inorder):
-    if not preorder or not inorder: return
+    if not preorder or not inorder: 
+        return
     root = preorder.pop(0) # root node value
     mid = inorder.index(root) # mid is root node's index in the inorder array
     left_inorder, left_preorder = inorder[:mid], preorder[:mid] # left subtree's inorder and preorder sequence

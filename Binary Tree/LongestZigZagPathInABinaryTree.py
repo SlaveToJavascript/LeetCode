@@ -35,7 +35,7 @@
 # if we traversed to the left child, in the next recursion of maxZigzagPath(), we should traverse to the right child, and vice versa
 # maxZigzagPath() also keeps track of the longest zigzag path so far
 # to start the zigzag path from non-root nodes, we can simply reset the longest zigzag path length to 0 and go the child node that is not part of the zigzag direction
-    # e.g. if the longest zigzag path is on the right of the root node but the root node cannot access this longest zigzag path because we need to go take 2 right directions, then:
+    # e.g. if there is a zigzag path on the right of the root node but the root node cannot access this longest zigzag path because we need to go take 2 right directions, then:
         # from root, go to the right (root.right is the starting node of this longest zigzag path), then go to the right again to continue the path but reset longest zigzag path length to 0
 
 # TIME COMPLEXITY: O(n)
