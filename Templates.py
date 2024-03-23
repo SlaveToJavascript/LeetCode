@@ -153,3 +153,22 @@ def inorder(root):
 # Postorder traversal (left → right → parent)
 def postorder(root):
     return postorder(root.left) + postorder(root.right) + [root.val] if root else []
+
+
+
+
+
+# LINKED LISTS ############################################################################################
+
+# Reversing linked list
+prev, curr = None, head
+while curr:
+    curr.next, prev, curr = prev, curr, curr.next
+
+#==========================================================================================================
+
+# Merging 2 linked lists alternately
+curr1, curr2 = head1, head2
+while curr1 and curr2:
+    curr1.next, curr1 = curr2, curr1.next
+    curr2.next, curr2 = curr1, curr2.next

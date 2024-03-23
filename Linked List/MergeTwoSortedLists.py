@@ -1,3 +1,4 @@
+# 21. Merge Two Sorted Lists
 # https://leetcode.com/problems/merge-two-sorted-lists/
 # EASY
 # Tags: linkedlistlc, twopointerslc, #21
@@ -20,7 +21,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: TWO POINTERS
+# ✅ ALGORITHM: TWO POINTERS
 
 # TIME COMPLEXITY: O(n1 + n2)
     #  n1 and n2 = lengths of list1 and list2 respectively
@@ -42,10 +43,6 @@ def mergeTwoLists(list1, list2):
             curr2 = curr2.next
         curr = curr.next
     
-    if curr1: # if only list1's nodes are left
-        curr.next = curr1
-
-    if curr2: # if only list2's nodes are left
-        curr.next = curr2
+    curr.next = curr1 if curr1 else curr2 # append the remaining nodes of the non-empty list to the merged LL
     
     return dummy.next

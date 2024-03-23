@@ -32,15 +32,10 @@
 # SPACE COMPLEXITY: O(1)
 
 def middleNode(head):
-    dummy = ListNode()
-    dummy.next = head
-    fast = slow = dummy # initiate both pointers to point at dummy node
+    fast = slow = head # initiate both pointers to point at dummy node
     
     while fast and fast.next:
         fast = fast.next.next # fast pointer moves 2 steps at a time
         slow = slow.next # slow pointer moves 1 step at a time
-    
-    if fast: # this means that there is an odd number of nodes in LL (fast pointer would be pointing to null in this case)
-        slow = slow.next # slow pointer needs to move by 1 since it was pointing at the 1st middle node, but we want the 2nd middle node
     
     return slow
