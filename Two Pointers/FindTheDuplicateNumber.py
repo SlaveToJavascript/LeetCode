@@ -32,8 +32,8 @@
     # loop continues until both pointers meet at the same element in nums
         # Once a cycle is detected, algorithm breaks out of loop
         # NOTE: this meeting point is not necessarily the duplicate number (it's just a point inside the cycle)
-    # *** WHY DOES THIS HAPPEN?
-        # Because there is a duplicate number, there must be a cycle in the 'linked list' created by following nums[i] as next elements
+        # *** WHY DOES THIS HAPPEN?
+            # Because there is a duplicate number, there must be a cycle in the 'linked list' created by following nums[i] as next elements
 # STEP 3: find the start of the cycle (which is the duplicate no.)
     # After identifying a meeting point inside the cycle,
         # reinitialize slow back to nums[0]
@@ -52,15 +52,15 @@ def findDuplicate(nums):
     slow = nums[0]
     fast = nums[0]
 
-    # 2) Detect cycle's meeting point
+    # 2) Detect cycle's intersection point
     while True:
         slow = nums[slow] # jump 1 step
         fast = nums[nums[fast]] # jump 2 steps
-        if slow == fast: # slow and fast meet at the same index
+        if slow == fast: # slow and fast intersect at the same index
             break
 
     # 3) Find start of cycle (i.e. duplicate no.)
-    slow = nums[0] # reinitialize slow back to 1st element in nums
+    slow = nums[0] # reinitialize slow back to 1st element in nums ; fast stays at intersection point
     while slow != fast:
         slow = nums[slow] # slow moves 1 step at a time
         fast = nums[fast] # fast moves 1 step at a time
