@@ -40,7 +40,8 @@
 # TIME COMPLEXITY: O(n log n)
     # first for-loop = O(n1 log n1), n1 = len(nums1)
     # while-loop runs at most k times; each iteration takes O(log n) for the push operation, where n = length of heap => O(k log n)
-# SPACE COMPLEXITY: O(n), for heap
+# SPACE COMPLEXITY: O(n)
+    # for heap
 
 from heapq import *
 
