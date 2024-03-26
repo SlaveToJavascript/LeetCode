@@ -1,7 +1,7 @@
 # 442. Find All Duplicates in an Array
 # https://leetcode.com/problems/find-all-duplicates-in-an-array/description/
 # MEDIUM
-# Tags: arraylc, #442
+# Tags: arraylc, hashmaplc, #442
 
 # GIVEN:
     # integer array, nums
@@ -23,7 +23,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM: MARK VISITED ELEMENTS IN INPUT ARRAY
+# ✅ ALGORITHM: MARK VISITED ELEMENTS IN INPUT ARRAY (CUSTOM HASHMAP)
 # MAIN IDEA:
     # for every element x in nums, x-1 is a valid index in nums -> nums[x-1] is a valid reference to an element in nums
         # because we know that every element in nums is in the range [1, n], since the indices of n are in the range [0, n-1]

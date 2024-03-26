@@ -30,3 +30,43 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM: UNION FIND
+# MAIN IDEA:
+    # when p1 and p2 become friends, all of p1's friends (lets call them p3) become friends with p2's friends as well
+        # -> to each of p3's friends lists, add p1's new friends (i.e. p2's friends)
+# STEPS:
+    # 1. Sort logs by timestamp (since we want the EARLIEST time when everyone became friends)
+    # 2. build graph of each person i mapped to all its friends and itself
+        # NOTE: you actually need to add yourself as a friend in order for the code to work
+    # 3. iterate through logs and update graph
+    # 4. Once any person's set of friends contains n friends (i.e. including that person oneself), that's when everyone became friends -> return that timestamp
+
+# TIME: O(m log m + m*n)
+    # n = no. of people
+    # m = no. of logs
+    # sorting logs by timestamp takes O(m log m) time
+    # the 2nd for-loop iterates through m logs, and for each iteration, the union() function takes O(n) time as there are n people in the graph
+# SPACE: O(m + n)
+    # sorting the logs takes O(m) space, where m = no. of logs
+    # graph hashmap takes O(n) space, where n = no. of people
+
+from collections import defaultdict
+
+def earliestAcq(logs, n):
+    logs.sort(lambda x: x[0]) # sort logs by timestamp
+
+    graph = defaultdict(set)
+    for i in range(n):
+        graph[i].add(i) # initialize graph hashmap by making everyone be their own friends
+
+    for time, p1, p2 in logs:
+        graph[p1] = graph[p1].union(graph[p2]) # add all of p2's friends to p1's friends set
+        
+        # p1's friends are now friends with p2's friends -> add p1's new friends set to the friends sets of p1's friends
+        for p3 in graph[p1]: # each p3 is p1's friend
+            graph[p3] = graph[p1]
+        
+        if len(graph[p1]) == n: # p1 is now friends with everyone -> this means everyone became friends
+            return time
+    
+    # if we managed to reach this line, it means that it's not possible for everyone to become friends
+    return -1
