@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/same-tree/description/
 # EASY
-# Tags: dfslc, bfslc, #100
+# Tags: binarytreelc, dfslc, bfslc, #100
 
 # GIVEN:
     # the roots of 2 binary trees, p and q, return True if they are the same tree

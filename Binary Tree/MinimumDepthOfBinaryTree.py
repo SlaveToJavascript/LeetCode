@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/minimum-depth-of-binary-tree/description/
 # EASY
-# Tags: dfslc, #111
+# Tags: binarytreelc, dfslc, #111
 
 # GIVEN:
     # a binary tree

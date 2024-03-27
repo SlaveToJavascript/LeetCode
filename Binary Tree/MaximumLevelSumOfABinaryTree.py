@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/description/
 # MEDIUM
-# bfslc, #1161
+# Tags: binarytreelc, bfslc, #1161
 
 # GIVEN:
     # the root of a binary tree

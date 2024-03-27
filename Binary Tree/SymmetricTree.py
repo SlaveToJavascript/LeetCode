@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/symmetric-tree/description/
 # EASY
-# Tags: dfslc, #101
+# Tags: binarytreelc, dfslc, #101
 
 # GIVEN:
     # Given the root of a binary tree
