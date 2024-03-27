@@ -51,7 +51,7 @@ def averageOfSubtree(root):
         right_sum, right_count = dfs(node.right)
         
         total_sum = left_sum + right_sum + node.val
-        total_count = left_count + right_count + 1
+        total_count = left_count + right_count + 1 # +1 is to count current node
         if math.floor(total_sum / total_count) == node.val: # math.floor() rounds DOWN to nearest integer
             result += 1
         

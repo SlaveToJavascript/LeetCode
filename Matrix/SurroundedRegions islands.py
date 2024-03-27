@@ -30,7 +30,7 @@
 
 ###########################################################################################################
 
-# ALGORITHM 1: DFS, CAPTURE EVERYTHING EXCEPT UNSURROUNDED REGIONS
+# ✅ ALGORITHM: DFS, CAPTURE EVERYTHING EXCEPT UNSURROUNDED REGIONS
 # Instead of focusing on capturing surrounded regions, we can instead say: capture everything except unsurrounded regions
     # => our focus will be on the unsurrounded regions instead
         # Unsurrounded regions are regions that have cell(s) lying on the borders

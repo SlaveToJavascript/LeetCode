@@ -10,7 +10,7 @@
 
 ###########################################################################################################
 
-# ALGORITHM: RECURSIVE DFS
+# ✅ ALGORITHM: RECURSIVE DFS
 # To check if a binary tree is symmetric, compare its left subtree and right subtree
     # To do this, traverse tree recursively and compare left and right subtrees at each level
     # If they are symmetric, we continue the traversal
