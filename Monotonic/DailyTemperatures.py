@@ -7,7 +7,7 @@
     # temperatures[i] is the temperature on the ith day
 
 # TASK:
-    # return an array, answer, where answer[i] is the number of days you have to wait after the ith day to get a warmer temperature
+    # return an array, answer, where answer[i] is the number of days you have to wait after the i'th day to get a warmer temperature
     # If there is no future day for which this is possible, set answer[i] == 0
 
 # EXAMPLES:
