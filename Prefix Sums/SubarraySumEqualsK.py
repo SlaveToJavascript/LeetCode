@@ -28,7 +28,7 @@
     # iterate nums array and add element to prefix_sum
     # if prefix_sum = k, add 1 to the result since this is a subarray whose sum = k
     # add freq[prefix_sum - k] to result for every prefix_sum
-        # freq[prefix_sum - k] = no. of valid subarrays that do NOT start with 1st element of array, but ending with current element of the iteration
+        # freq[prefix_sum - k] = no. of valid subarrays that do NOT start with 1st element of array, but ends with current element of the iteration
     # lastly, add prefix_sum to hashmap and increase frequency (hashmap value) by 1
 
 # TIME COMPLEXITY: O(n)
