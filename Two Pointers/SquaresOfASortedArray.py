@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/squares-of-a-sorted-array/description/
 # EASY
-# Tags: sortlc, twopointerslc, #977
+# Tags: twopointerslc, #977
 
 # GIVEN:
     # integer array, nums, sorted in increasing order
@@ -16,6 +16,8 @@
 
     # Input: nums = [-7,-3,2,3,11]
     # Output: [4,9,9,49,121]
+
+###########################################################################################################
 
 # ✅ ALGORITHM 1: SQUARE AND SORT
 # Easiest approach is to just square each element of the array, then sort it and return
