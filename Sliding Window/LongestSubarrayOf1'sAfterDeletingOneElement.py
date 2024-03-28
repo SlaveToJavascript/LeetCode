@@ -25,7 +25,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: SLIDING WINDOW
+# ✅ ALGORITHM: SLIDING WINDOW
 # keep a window starting at index l and ending at index r. Both l and r start from 0
 # keep a zero counter that tracks how many zeros there are in the window
 # if zero counter becomes > 1, shift l pointer forward until zero_counter = 1
@@ -61,4 +61,4 @@ def longestSubarray(nums):
         # at this point, there would be max 1 zero in window
         max_window = max(max_window, r-l+1)
     
-    return max_window-1 # we need to -1 since there can be either 1 zero or no zeros in max_window. In either case, we need to remove 1 element, so remove either a zero or a one 
+    return max_window-1 # we need to -1 since there can be either 1 zero or no zeros in max_window. In either case, we need to remove 1 element, so remove either a zero or a one
