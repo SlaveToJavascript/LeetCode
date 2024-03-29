@@ -3,12 +3,11 @@
 # Tags: queuelc, designlc, google, interviewlc
 
 # PART 1:
-# Create a program that measures server latency periodically
-# The program receives one latency (ping) value at a time and after each value is received, calculates the average latency for the latest K values
-
+    # Create a program that measures server latency periodically
+    # The program receives one latency (ping) value at a time and after each value is received, calculates the average latency for the latest K values
 # PART 2:
-# Server may have latency spikes and we want the average latency to be tolerant by only measuring 95th percentile of values.
-# In other words, we ignore the top X values (where X is 5% of K) in the average.
+    # Server may have latency spikes and we want the average latency to be tolerant by only measuring 95th percentile of values.
+    # In other words, we ignore the top X values (where X is 5% of K) in the average.
 
 # EXAMPLES:
     # K = 5 (Note K should have been 40 to make X = 2, setting it to 5 for brevity of the example.)
@@ -29,14 +28,14 @@ class LatencyMonitor:
 
     def add_ping(self, latency):
         self.q.append(latency) # add new ping value to queue
-        if len(self.values) > self.k:
-            self.values.pop(0) # Ensure we only keep the latest k values
+        if len(self.q) > self.k:
+            self.q.pop(0) # Ensure we only keep the latest k values
 
     def get_avg_latency(self):
         # Calculate the average of the latest k latency values
-        if not self.values:
+        if not self.q:
             return 0  # Return 0 if there are no latency values
-        return sum(self.values) / len(self.values)
+        return sum(self.q) / len(self.q)
 
 # PART 2
 # Add this new function to LatencyMonitor class:
