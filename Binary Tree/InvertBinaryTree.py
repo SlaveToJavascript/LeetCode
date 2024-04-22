@@ -52,7 +52,8 @@ def invertTree(root):
     # For a full binary tree, the leaf level has n/2 = O(n) leaves
 
 def invertTree(root):
-    if not root: return None
+    if not root: 
+        return None
 
     queue = [root]
     
@@ -61,7 +62,9 @@ def invertTree(root):
 
         curr.left, curr.right = curr.right, curr.left
 
-        if curr.left: queue.append(curr.left)
-        if curr.right: queue.append(curr.right)
+        if curr.left: 
+            queue.append(curr.left)
+        if curr.right: 
+            queue.append(curr.right)
 
     return root

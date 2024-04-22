@@ -14,6 +14,7 @@
 
 # ✅ ALGORITHM: ITERATIVE BFS
 # NOTE: BFS is typically used for questions looking for "shortest path"
+    # because BFS traverses the graph level-by-level outwards from the start -> the first time we encounter the destination, that must be 
 # Create a 2D array queue which is used to store each node + its distance from source
     # i.e. [node, distance]
 # Create a set visited which is used to store visited nodes (since it's an undirected graph)
@@ -25,8 +26,10 @@ def shortest_path(edges, source, destination):
     # build the graph's adjacency list
     graph = {}
     for a, b in edges:
-        if a not in graph: graph[a] = []
-        if b not in graph: graph[b] = []
+        if a not in graph: 
+            graph[a] = []
+        if b not in graph: 
+            graph[b] = []
         graph[a].append(b)
         graph[b].append(a)
 
@@ -36,7 +39,8 @@ def shortest_path(edges, source, destination):
     
     while q:
         curr, dist = q.pop(0)
-        if curr == destination: return dist
+        if curr == destination: 
+            return dist
         visited.add(curr)
 
         for neighbor in graph[curr]:

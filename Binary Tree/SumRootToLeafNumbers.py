@@ -45,8 +45,10 @@ def sumNumbers(root):
         if not node.left and not node.right: # if node is leaf
             result.append(int(string)) # add current root-to-leaf number to result array
         
-        if node.left: dfs(node.left, string)
-        if node.right: dfs(node.right, string)
+        if node.left: 
+            dfs(node.left, string)
+        if node.right: 
+            dfs(node.right, string)
     
     dfs(root, "")
     return sum(result) # return sum of all numbers in result array

@@ -41,8 +41,10 @@ def maxLevelSum(root):
         for _ in range(len(q)):
             node = q.pop(0)
             curr_level_sum += node.val
-            if node.left: q.append(node.left)
-            if node.right: q.append(node.right)
+            if node.left: 
+                q.append(node.left)
+            if node.right: 
+                q.append(node.right)
         
         # at this point (i.e. after current for-loop, q only has elements from the next level)
         sums.append(curr_level_sum)

@@ -25,7 +25,7 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM: INCREASING MONOTONIC STACK
-# Greedy rules (to achieve the smallest possible number) in order of priority:
+# Greedy rules to achieve the smallest possible number (in order of priority):
     # 1) Prioritize removing the largest digits first
     # 2) Prioritize removing the digits in front first
         # e.g. s = "9119", k = 1 -> which 9 to remove?

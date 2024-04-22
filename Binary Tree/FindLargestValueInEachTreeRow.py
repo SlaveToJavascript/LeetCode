@@ -40,8 +40,10 @@ def largestValues(root):
             node = q.pop(0)
             max_val = max(max_val, node.val) # check if current node val is largest in this level
             
-            if node.left: q.append(node.left)
-            if node.right: q.append(node.right)
+            if node.left: 
+                q.append(node.left)
+            if node.right: 
+                q.append(node.right)
         
         # at this point (i.e. after every for-loop iteration), q contains only elements from NEXT level
             # all elements from current level have been popped out in the for-loop
