@@ -1,7 +1,7 @@
 # 359. Logger Rate Limiter
 # https://leetcode.com/problems/logger-rate-limiter/description/ (premium) OR https://www.lintcode.com/problem/3620/ (free)
 # EASY
-# Tags: hashmaplc, designlc, #359
+# Tags: hashmaplc, designlc, premiumlc, #359
 
 # Design a logger system that receives a stream of messages along with its timestamps
 # Each unique message should only be printed at most every 10 seconds (i.e. a message printed at timestamp t will prevent other identical messages from being printed until timestamp t + 10)

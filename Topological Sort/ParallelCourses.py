@@ -1,7 +1,7 @@
 # 1136. Parallel Courses
 # https://leetcode.com/problems/parallel-courses/description/ (premium) OR https://www.lintcode.com/problem/3673/ (free)
 # MEDIUM
-# Tags: topsortlc, topologicalsortlc, toposortlc, bfslc, queuelc, #1136
+# Tags: topsortlc, topologicalsortlc, toposortlc, bfslc, queuelc, premiumlc, #1136
 
 # GIVEN:
     # an integer, n

@@ -49,7 +49,7 @@ def minRemoveToMakeValid(s):
             if stack:
                 stack.pop() # if char is ), pop from stack (as we found a matching pair of brackets)
             else: # if stack is empty, we cannot pop from stack -> this ) char is extra and should be removed
-                result[i] = "" # remove char from result array
+                result[i] = "" # remove current char (closed parenthesis) from result array
     
     for i in stack:
         result[i] = "" # remove any additional ('s which do not have closing brackets

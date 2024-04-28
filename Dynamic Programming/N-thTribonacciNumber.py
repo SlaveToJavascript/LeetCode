@@ -1,4 +1,4 @@
-# 1137. N-th Tribonacci Number
+# 1137. N-th (Nth) Tribonacci Number
 # https://leetcode.com/problems/n-th-tribonacci-number/
 # EASY
 # Tags: dplc, hashmaplc, #1137
@@ -61,7 +61,7 @@ def tribonacci(n):
 # TIME COMPLEXITY: O(n)
     # We have to update the value of a, b and c by n-2 times, each update takes constant time
     # Thus it takes O(n) time
-# SPACE COMPLEXITY: O(1)
+# SPACE COMPLEXITY: O(1) ✅
     # We only need to update several parameters: a, b and c, which takes O(1) space
 
 def tribonacci(n):
@@ -102,5 +102,20 @@ def tribonacci(n):
         
         memo[n] = trib(n-3) + trib(n-2) + trib(n-1)
         return memo[n]
+    
+    return trib(n)
+
+# ANOTHER VERSION OF THE ABOVE SOLUTION: using @cache
+from functools import cache
+def tribonacci(n):
+    # T_n = T_(n-3) + T_(n-2) + T_(n-1)
+    @cache
+    def trib(n):
+        if n <= 1:
+            return n
+        if n == 2:
+            return 1
+        
+        return trib(n-3) + trib(n-2) + trib(n-1)
     
     return trib(n)
