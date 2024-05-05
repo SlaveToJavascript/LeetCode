@@ -1,7 +1,7 @@
 # 161. One Edit Distance
 # https://leetcode.com/problems/one-edit-distance/description/
 # MEDIUM
-# Tags: twopointerslc, stringlc, #161
+# Tags: twopointerslc, stringlc, premiumlc, #161
 
 # GIVEN:
     # 2 strings, s and t

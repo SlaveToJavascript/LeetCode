@@ -1,7 +1,7 @@
 # 186. Reverse Words in a String II
 # https://leetcode.com/problems/reverse-words-in-a-string-ii
 # MEDIUM
-# Tags: twopointerslc, stringlc, #186
+# Tags: twopointerslc, stringlc, premiumlc, #186
 
 # GIVEN:
     # a character array, s

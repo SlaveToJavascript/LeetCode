@@ -1,7 +1,7 @@
 # 163. Missing Ranges
 # https://leetcode.com/problems/missing-ranges/
 # EASY
-# Tags: intervalslc, #163
+# Tags: intervalslc, premiumlc, #163
 
 # GIVEN:
     # an inclusive range, [lower, upper]

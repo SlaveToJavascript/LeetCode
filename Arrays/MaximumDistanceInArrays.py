@@ -1,7 +1,7 @@
 # 624. Maximum Distance in Arrays
 # https://leetcode.com/problems/maximum-distance-in-arrays/
 # MEDIUM
-# Tags: arraylc, greedylc, #624
+# Tags: arraylc, greedylc, premiumlc, #624
 
 # GIVEN:
     # m arrays, where each array is sorted in ascending order

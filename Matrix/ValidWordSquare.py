@@ -1,7 +1,7 @@
 # 422. Valid Word Square
 # https://leetcode.com/problems/valid-word-square/description
 # EASY
-# Tags: matrixlc, #422
+# Tags: matrixlc, premiumlc, #422
 
 # GIVEN:
     # an array of strings, words

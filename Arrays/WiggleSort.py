@@ -1,7 +1,7 @@
 # 280. Wiggle Sort
 # https://leetcode.com/problems/wiggle-sort/
 # MEDIUM
-# Tags: arraylc, sortlc, greedylc, #280
+# Tags: arraylc, sortlc, greedylc, premiumlc, #280
 
 # GIVEN:
     # an integer array, nums
