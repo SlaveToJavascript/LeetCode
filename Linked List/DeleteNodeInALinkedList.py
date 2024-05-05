@@ -34,4 +34,10 @@
 
 def deleteNode(node):
     node.val = node.next.val # change value of node to be deleted to value of the next node
+        # 4 -> 5 -> 1 -> 9
+        # becomes
+        # 4 -> 1 -> 1 -> 9
     node.next = node.next.next # change next pointer of node to be deleted (after changing) to the 2nd node after it
+        # 4 -> 1 -> 1 -> 9
+        # becomes
+        # 4 -> 1 -------> 9
