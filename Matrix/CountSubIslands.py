@@ -62,7 +62,8 @@ def countSubIslands(grid1, grid2):
     def dfs(r, c):
         if r < 0 or r >= rows or c < 0 or c >= cols:
             return False # out of bounds
-        if grid2[r][c] != 1: return False # if grid(r,c) is not land and hasn't been visited
+        if grid2[r][c] != 1: 
+            return False # if grid(r,c) is not land and hasn't been visited
 
         grid2[r][c] = 'v' # mark as visited
 
@@ -84,6 +85,7 @@ def countSubIslands(grid1, grid2):
     sub_islands = 0
     for r in range(rows):
         for c in range(cols):
-            if dfs(r, c): sub_islands += 1 # dfs(r,c) returns true, we finished visiting current subisland and marking it visited
+            if dfs(r, c): 
+                sub_islands += 1 # dfs(r,c) returns true, we finished visiting current subisland and marking it visited
     
     return sub_islands
