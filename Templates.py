@@ -17,21 +17,18 @@ print([elem[j : y+1] for elem in array[i : x+1]])
 
 #==========================================================================================================
 
-# TRANSPOSE N x N MATRIX
+# TRANSPOSE M x N MATRIX
 # Transpose = rows become columns, columns become rows
 
-# e.g. matrix = [[1,2,3],
-               # [4,5,6],
-               # [7,8,9]]
+# e.g. matrix = [[1,3],
+               # [4,5],
+               # [7,9]]
 # becomes:      [[1,4,7],
-              #  [2,5,8],
-              #  [3,6,9]]
+              #  [3,5,9]]
 
-matrix = [[1,2,3],[4,5,6],[7,8,9]]
+matrix = [[1, 3], [4,5], [7, 9]]
 
-for i in range(len(matrix)):
-  for j in range(i+1, len(matrix)):
-      matrix[j][i], matrix[i][j] = matrix[i][j], matrix[j][i]
+result = [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]
 
 #==========================================================================================================
 
