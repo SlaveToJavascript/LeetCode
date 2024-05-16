@@ -21,6 +21,10 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM: COMPARE CURRENT VS MIN. DIFF
+# traverse the tree using a while-loop
+# closest = node.val with smallest difference from target
+# at each node, if difference between node.val and target is smaller than min_diff (i.e. difference between closest and min_diff), update min_diff and closest
+# go to the left or right child of root depending on which side is closer to target
 
 # TIME COMPLEXITY: O(h)
     # worst case: O(n) if h = n
