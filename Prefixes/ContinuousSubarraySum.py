@@ -66,11 +66,11 @@ def checkSubarraySum(nums, k):
     total_sum = 0 # total sum of subarray until nums[i]
     for idx, num in enumerate(nums):
         total_sum += num # total sum of subarray until nums[idx]
-        remainder = total_sum % k
-        if remainder in hm: # that means we found a subarray that is divisible by k
-            if idx-hm[remainder] >= 2: # size of good subarray must be at least 2
+        rem = total_sum % k
+        if rem in hm: # that means we found a subarray that is divisible by k
+            if idx-hm[rem] >= 2: # size of good subarray must be at least 2
                 return True
         else: 
-            hm[remainder] = idx # add {remainder:closing_index} key-value pair to hm
+            hm[rem] = idx # add {remainder:closing_index} key-value pair to hm
     
     return False
