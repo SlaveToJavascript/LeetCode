@@ -67,7 +67,7 @@ def deckRevealedIncreasing(deck):
 
 from collections import deque
 
-def deckRevealedIncreasing(self, deck):
+def deckRevealedIncreasing(deck):
     index_q = deque(range(len(deck))) # create a queue of the indexes of deck
     result = [0] * len(deck) # return array
 

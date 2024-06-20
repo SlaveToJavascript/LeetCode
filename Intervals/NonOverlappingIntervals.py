@@ -23,7 +23,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: GREEDY
+# ✅ ALGORITHM: GREEDY
 # Sort the intervals by their start times
 # Get the end times of previous interval
 # Whenever there is an overlap between current and previous interval, we keep the interval with the earlier ending time

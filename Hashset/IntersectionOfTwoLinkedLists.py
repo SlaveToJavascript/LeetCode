@@ -17,7 +17,7 @@
 # TIME COMPLEXITY = O(m+n) where m is no. of nodes in list1, n is no. of nodes in list2
 # SPACE COMPLEXITY = O(m) where m is no. of nodes in list1
 
-def getIntersectionNode(self, headA, headB):
+def getIntersectionNode(headA, headB):
     hs = set()
 
     currA = headA
