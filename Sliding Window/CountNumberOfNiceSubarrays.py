@@ -68,6 +68,7 @@ def numberOfSubarrays(nums, k):
 #==========================================================================================================
 
 # ✅✅ ALGORITHM 2: THREE POINTERS + SLIDING WINDOW
+    # https://youtu.be/4zNK0rhFfcA?si=LTNztVOiRTdleT43&t=283
 # first use the sliding window algorithm (2 pointers) to get the longest subarray with at most k odd no.s, then use a 3rd pointer, middle, to move from left pointer up till and including the rightmost element within this subarray where odd_count = k
 # since the shortest valid subarray within the current subarray is nums[m...r] and the longest valid subarray is nums[l...r], that means each subarray starting from nums[l...m] and ending at nums[r] is a valid subarray -> there are m-l+1 valid subarrays!!!
     # e.g. nums = [2,2,2,1,2,1]
