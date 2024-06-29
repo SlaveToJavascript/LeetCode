@@ -20,7 +20,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM: RECUSRIVE DFS
+# ✅ ALGORITHM: RECURSIVE DFS
 # Create adjList (hashmap) of nodes and an array of nodes that can be reached
 # in dfs() function, when destination is reached, add the path to result (array of paths)
 # else, if destination is not reached, add current node to path and keep exploring current node's neighbors

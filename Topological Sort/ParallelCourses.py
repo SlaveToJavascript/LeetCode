@@ -95,6 +95,7 @@ def minimumSemesters(n, relations):
 #==========================================================================================================
 
 # ✅✅✅ ALGORITHM 2: DFS, TOPOLOGICAL SORT (LONGEST PATH) with memoization
+    # https://youtu.be/lY7RJvclv00?si=k2Ct5rUi6ScDz47c&t=167
 # INTUITION: we need to find the LONGEST PATH from a node to a leaf node -> this ensures that all prerequisites are completed before we can complete the course
 # we should also return -1 if there are any cycles
 
