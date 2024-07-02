@@ -22,14 +22,20 @@
 # ✅ ALGORITHM 1: RECURSIVE DFS
 
 def minDepth(root):
-    if not root: return 0
+    if not root: 
+        return 0
     path_depths = []
 
     def dfs(node, depth):
-        if not node: return 
-        if not node.left and not node.right: path_depths.append(depth)
-        if node.left: dfs(node.left, depth+1)
-        if node.right: dfs(node.right, depth+1)
+        if not node: 
+            return 
+        if not node.left and not node.right: 
+            path_depths.append(depth)
+        
+        if node.left: 
+            dfs(node.left, depth+1)
+        if node.right: 
+            dfs(node.right, depth+1)
     
     dfs(root, 1) # start with depth = 1 for the root node
     return min(path_depths)
