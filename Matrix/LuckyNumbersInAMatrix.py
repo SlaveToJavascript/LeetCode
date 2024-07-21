@@ -1,7 +1,7 @@
 # 1380. Lucky Numbers in a Matrix
 # https://leetcode.com/problems/lucky-numbers-in-a-matrix/
 # EASY
-# Tags: matrixlc, #1380
+# Tags: matrixlc, greedylc, #1380
 
 # GIVEN:
     # m x n matrix of distinct numbers
