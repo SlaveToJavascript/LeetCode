@@ -1,7 +1,7 @@
 # 743. Network Delay Time
 # https://leetcode.com/problems/network-delay-time/description/
 # MEDIUM
-# Tags: graphlc, heaplc, minheaplc, dijkstralc, #743
+# Tags: graphlc, heaplc, minheaplc, dijkstralc, bfslc, #743
 
 # GIVEN:
     # a network of n nodes, labeled from 1 to n
@@ -34,9 +34,9 @@
 # TIME COMPLEXITY: O(E log V)
     # each push/pop operation is O(log V)
     # in the worst case, we can push to heap E times (1 for each edge)
-    # -> Overall TC = O(E log V)
-# SPACE COMPLEXITY: O(V^2)
-    # worst case: every node is connected to every other node -> SC = O(V^2)
+    # -> overall TC = O(E log V)
+# SPACE COMPLEXITY: O(E+V)
+    # adjacency list takes O(E+V) space
 
 from collections import defaultdict
 from heapq import heappop, heappush

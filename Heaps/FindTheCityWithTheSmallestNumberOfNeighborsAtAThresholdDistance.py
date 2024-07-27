@@ -33,11 +33,19 @@
 
 # ✅ ALGORITHM: DIJKSTRA'S ALGORITHM (SHORTEST PATH)
     # https://youtu.be/--wKPR3ByJc?t=421&si=cslssHb9LKfUiS0N
-# ! MAIN IDEA: since we have a distance threshold, it means we should find the SHORTEST PATH from each city to other cities (within reach) to stay within threshold as much as possible
+# ! MAIN IDEA: since we have a distance threshold, it means we should find the SHORTEST PATH from each city to other cities (within reach) to stay within threshold as much as possible while finding how many cities are within reach from each city
     # since we are finding the SHORTEST PATH, i.e. the minimum distance, we use MIN-HEAP
 # create adjacency list where key = source city, value = set of tuples (destination_city, distance)
 # run Djiikstra's algorithm from each city (source) to find the no. of cities reachable from source city within distanceThreshold
 # get the source city with the smallest no. of reachable cities (if there is a tie, return the city with the greater city #)
+
+# TIME COMPLEXITY: O(E log V)
+    # each push/pop operation is O(log V)
+    # in the worst case, we can push to heap E times (1 for each edge)
+    # we perform the above O(E log V) operation for each of the n cities
+    # -> overall TC = O(n * (E log V))
+# SPACE COMPLEXITY: O(E+V)
+    # worst case: adjacency list takes O(E+V) space
 
 from collections import defaultdict
 from heapq import heappop, heappush
