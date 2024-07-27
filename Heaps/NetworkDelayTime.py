@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/network-delay-time/description/
 # MEDIUM
-# Tags: graphlc, heaplc, minheaplc, djikstralc, #743
+# Tags: graphlc, heaplc, minheaplc, dijkstralc, #743
 
 # GIVEN:
     # a network of n nodes, labeled from 1 to n
@@ -23,7 +23,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM: DJIKSTRA'S ALGORITHM
+# ✅ ALGORITHM: DIJKSTRA'S ALGORITHM
 # Create a min heap that pops out the node in the path with the min total time
 # Once we have visited all n nodes, we can return this min total time
 

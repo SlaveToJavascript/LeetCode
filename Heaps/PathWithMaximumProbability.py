@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/path-with-maximum-probability/description/
 # MEDIUM
-# Tags: graphlc, heaplc, maxheaplc, djikstralc, #1514
+# Tags: graphlc, heaplc, maxheaplc, dijkstralc, #1514
 
 # GIVEN:
     # an undirected weighted graph of n nodes represented by an edge list where edges[i] = [a, b] is an undirected edge connecting the nodes a and b with a probability of success of traversing that edge succProb[i]
@@ -24,8 +24,8 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM: DJIKSTRA'S ALGORITHM
-# Djikstra is used when we are dealing with non-negative weighted edges and trying to find a min/max of those weights
+# ✅ ALGORITHM: DIJKSTRA'S ALGORITHM
+# Dijkstra is used when we are dealing with non-negative weighted edges and trying to find a min/max of those weights
 # Create a max heap that pops out the node in the path with the max probability every time
 # Once we reached the end node, we can return this max probability
 
