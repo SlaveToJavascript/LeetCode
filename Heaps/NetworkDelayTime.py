@@ -1,3 +1,4 @@
+# 743. Network Delay Time
 # https://leetcode.com/problems/network-delay-time/description/
 # MEDIUM
 # Tags: graphlc, heaplc, minheaplc, dijkstralc, #743
@@ -24,6 +25,9 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM: DIJKSTRA'S ALGORITHM
+    # https://youtu.be/EaphyqKU4PQ?si=fabMEdIgHrYav5AH&t=279
+# ! MAIN IDEA: we are looking for the SHORTEST PATH that takes the most amount of time to reach
+    # e.g. find the shortest amount of time to reach A -> C, where A -> C takes the longest time to reach within the graph
 # Create a min heap that pops out the node in the path with the min total time
 # Once we have visited all n nodes, we can return this min total time
 
