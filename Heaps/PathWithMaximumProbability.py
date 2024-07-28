@@ -33,9 +33,9 @@
 # TIME COMPLEXITY: O(E log V)
     # each push/pop operation is O(log V)
     # in the worst case, we can push to heap E times (1 for each edge)
-    # -> Overall TC = O(E log V)
-# SPACE COMPLEXITY: O(V^2)
-    # worst case: every node is connected to every other node -> SC = O(V^2)
+    # -> overall TC = O(E log V)
+# SPACE COMPLEXITY: O(E+V)
+    # adjacency list takes O(E+V) space
 
 from collections import defaultdict
 from heapq import heappop, heappush
@@ -43,8 +43,8 @@ from heapq import heappop, heappush
 def maxProbability(n, edges, succProb, start_node, end_node):
     # create adjacency list of destination nodes and probabilities
     graph = defaultdict(set)
-    for i in range(len(edges)):
-        a, b = edges[i]
+    for i, edge in enumerate(edges):
+        a, b = edge[0], edge[1]
         graph[a].add((b, succProb[i]))
         graph[b].add((a, succProb[i]))
     
@@ -60,13 +60,16 @@ def maxProbability(n, edges, succProb, start_node, end_node):
 
     while max_heap:
         prob, node = heappop(max_heap) # max probability will be popped out every time
+        prob *= -1 # convert back to positive
+        if node in visited:
+            continue
         visited.add(node)
         
         if node == end_node: # if we reached destination,
-            return -prob
+            return prob
 
         for neighbor, edge_prob in graph[node]:
-            if neighbor not in visited:
-                heappush(max_heap, (edge_prob * prob, neighbor)) # total probability of current path = prob of current edge * existing probability
+            total_weight = edge_prob * prob
+            heappush(max_heap, (-total_weight, neighbor)) # total probability of current path = prob of current edge * existing probability
     
     return 0

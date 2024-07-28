@@ -45,7 +45,7 @@
     # we perform the above O(E log V) operation for each of the n cities
     # -> overall TC = O(n * (E log V))
 # SPACE COMPLEXITY: O(E+V)
-    # worst case: adjacency list takes O(E+V) space
+    # adjacency list takes O(E+V) space
 
 from collections import defaultdict
 from heapq import heappop, heappush
