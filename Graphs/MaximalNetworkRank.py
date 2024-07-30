@@ -1,9 +1,10 @@
+# 1615. Maximal Network Rank
 # https://leetcode.com/problems/maximal-network-rank/description/
 # MEDIUM
 # Tags: graphlc, #1615
 
 # There is an infrastructure of n cities with some number of roads connecting these cities
-    # Each roads[i] = [ai, bi] indicates that there is a bidirectional road between cities ai and bi
+    # Each roads[i] = [a_i, b_i] indicates that there is a bidirectional road between cities a_i and b_i
 # The network rank of two different cities is defined as the total number of directly connected roads to either city
     # If a road is directly connected to both cities, it is only counted once
 # The maximal network rank of the infrastructure is the maximum network rank of all pairs of different cities
@@ -29,19 +30,25 @@
     # since the graph is non-directional, in-degree = out-degree
 # To calculate in-degree, create an adjacency list
 # To get the network rank between 2 nodes, add their in-degrees and -1 if these 2 nodes have a path connecting each other
+# NOTE: simply picking the top two nodes with the highest degrees does not always give the correct maximal network rank because there may be more than two nodes with the highest degrees, and we need to check all pairs of these nodes
 
-# TIME COMPLEXITY: 
-# SPACE COMPLEXITY: 
+# TIME COMPLEXITY: O(E+V^2)
+    # O(E) to construct the adjacency list
+    # O(V^2) to iterate over all pairs of nodes
+    # -> overall TC = O(E + V^2)
+# SPACE COMPLEXITY: O(E+V)
+    # adjacency list takes O(E+V) space
 
 from collections import defaultdict
+
 def maximalNetworkRank(n, roads):
-    # create adjList of each city -> [list of cities it's connected to]
+    # create adjList of each city -> {set of cities it's connected to}
     adjList = defaultdict(set)
     for road in roads:
         a, b = road
         adjList[a].add(b)
         adjList[b].add(a)
-    
+
     max_rank = 0 # return value
 
     for i in range(n):
