@@ -41,6 +41,12 @@
 # We use postorder traversal
     # because every time, we're going to the children first, deleting them if they are leaves, then going to the parents
 
+# TIME COMPLEXITY: O(n)
+    # DFS visits each node once
+# SPACE COMPLEXITY: O(n)
+    # O(n) for hashmap
+    # O(n) for recursion stack
+
 from collections import defaultdict
 
 def findLeaves(root):
