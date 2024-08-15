@@ -50,14 +50,14 @@
     # If a dependent's in-degree becomes 0, it means all its prerequisites are completed and can be added to the queue
 # Repeat the processing of queue until all nodes are processed
 
-# TIME COMPLEXITY: O(r+n)
-    # r = no. of relations (edges)
-    # n = no. of courses (nodes)
-    # building indegree and adjList: O(r)
-    # BFS traversal: Each course is processed exactly once and each relation is also considered exactly once -> O(r+c)
-# SPACE COMPLEXITY: O(r+n)
-    # indegree: O(n)
-    # adjList: O(r+n) in the worst case
+# TIME COMPLEXITY: O(E+V)
+    # E = no. of relations (edges)
+    # V = no. of courses (nodes)
+    # building indegree and adjList: O(E)
+    # BFS traversal: Each course is processed exactly once and each relation is also considered exactly once -> O(E+V)
+# SPACE COMPLEXITY: O(E+V)
+    # indegree: O(V)
+    # adjList: O(E+V) in the worst case
 
 from collections import defaultdict, deque
 
@@ -85,7 +85,7 @@ def minimumSemesters(n, relations):
             completed_courses += 1
 
             for dependent in adjList[course]: # visit all courses (dependents) that have current course as prerequisite
-                indegree[dependent] -= 1
+                indegree[dependent] -= 1 # since current "course" has been visited (i.e. is completed), we can decrease 1 from its indegree ("course" is no longer pointing to "dependent")
                 if indegree[dependent] == 0: # this means all of dependent's prerequisite courses are completed -> we are now able to complete dependent course -> add it to queue
                     # NOTE: we need to do the above check so that courses are only added to the queue when all its prerequisite courses are completed, i.e. its indegree = 0
                     q.append(dependent)

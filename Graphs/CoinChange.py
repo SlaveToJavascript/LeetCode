@@ -1,3 +1,4 @@
+# 322. Coin Change
 # https://leetcode.com/problems/coin-change/description/
 # MEDIUM
 # Tags: dplc, graphlc, bfslc, #322
@@ -24,21 +25,22 @@
 ###########################################################################################################
 
 # ✅✅✅ ALGORITHM 1: DYNAMIC PROGRAMMING (BOTTOM UP)
-# Create dp array, where dp[i] = min. no. of coins needed to get amount = i
-    # initiate each dp value with amount + 1 (since we're comparing for minimum dp[i])
-# dp[0] = 0 (since min. no. of coins to get $0 is 0)
-# for amount from 1 to amount, do an inner for loop on the coins array:
-    # if amount i <= current coin, dp[i] = min(existing dp[i], 1 + dp[amount i - coin])
+# Create dp array, where dp[x] = min. no. of coins summing up to exactly $x
+    # initiate each dp value with infinity (since we're comparing for minimum dp[x] for each x)
+# dp[0] = 0 (since min. no. of coins to get $0 is 0, i.e. no coins)
+# for amount from 1 to $amount, do an inner for-loop on the "coins" array:
+    # if amount $x <= current coin amount, dp[x] = min(existing dp[x], 1 + dp[x - current_coin_amt])
         # the "1" comes from the current coin
-        # e.g. at coin = 5, dp[7] = dp[7-5] = dp[2], i.e. min. no. of coins needed to get amount 7 = min. no. of coins needed to get amount 2 + 1 coin (i.e. the current coin whose value = 5)
-# return value = dp[amount] if dp[amount] is not = the initialized value (= amount + 1), else -1
-    # if dp[amount] = the initialized value (amount + 1), it means no coin combination was found for it -> return -1
+        # e.g. at coin = 5, dp[7] = dp[7-5] = dp[2], i.e. min. no. of coins needed to get $7 = min. no. of coins needed to get $2 + 1 coin (i.e. the current coin whose value = $5)
+# return value = dp[amount] if dp[amount] is not = the initialized value (i.e. infinity), else return -1
+    # if dp[amount] = the initialized value (infinity), it means no coin combination was found for it -> return -1
 
 # TIME COMPLEXITY: O(amount * len(coins))
 # SPACE COMPLEXITY: O(amount)
 
 def coinChange(coins, amount):
-    dp = [amount + 1] * (amount + 1) # initiate dp array of length amount+1; each dp[i] is initiated to = amount+1 so that we can compare for the minimum
+    dp = [float('inf')] * (amount + 1) # initiate dp array of length = amount+1; each dp[i] is initiated to = infinity so that we can compare for the minimum
+        # length of dp array = amount+1 so that we can have an additional dp[0] = 0
     dp[0] = 0 # a min. of 0 coins are needed to get $0
     
     for amt in range(1, len(dp)): # iterate from amt = $1 to amt = $amount
@@ -77,7 +79,7 @@ def coinChange(coins, amount):
             new_amt = remaining_amt - coin
             
             if new_amt >= 0 and new_amt not in visited: # if new_amt is at least 0 and we haven't checked this new_amt before,
-                q.append((new_amt, num_coins+1))
+                q.append((new_amt, num_coins+1)) # +1 for the current coin
                 visited.add(new_amt) # mark this amount as checked
     
     return -1
