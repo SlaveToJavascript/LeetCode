@@ -30,7 +30,7 @@
 
 def maxDistance(arrays):
     old_min, old_max = arrays[0][0], arrays[0][-1]
-    result = 0
+    result = 0 # NOTE: this should NOT be old_max - old_min since we cannot pick 2 integers from the same array
 
     for array in arrays[1:]:
         new_min, new_max = array[0], array[-1]
@@ -38,6 +38,6 @@ def maxDistance(arrays):
         
         old_min = min(old_min, new_min)
         old_max = max(old_max, new_max)
-        # NOTE: Even if old_min and old_max end up being from the same array after an update, the key is that their values were used to calculate distances against different arrays BEFORE the update
+        # NOTE: Even if old_min and old_max end up being from the same array after an update, their values were used to calculate distances against different arrays BEFORE the update
     
     return result
