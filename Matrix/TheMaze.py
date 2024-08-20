@@ -1,7 +1,7 @@
 # 490. The Maze
 # https://leetcode.com/problems/the-maze/
 # MEDIUM
-# Tags: bfslc, matrixlc, premiumlc, #490
+# Tags: bfslc, matrixlc, dfslc, premiumlc, #490
 
 # There is a ball in a maze with empty spaces (represented as 0) and walls (represented as 1). The ball can go through the empty spaces by rolling up, down, left or right, but it won't stop rolling until hitting a wall. When the ball stops, it could choose the next direction.
 # Given the m x n maze, the ball's start position and the destination, where start = [startrow, startcol] and destination = [destinationrow, destinationcol], return true if the ball can stop at the destination, otherwise return false.
@@ -23,7 +23,6 @@
 
 # ✅✅✅ ALGORITHM 1: BFS
 # for each cell (r,c) stored in the queue, we check its 4 neighbors and keep rolling the ball while it is within bounds and not hitting a wall
-# once the ball hits a wall or goes out of bounds, we roll it back by 1 cell to its previous cell
 # check that the cell reached by the ball is not in visited set (to prevent cycles in the maze)
 # if the destination is reached, return True
 
@@ -45,6 +44,7 @@ def hasPath(maze, start, destination):
 
     while q:
         r, c = q.popleft()
+        visited.add((nr, nc))
         if [r,c] == destination:
             return True # we reached the destination
 
@@ -55,7 +55,6 @@ def hasPath(maze, start, destination):
                 nr += x
                 nc += y
             if (nr, nc) not in visited:
-                visited.add((nr, nc))
                 q.append((nr, nc))
     
     return False # if this line is reached, it means destination was never reached

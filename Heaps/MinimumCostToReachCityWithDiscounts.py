@@ -1,7 +1,7 @@
 # 2093. Minimum Cost to Reach City With Discounts
 # https://leetcode.com/problems/minimum-cost-to-reach-city-with-discounts
 # MEDIUM
-# Tags: graphlc, heaplc, minheaplc, dijkstralc, premiumlc, #2093
+# Tags: graphlc, heaplc, minheaplc, dijkstralc, dijkstraslc, premiumlc, #2093
 
 # A series of highways connect n cities numbered from 0 to n - 1. You are given a 2D integer array highways where highways[i] = [city1i, city2i, tolli] indicates that there is a highway that connects city1i and city2i, allowing a car to go from city1i to city2i and vice versa for a cost of tolli.
 # You are also given an integer discounts which represents the number of discounts you have. You can use a discount to travel across the ith highway for a cost of tolli / 2 (integer division). Each discount may only be used once, and you can only use at most one discount per highway.

@@ -1,7 +1,7 @@
 # 743. Network Delay Time
 # https://leetcode.com/problems/network-delay-time/description/
 # MEDIUM
-# Tags: graphlc, heaplc, minheaplc, dijkstralc, bfslc, #743
+# Tags: graphlc, heaplc, minheaplc, dijkstralc, dijkstraslc, bfslc, #743
 
 # GIVEN:
     # a network of n nodes, labeled from 1 to n
