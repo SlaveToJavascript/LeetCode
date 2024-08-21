@@ -44,9 +44,9 @@ def hasPath(maze, start, destination):
 
     while q:
         r, c = q.popleft()
-        visited.add((nr, nc))
         if [r,c] == destination:
             return True # we reached the destination
+        visited.add((nr, nc))
 
         for x, y in [(0,-1), (0,1), (-1,0), (1,0)]:
             nr, nc = r, c # new coords of the ball after rolling
