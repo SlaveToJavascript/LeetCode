@@ -38,10 +38,10 @@ def longestCommonPrefix(strs):
     result = "" # return
 
     for i in range(min_len):
-        for word in strs: # for each word in array,
+        for word in strs[1:]: # for each word in array,
             if word[i] != strs[0][i]: # if current word's char at i is not the same as the other chars,
                 return result # return existing result
-        result += word[i] # if all words have the same char at i, add char to result
+        result += strs[0][i] # if all words have the same char at i, add char to result
     
     return result
 
