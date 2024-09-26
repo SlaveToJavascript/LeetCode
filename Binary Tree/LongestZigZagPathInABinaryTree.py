@@ -51,14 +51,12 @@ def longestZigZag(root):
 
         if goLeft: # if we went to the left child in the previous recursion of maxZigzagPath()
             max_path_len = max(
-                                max_path_len, 
                                 maxZigzagPath(node.right, False, max_path_len+1), # since we went left in the previous recursion, now we go right
                                 maxZigzagPath(node.left, True, 0) # if we start the zigzag path from the current node, we must reset the max path length to 0
             ) # get the max path length
         
         else: # if we went to the right child in the previous recursion of maxZigzagPath()
             max_path_len = max(
-                                max_path_len, 
                                 maxZigzagPath(node.left, True, max_path_len+1), # since we went right in the previous recursion, now we go left
                                 maxZigzagPath(node.right, False, 0) # if we start the zigzag path from the current node, we must reset the max path length to 0
             ) # get the max path length
