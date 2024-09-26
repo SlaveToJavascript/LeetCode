@@ -33,8 +33,8 @@
         # we can exclude it this time
     # if we exclude the 1st element, we have another 2 choices:
         # include the 2nd element in candidates array
-        # do not exclude this 2nd element
-# ...and so on
+        # do not include this 2nd element
+    # ...and so on
 # at each decision made, we have a resulting 2 different choices to make
 # therefore we can do recursion to get all the desired combinations
 
@@ -47,22 +47,20 @@
 def combinationSum(candidates, target):
     result = []
 
-    def backtrack(i, comb, total):
+    def backtrack(i, comb):
         # pointer i tracks which candidates we're still allowed to choose
+            # i.e. if i = 2, we can choose from candidates[2:] onwards (including element at index 2)
         # comb is a 1D list of numbers which is the current combination
-            # e.g. [2, 2, 3] is a combination
-        # total = the sum of elements in comb
-            # so we track if total = target sum -> then we reached our solution
-            # if total goes over target sum -> we reached our base case -> end recursion
+            # e.g. [2,2,3] is a combination
         
-        if total == target:
-            result.append(comb[:]) # since we're going to continue using comb variable after this, we store a deep copy of it into the result, instead of comb itself
+        if sum(comb) == target:
+            result.append(comb[:]) # since we're going to continue using the "comb" variable after this, we store a deep copy of it into the result, instead of comb itself
             return
         
         # base case where it's impossible to find a combination:
             # 1) if i is out of bounds
-            # 2) if total > target
-        if i >= len(candidates) or total > target:
+            # 2) if sum of combination > target
+        if i >= len(candidates) or sum(comb) > target:
             return
         
         # we have 2 choices to choose from: 
@@ -71,15 +69,14 @@ def combinationSum(candidates, target):
         
         # CHOICE 1: include the value at current index i
         comb.append(candidates[i])
-        backtrack(i, comb, total + candidates[i]) # we add the current element at i to total
+        backtrack(i, comb) # we add the current element at i to comb
             # here, i stays the same as we're not restricting which candidates we're allowed to choose
-        
         comb.pop() # remove candidates[i] from current combination before we go to the 2nd choice
 
         # CHOICE 2: do not include the value at index i
-        backtrack(i+1, comb, total)
+        backtrack(i+1, comb)
             # i+1 indicates we can't include any occurrences of candidates[i]
-            # total remains the same as we didn't add anything to it here
+            # comb remains the same as we didn't add anything to it here
         
     backtrack(0, [], 0) # starts at the 1st element, with sum of combinations = 0
     return result
