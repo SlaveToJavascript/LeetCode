@@ -52,14 +52,12 @@ def romanToInt(s): # 1 <= s <= 3999
 
     result = 0
 
-    i = 0
-    while i < len(s)-1: # i iterates from 1st to 2nd last element
-        if hm[s[i]] < hm[s[i+1]]:
-            result -= hm[s[i]]
+    for i in range(1, len(s)): # i iterates from 2nd element
+        if hm[s[i-1]] < hm[s[i]]: # if the value of the 1st letter is smaller than the next, it represents subtraction of the 1st letter (e.g. CM = 1000-100 = 900)
+            result -= hm[s[i-1]]
         else:
-            result += hm[s[i]]
-        i += 1
+            result += hm[s[i-1]]
     
-    # after while loop finishes, remember to add the last digit
+    # after for loop finishes, remember to add the last digit
     result += hm[s[-1]]
     return result
