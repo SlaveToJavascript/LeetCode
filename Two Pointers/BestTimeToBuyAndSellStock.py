@@ -58,8 +58,7 @@ def maxProfit(prices):
 # 2 pointers, left (aiming for min buy price) and right (aiming for max sell price)
 # Iterate once through
     # if left < right (✅), find profit and check if profit is maximum
-        # if profit is maximum, update max_profit and right pointer +1 to find even higher sell price (i.e. even higher profit)
-        # if profit is not maximum, right pointer +1 to find higher sell price
+        # update max_profit (if necessary) and right pointer +1 to find even higher sell price (i.e. even higher profit)
     # if left > right (❌), make left pointer = right pointer so left becomes the smaller value. right pointer +1 to be 1 after left pointer
         # since right is smaller than left, it means we can buy the stock at an even lower price (right), so we move the left pointer to right
         # because why would we hold on to left pointer (which is greater than right) when we can wait one day and get a lower buying price, which would therefore lead to a higher profit in the future?
@@ -69,16 +68,17 @@ def maxProfit(prices):
 # SPACE COMPLEXITY = O(1)
 
 def maxProfit(prices):
-    buy_min_idx = 0 # left pointer aims to get the min buy price that will give max profit
-    sell_max_idx = 1 # right pointer aims to get the max sell price that will give max profit
+    l = 0 # left pointer aims to get the min buy price that will give max profit
+    r = 1 # right pointer aims to get the max sell price that will give max profit
     max_profit = 0
-    while sell_max_idx < len(prices): # while right index is within length of prices array
-        if prices[buy_min_idx] > prices[sell_max_idx]: # if left (min) is greater than right (max)
-            buy_min_idx = sell_max_idx # left (min) index becomes right (max) index -> now left is smaller
-            sell_max_idx += 1 # right (max) index moves forward (1 after left (min) index)
+    
+    while r < len(prices): # while right index is within length of prices array
+        if prices[l] > prices[r]: # if left (min) is greater than right (max)
+            l = r # left (min) index becomes right (max) index -> now left is smaller
+            r += 1 # right (max) index moves forward (1 after left (min) index)
         else: # if left (min) is smaller than right (max)
-            profit = prices[sell_max_idx] - prices[buy_min_idx]
+            profit = prices[r] - prices[l]
             max_profit = max(max_profit, profit)
-            sell_max_idx += 1
+            r += 1
+    
     return max_profit
-
