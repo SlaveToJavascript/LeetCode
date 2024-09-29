@@ -29,7 +29,35 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM 1: 2 HEAPS (MIN HEAP AND MAX HEAP)
+# ✅ ALGORITHM 1: PYTHON SortedList (easy solution)
+# initialize data stream as a SortedList object (from sortedcontainers)
+# every time an element is added to SortedList, it is added into the sorted order
+# depending on the length of the SortedList (even or odd), return the median
+
+# TIME COMPLEXITY: O(log n) for addNum(), O(1) for findMedian()
+    # for inserting k elements, TC of addNum() = O(k log k)
+# SPACE COMPLEXITY: O(n)
+    # n = no. of elements in SortedList
+
+from sortedcontainers import SortedList
+
+class MedianFinder:
+    def __init__(self):
+        self.nums = SortedList()
+
+    def addNum(self, num):
+        self.nums.add(num)
+
+    def findMedian(self):
+        if len(self.nums) % 2 == 0: # if even no. of elements
+            mid = len(self.nums) // 2
+            return (self.nums[mid-1] + self.nums[mid]) / 2
+        else: # odd no. of elements
+            return self.nums[len(self.nums) // 2]
+
+#============================================================================================================
+
+# ✅ ALGORITHM 2: TWO HEAPS (MIN HEAP AND MAX HEAP)
 # __init__():
     # Use 2 heaps: smallHeap for smallest numbers, and bigHeap for biggest numbers
         # These 2 heaps should have either the same length or lengths differing by 1
@@ -50,7 +78,7 @@
 # SPACE COMPLEXITY: O(n)
     # O(n) for smallHeap + O(n) for bigHeap = O(2n) ≈ O(n)
 
-import heapq
+from heapq import heappop, heappush
 
 class MedianFinder(object):
 
@@ -59,18 +87,18 @@ class MedianFinder(object):
         self.bigHeap = [] # min-heap
 
     def addNum(self, num):
-        heapq.heappush(self.bigHeap, num) # by default, add all new numbers to bigHeap
+        heappush(self.bigHeap, num) # by default, add all new numbers to bigHeap
         
         if self.smallHeap and self.bigHeap and self.bigHeap[0] < self.smallHeap[0]: # if smallest value in bigHeap < largest value in smallHeap
-            heapq.heappush(self.smallHeap, -heapq.heappop(self.bigHeap)) # push smallest value in bigHeap to smallHeap
+            heappush(self.smallHeap, -heappop(self.bigHeap)) # push smallest value in bigHeap to smallHeap
         
         # UNEVEN SIZE?
         # if length of bigHeap > length of smallHeap by 2 or more,
         if len(self.bigHeap) - len(self.smallHeap) > 1:
-            heapq.heappush(self.smallHeap, -heapq.heappop(self.bigHeap))
+            heappush(self.smallHeap, -heappop(self.bigHeap))
         # if length of smallHeap > length of bigHeap by 2 or more,
         elif len(self.smallHeap) - len(self.bigHeap) > 1:
-            heapq.heappush(self.bigHeap, -heapq.heappop(self.smallHeap))
+            heappush(self.bigHeap, -heappop(self.smallHeap))
 
     # NOTE: we mustn't use any pop operation on any heaps here, since popping removes from heaps but we might still add new numbers to heaps (i.e. run addNum() function) after running this findMedian() function!
     def findMedian(self):
