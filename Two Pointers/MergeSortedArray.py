@@ -1,3 +1,4 @@
+# 88. Merge Sorted Array
 # https://leetcode.com/problems/merge-sorted-array/
 # EASY
 # Tags: twopointerslc, #88
@@ -43,7 +44,7 @@ def merge(nums1, m, nums2, n):
 
 #==========================================================================================================
 
-# ✅ ALGORITHM 2: TWO POINTERS
+# ✅✅✅ ALGORITHM 2: THREE POINTERS
 # Since the 0's in nums1 are at the end, it's easier to fill in the values from the end of nums1
     # i.e. from right to left
 # 2 pointers: 1 pointing to the last digit of nums1, 1 at the last digit of nums2
