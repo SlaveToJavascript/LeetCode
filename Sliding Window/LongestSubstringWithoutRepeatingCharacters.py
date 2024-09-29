@@ -71,6 +71,7 @@ def lengthOfLongestSubstring(s):
 def lengthOfLongestSubstring(s):
     max_len = 0
     window = set()
+    
     left = 0
     for right in range(len(s)):
         while s[right] in window:
@@ -78,4 +79,5 @@ def lengthOfLongestSubstring(s):
             left += 1
         window.add(s[right])
         max_len = max(max_len, right-left+1)
+    
     return max_len
