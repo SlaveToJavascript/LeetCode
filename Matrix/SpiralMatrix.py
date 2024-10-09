@@ -1,3 +1,4 @@
+# 54. Spiral Matrix
 # https://leetcode.com/problems/spiral-matrix/description/
 # MEDIUM
 # Tags: matrixlc, #54
@@ -31,26 +32,26 @@ def spiralOrder(matrix):
     bottom_bound = rows - 1
 
     while len(result) < rows * cols:
-        # LEFT -> RIGHT (move right)
+        # (TOP ROW) LEFT -> RIGHT
         r = top_bound # we're moving across top row (from left to right)
         for c in range(left_bound, right_bound + 1): # add each col cell within left and right bounds to result
             result.append(matrix[r][c])
         top_bound += 1 # after top row is visited, we don't need to visit top row anymore -> top boundary = next row
 
-        # TOP -> BOTTOM (move down)
+        # (RIGHT COL) TOP -> BOTTOM
         c = right_bound # we're moving across right col (from top to bottom)
         for r in range(top_bound, bottom_bound + 1): # add each row cell within top and bottom bounds to result
             result.append(matrix[r][c])
         right_bound -= 1 # after right col is visited, we don't need to visit right col anymore -> right boundary = next col to its left
 
-        # RIGHT -> LEFT (move left)
+        # (BOTTOM ROW) RIGHT -> LEFT
         r = bottom_bound # we're moving across bottom row (from right to left)
         if top_bound <= bottom_bound: # after moving down previously, current left movement is potentially across the same row as the initial right movement (if there's only 1 row left in current bounds) -> we need to do this check to ensure we're not retracing the same row we just moved right across
             for c in range(right_bound, left_bound - 1, -1): # add each col cell within left and right bounds to result
                 result.append(matrix[r][c])
             bottom_bound -= 1 # after bottom row is visited, we don't need to visit bottom row anymore -> bottom boundary = next row to its top
 
-        # BOTTOM -> TOP (move up)
+        # (LEFT COL) BOTTOM -> TOP
         c = left_bound # we're moving across left col (from bottom to top)
         if left_bound <= right_bound: # after moving left previously, the upward movement is potentially across the same column as the initial downward movement (if there's only 1 col left in current bounds) -> we need to do this check to ensure we're not retracing the same col we just moved down across
             for r in range(bottom_bound, top_bound - 1, -1): # add each row cell within top and bottom bounds to result

@@ -53,8 +53,7 @@ def numSubarraysWithSumK(nums, k):
         if prefix_sum == k:
             result += 1
         
-        if prefix_sum - k in freq_hashmap:
-            result += freq_hashmap[prefix_sum - k]
+        result += freq_hashmap[prefix_sum - k]
 
         freq_hashmap[prefix_sum] += 1
     

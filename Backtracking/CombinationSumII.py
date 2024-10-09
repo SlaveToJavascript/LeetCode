@@ -31,12 +31,11 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM: BACKTRACKING
-
 # NOTE: to prevent duplicate combinations:
     # sort the candidates array
     # if we choose to include 1, we can include all 1's from the rest of the array
     # if we choose to skip 1, we cannot include any more 1's in our combination
-# The idea behind this is that, if in one decision path we include 1's while in the other decision path we don't include any 1's, then the combinations from these 2 different decision paths will always be different
+    # The idea behind this is that, if in one decision path we include 1's while in the other decision path we don't include any 1's, then the combinations from these 2 different decision paths will always be different
 
 # TIME COMPLEXITY: O(k * 2^n)
     # k = average length of each combination, n = length of candidates array

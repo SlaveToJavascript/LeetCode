@@ -29,7 +29,7 @@
 
 ###########################################################################################################
 
-# ✅ ALGORITHM: RECURSIVE DFS
+# ✅ ALGORITHM: RECURSIVE DFS (HASHMAP OF ORIGINAL NODES MAPPED TO CLONED NODES)
 # Create hashmap of original nodes mapped to their cloned nodes
 # Every time we create a clone, we add it to hashmap
     # then, we iterate through original node's neighbors and clone each neighbor node, and add each neighbor clone to cloned node's neighbors
