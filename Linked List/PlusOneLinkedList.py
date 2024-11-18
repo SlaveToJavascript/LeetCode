@@ -1,7 +1,7 @@
 # 369. Plus One Linked List
 # https://leetcode.com/problems/plus-one-linked-list/
 # MEDIUM
-# Tags: linkedlistlc, #369
+# Tags: linkedlistlc, premiumlc, #369
 
 # GIVEN:
     # a non-negative integer represented as a linked list of digits

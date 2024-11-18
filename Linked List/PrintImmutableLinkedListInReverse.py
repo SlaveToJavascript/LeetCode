@@ -1,7 +1,7 @@
 # 1265. Print Immutable Linked List in Reverse
 # https://leetcode.com/problems/print-immutable-linked-list-in-reverse/
 # MEDIUM
-# Tags: linkedlistlc, #1265
+# Tags: linkedlistlc, premiumlc, #1265
 
 # You are given an immutable linked list, print out all values of each node in reverse with the help of the following interface:
     # ImmutableListNode: An interface of immutable linked list, you are given the head of the list.
