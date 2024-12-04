@@ -20,6 +20,7 @@
 ###########################################################################################################
 
 # ✅ ALGORITHM 1: TWO POINTERS + PREFIX / POSTFIX PRODUCT (unoptimized i.e. O(n) space)
+    # NOTE: NOT RECOMMENDED DURING INTERVIEWS!
 # pre array stores prefix products (i.e. products of all elements up till and including pre[i])
 # post array stores postfix products (i.e. products of all elements after and including pre[i])
 # Use 1 pointer (pre_ptr) starting from the 2nd elem and another pointer (post_ptr) starting from 2nd last elem
@@ -42,12 +43,12 @@ def productExceptSelf(nums):
             pre_ptr += 1
             post_ptr -= 1
         
-        # at this step, 
         # nums = [1, 2, 3, 4]
-        # pre =  [1, 2, 6, 24]
-        # post = [24, 24, 12, 4]
-        # final result should be = [1*24, 1*12, 2*4, 6*1]
-            # each result[i] = pre[i-1] * post[i+1]
+        # at this step, 
+            # pre =  [1, 2, 6, 24]
+            # post = [24, 24, 12, 4]
+            # final result should be = [1*24, 1*12, 2*4, 6*1] = [24,12,8,6]
+                # each result[i] = pre[i-1] * post[i+1]
         
         for i in range(len(nums)):
             result.append((pre[i-1] if i-1 >= 0 else 1) * (post[i+1] if i+1 < len(nums) else 1))
